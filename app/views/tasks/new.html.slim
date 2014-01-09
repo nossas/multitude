@@ -12,3 +12,8 @@
 
   = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|
     = b.label { b.check_box + t("skills.#{b.text}") }
+
+  = f.label :deadline
+  = f.text_field :deadline
+
+  = f.submit "Criar Tarefa", id: :new_task_submit_button

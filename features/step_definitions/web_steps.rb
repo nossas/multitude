@@ -13,3 +13,11 @@ end
 Given(/^I check "(.*?)"$/) do |arg1|
   check to_field(arg1)
 end
+
+When(/^I press "(.*?)"$/) do |arg1|
+  click_button to_button(arg1)
+end
+
+Then(/^I should be in "(.*?)"$/) do |arg1|
+  page.current_path.should == to_route(arg1)
+end

@@ -52,4 +52,4 @@ group :development, :test do
 end
 
 gem "slim-rails"
-gem 'inherited_resources'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
