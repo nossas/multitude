@@ -10,4 +10,5 @@
   = f.label :task_type_id
   = f.select :task_type_id, options_from_collection_for_select(TaskType.order(:name).all, :id, :name)
 
-  = f.collection_check_boxes :skills, %w[ruby rails design], :to_s, :to_s
+  = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|
+    = b.label { b.check_box + t("skills.#{b.text}") }

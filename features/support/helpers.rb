@@ -9,6 +9,7 @@ def to_field string
   return "task_min_capacity" if string == "the task minimum capacity field"
   return "task_remote" if string == "the task remote field"
   return "task_task_type_id" if string == "the task type field"
-  return "programacao_de_softwares_e_aplicativos_ou_web" if string == "the task programming skill field"
+  return "task_skills_programacao_de_softwares_e_aplicativos_ou_web" if string == "the task programming skill field"
+  return "task_deadline" if string == "the task deadline field"
   raise "I don't know '#{string}'"
 end
