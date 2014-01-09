@@ -43,7 +43,7 @@ end
 
 group :test do
   gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
+  gem "database_cleaner", '1.0.0.RC1'
   gem 'machinist', '>= 2.0.0.beta2'
 end
 
@@ -52,4 +52,4 @@ group :development, :test do
 end
 
 gem "slim-rails"
-gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'inherited_resources'
