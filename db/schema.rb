@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109194645) do
+ActiveRecord::Schema.define(version: 20140114195836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20140109194645) do
     t.integer  "task_type_id",                 null: false
     t.string   "skills",                                    array: true
     t.date     "deadline"
+    t.text     "material"
+    t.text     "handout"
+    t.text     "deliverable"
   end
 
 end

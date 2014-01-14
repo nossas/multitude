@@ -12,6 +12,9 @@ def to_field string
   return "task_task_type_id" if string == "the task type field"
   return "task_skills_programacao_de_softwares_e_aplicativos_ou_web" if string == "the task programming skill field"
   return "task_deadline" if string == "the task deadline field"
+  return "task_material" if string == "the task material field"
+  return "task_handout" if string == "the task handout field"
+  return "task_deliverable" if string == "the task deliverable field"
   raise "I don't know '#{string}'"
 end
 

@@ -1,8 +1,15 @@
 body.tasks.new
-  .description_field, .title_field, .task_type_id_field, .action_button
+  .description_field, .title_field, .action_button, .material_field, .handout_field, .deliverable_field, .remote_field, .skills_label
     +grid-column(12)
-  .min_capacity_field, .remote_field, .skills_field, .deadline_field
+  .task_type_id_field
+    +grid-column(5)
+  .skills_field, .deadline_field
     +grid-column(4)
+  .min_capacity_field
+    +grid-column(3)
+  form
+    .row
+      margin-bottom: 1em
   .description_field
     textarea
       height: 200px
@@ -10,3 +17,7 @@ body.tasks.new
     label
       display: inline-block
       margin-left: .5em
+  .remote_field
+    margin-bottom: 1em
+  .skills_label
+    margin-bottom: .5em

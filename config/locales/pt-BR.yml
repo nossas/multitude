@@ -217,6 +217,10 @@ pt-BR:
         deadline: "Prazo para concluir"
         remote: "Remoto?"
         task_type_id: "Tipo de tarefa"
+        material: "Material necessário"
+        handout: "Material de apoio"
+        deliverable: "Descrição do deliverable esperado"
+        skills: "Talentos associados"
 
   skills:
     administracao_e_politicas_publicas: "Administração e Políticas Públicas"

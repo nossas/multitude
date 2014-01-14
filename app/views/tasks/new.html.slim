@@ -4,24 +4,37 @@
       = f.label :title
       = f.text_field :title
   .row
+    .remote_field
+      = f.check_box :remote
+      = f.label :remote
+  .row
     .description_field
       = f.label :description
       = f.text_area :description
   .row
+    .task_type_id_field
+      = f.label :task_type_id
+      = f.select :task_type_id, options_from_collection_for_select(TaskType.order(:name).load, :id, :name)
     .min_capacity_field  
       = f.label :min_capacity
       = f.number_field :min_capacity
     .deadline_field
       = f.label :deadline
       = f.text_field :deadline, class: :datetimepicker
-    .remote_field
-      = f.check_box :remote
-      = f.label :remote
   .row
-    .task_type_id_field
-      = f.label :task_type_id
-      = f.select :task_type_id, options_from_collection_for_select(TaskType.order(:name).load, :id, :name)
+    .material_field
+      = f.label :material
+      = f.text_area :material
   .row
+    .handout_field
+      = f.label :handout
+      = f.text_area :handout
+  .row
+    .deliverable_field
+      = f.label :deliverable
+      = f.text_area :deliverable
+  .row
+    .skills_label= f.label :skills
     = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|
       .skills_field
         = b.check_box
