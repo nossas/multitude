@@ -15,6 +15,7 @@ def to_field string
   return "task_material" if string == "the task material field"
   return "task_handout" if string == "the task handout field"
   return "task_deliverable" if string == "the task deliverable field"
+  return "task_points" if string == "the task points field"
   raise "I don't know '#{string}'"
 end
 

@@ -2,11 +2,13 @@ body.tasks.new
   .description_field, .title_field, .action_button, .material_field, .handout_field, .deliverable_field, .remote_field, .skills_label
     +grid-column(12)
   .task_type_id_field
-    +grid-column(5)
-  .skills_field, .deadline_field
     +grid-column(4)
-  .min_capacity_field
+  .skills_field
+    +grid-column(4)
+  .task_points_field, .min_capacity_field
     +grid-column(3)
+  .deadline_field
+    +grid-column(2)
   form
     .row
       margin-bottom: 1em

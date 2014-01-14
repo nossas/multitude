@@ -221,6 +221,7 @@ pt-BR:
         handout: "Material de apoio"
         deliverable: "Descrição do deliverable esperado"
         skills: "Talentos associados"
+        points: "Pontos"
 
   skills:
     administracao_e_politicas_publicas: "Administração e Políticas Públicas"

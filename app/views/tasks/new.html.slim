@@ -15,6 +15,9 @@
     .task_type_id_field
       = f.label :task_type_id
       = f.select :task_type_id, options_from_collection_for_select(TaskType.order(:name).load, :id, :name)
+    .task_points_field
+      = f.label :points
+      = f.number_field :points
     .min_capacity_field  
       = f.label :min_capacity
       = f.number_field :min_capacity
