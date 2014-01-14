@@ -54,4 +54,3 @@ end
 gem 'zurb-foundation'
 gem 'inherited_resources'
 gem "slim-rails"
-gem 'foundation-datetimepicker-rails'
