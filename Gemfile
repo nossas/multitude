@@ -54,3 +54,5 @@ end
 gem 'zurb-foundation'
 gem 'inherited_resources'
 gem "slim-rails"
+gem 'meurio_ui', path: "/Users/nicolasiensen/Projects/meurio_ui"
+gem 'compass-rails', github: 'Compass/compass-rails', branch: 'rails4-hack'
