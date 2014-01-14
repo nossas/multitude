@@ -13,10 +13,7 @@
       = f.number_field :min_capacity
     .deadline_field
       = f.label :deadline
-      .input-append.date data-date="12-02-2012" data-date-format="dd-mm-yyyy"= f.text_field :deadline
-    .deadline_time_field
-      label hora
-      = select_tag :deadline_time, options_for_select(24.times.map{|i| "#{i}:00"})
+      = f.text_field :deadline, class: :datetimepicker
     .remote_field
       = f.check_box :remote
       = f.label :remote

@@ -14,10 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
-//= require foundation-datetimepicker
+//= require jquery.datetimepicker
 //= require_tree .
 
 $(function(){
   $(document).foundation();
-  $('.datepicker').fdatepicker();
+  $('.datetimepicker').datetimepicker({format:'d/m/Y H:i', lang: 'pt'});
 });

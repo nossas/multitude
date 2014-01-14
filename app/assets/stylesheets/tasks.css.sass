@@ -1,10 +1,12 @@
 body.tasks.new
   .description_field, .title_field, .task_type_id_field, .action_button
     +grid-column(12)
-  .min_capacity_field, .remote_field, .skills_field
+  .min_capacity_field, .remote_field, .skills_field, .deadline_field
     +grid-column(4)
-  .deadline_time_field, .deadline_field
-    +grid-column(2)
   .description_field
     textarea
       height: 200px
+  .skills_field, .remote_field
+    label
+      display: inline-block
+      margin-left: .5em
