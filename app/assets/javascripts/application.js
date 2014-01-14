@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require foundation
+//= require foundation-datetimepicker
 //= require_tree .
+
+$(function(){
+  $(document).foundation();
+  $('.datepicker').fdatepicker();
+});
