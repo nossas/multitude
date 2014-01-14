@@ -1,23 +1,34 @@
 = form_for @task do |f|
-  = f.label :title
-  = f.text_field :title
-
-  = f.label :description
-  = f.text_area :description
-
-  = f.label :min_capacity
-  = f.number_field :min_capacity
-
-  = f.label :remote
-  = f.check_box :remote
-
-  = f.label :task_type_id
-  = f.select :task_type_id, options_from_collection_for_select(TaskType.order(:name).load, :id, :name)
-
-  = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|
-    = b.label { b.check_box + t("skills.#{b.text}") }
-
-  = f.label :deadline
-  = f.text_field :deadline
-
-  = f.submit "Criar Tarefa", id: :new_task_submit_button
+  .row
+    .title_field
+      = f.label :title
+      = f.text_field :title
+  .row
+    .description_field
+      = f.label :description
+      = f.text_area :description
+  .row
+    .min_capacity_field  
+      = f.label :min_capacity
+      = f.number_field :min_capacity
+    .deadline_field
+      = f.label :deadline
+      .input-append.date data-date="12-02-2012" data-date-format="dd-mm-yyyy"= f.text_field :deadline
+    .deadline_time_field
+      label hora
+      = select_tag :deadline_time, options_for_select(24.times.map{|i| "#{i}:00"})
+    .remote_field
+      = f.check_box :remote
+      = f.label :remote
+  .row
+    .task_type_id_field
+      = f.label :task_type_id
+      = f.select :task_type_id, options_from_collection_for_select(TaskType.order(:name).load, :id, :name)
+  .row
+    = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|
+      .skills_field
+        = b.check_box
+        = b.label { t("skills.#{b.text}") }
+  .row
+    .action_button
+      = f.submit "Criar Tarefa", id: :new_task_submit_button, class: :button

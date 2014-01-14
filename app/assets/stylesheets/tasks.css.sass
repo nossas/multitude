@@ -1,3 +1,10 @@
-// Place all the styles related to the tasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass here: http://sass-lang.com/
+body.tasks.new
+  .description_field, .title_field, .task_type_id_field, .action_button
+    +grid-column(12)
+  .min_capacity_field, .remote_field, .skills_field
+    +grid-column(4)
+  .deadline_time_field, .deadline_field
+    +grid-column(2)
+  .description_field
+    textarea
+      height: 200px
