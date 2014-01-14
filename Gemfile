@@ -51,5 +51,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
-gem "slim-rails"
+gem 'zurb-foundation'
 gem 'inherited_resources'
+gem "slim-rails"
+gem 'foundation-datetimepicker-rails'
