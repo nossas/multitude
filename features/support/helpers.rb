@@ -21,5 +21,14 @@ end
 
 def to_route string
   return task_path(Task.order(:id).last) if string == "the new task page"
+  return task_path(@task) if string == "this task page"
   raise "I don't know '#{string}'"
+end
+
+def to_element string
+  return '.title' if string == 'this task title'
+end
+
+def to_text string
+  return @task.title if string == 'this task title'
 end
