@@ -44,7 +44,7 @@ end
 
 group :test do
   gem 'cucumber-rails', :require => false
-  gem "database_cleaner", '1.0.0.RC1'
+  gem 'database_cleaner', '1.0.0.RC1'
   gem 'machinist', '>= 2.0.0.beta2'
 end
 
@@ -55,9 +55,10 @@ end
 
 gem 'zurb-foundation'
 gem 'inherited_resources'
-gem "slim-rails"
+gem 'slim-rails'
 gem 'meurio_ui'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'rails4-hack'
 gem 'rails_12factor'
 gem 'selenium-webdriver'
 gem 'cancan'
+gem 'i18n', github: 'svenfuchs/i18n'

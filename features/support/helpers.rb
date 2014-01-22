@@ -22,11 +22,23 @@ end
 def to_route string
   return task_path(Task.order(:id).last) if string == "the created task page"
   return root_path if string == "the homepage"
+  return task_path(@task) if string == "this task page"
   raise "I don't know '#{string}'"
 end
 
 def to_element string
+  return '.task .title' if string == 'this task title'
+  return '.task .category' if string == 'this task category'
+  return '.task .description' if string == 'this task description'
+  return '.task .deadline' if string == 'this task deadline'  
   return ".title_field.error" if string == "the task title error message"
   return "#new_task_button" if string == "the new task button"
   raise "I don't know '#{string}'"
+end
+
+def to_text string
+  return @task.title if string == 'this task title'
+  return @task.type if string == 'this task category'
+  return @task.description if string == 'this task description'
+  return @task.deadline if string == 'this task deadline'
 end

@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   validates :points, presence: true
 
+  belongs_to :task_type
   after_create :warn_matches
 
   def warn_matches
@@ -11,5 +12,9 @@ class Task < ActiveRecord::Base
 
   def matches
     User.where("skills && ARRAY[?]::character varying[]", self.skills)
+  end
+
+  def type
+    self.task_type.try(:name)
   end
 end

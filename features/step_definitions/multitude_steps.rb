@@ -8,6 +8,10 @@ Given(/^I'm logged in as admin$/) do
   visit root_path
 end
 
+Given(/^there is a task$/) do
+  @task = Task.make!
+end
+
 Given(/^there is an user with the "(.*?)" skill$/) do |arg1|
   @user = User.make! skills: ["programacao_de_softwares_e_aplicativos_ou_web"]
 end
