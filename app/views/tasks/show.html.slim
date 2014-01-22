@@ -11,7 +11,7 @@
     .row
       .deadline
         h4 Prazo para entrega
-        span= @task.deadline
+        span= @task.deadline.strftime('Dia %d.%m.%Y, às %H:%M')
     .row      
       .description
         h4 Descrição
