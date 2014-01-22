@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  validates :points, presence: true
+  validates :points, :task_type_id, presence: true
 
   belongs_to :task_type
   after_create :warn_matches

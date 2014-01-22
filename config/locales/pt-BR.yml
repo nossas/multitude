@@ -222,6 +222,8 @@ pt-BR:
         deliverable: "Descrição do deliverable esperado"
         skills: "Talentos associados"
         points: "Pontos"
+    models:
+      task: "Tarefa"
 
   skills:
     administracao_e_politicas_publicas: "Administração e Políticas Públicas"
