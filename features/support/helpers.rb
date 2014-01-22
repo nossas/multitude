@@ -26,9 +26,15 @@ def to_route string
 end
 
 def to_element string
-  return '.title' if string == 'this task title'
+  return '.task .title' if string == 'this task title'
+  return '.task .category' if string == 'this task category'
+  return '.task .description' if string == 'this task description'
+  return '.task .deadline' if string == 'this task deadline'  
 end
 
 def to_text string
   return @task.title if string == 'this task title'
+  return @task.type if string == 'this task category'
+  return @task.description if string == 'this task description'
+  return @task.deadline if string == 'this task deadline'
 end
