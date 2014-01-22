@@ -1,3 +1,18 @@
-.task
-  .row
-    h1.title= @task.title
+.row
+  .task
+    .row
+      h2.title= @task.title
+    .row
+      .mobilization
+        span Nome da Mobilização
+    .row
+      .category
+        span= @task.type
+    .row
+      .deadline
+        h4 Prazo para entrega
+        span= @task.deadline
+    .row      
+      .description
+        h4 Descrição
+        p= @task.description

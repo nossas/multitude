@@ -11,4 +11,8 @@ class Task < ActiveRecord::Base
   def matches
     User.where("skills && ARRAY[?]::character varying[]", self.skills)
   end
+
+  def type
+    self.task_type.try(:name)
+  end
 end

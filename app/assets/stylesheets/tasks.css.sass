@@ -23,3 +23,43 @@ body.tasks.new, body.tasks.edit
     margin-bottom: 1em
   .skills_label
     margin-bottom: .5em
+
+body.tasks.show
+  h2, h4, span, p
+    font-family: Proxima Nova Soft
+
+  .task
+    +grid-column(8)
+    h2, h4
+      color: $title-gray
+    p, span
+      color: $text-gray
+
+    .title      
+      font-weight: bolder
+      font-size: 1.7em
+      margin-bottom: 0
+    .mobilization
+      margin-bottom: 1em
+      span
+        color: $mr-green
+        font-weight: 500
+        font-size: .9em
+    .category
+      span
+        background: $category-red
+        text-transform: uppercase
+        +border-radius(3px)
+        padding: .5em 1em
+        font-weight: 800
+        font-size: .7em
+        color: white
+    .deadline, .description
+      margin-top: 2em
+      h4
+        border-bottom: solid 1px $border-gray
+        padding: 1em 0 .3em 0
+        font-size: 1em
+      p
+        font-weight: 500
+        font-size: .8em
