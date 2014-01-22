@@ -1,6 +1,7 @@
-Before do
-  ActiveRecord::Base.connection.execute("DROP TABLE IF EXISTS users;")
-  ActiveRecord::Base.connection.execute("
+RSpec.configure do |config|
+  config.before do
+    ActiveRecord::Base.connection.execute("DROP TABLE IF EXISTS users;")
+    ActiveRecord::Base.connection.execute("
     CREATE TABLE IF NOT EXISTS users(
       id SERIAL PRIMARY KEY,
       email character varying(255) DEFAULT ''::character varying NOT NULL,
@@ -44,6 +45,6 @@ Before do
       country character varying(255),
       CONSTRAINT proper_email CHECK (((email)::text ~* '([0-9a-zA-Z]+[-._+&amp;])*[0-9a-zA-Z_-]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}'::text)),
       CONSTRAINT proper_phone CHECK ((((phone)::text ~* '[(]{1}[0-9]{2}[)]{1} [0-9]{8,9}'::text) OR ((phone)::text = ''::text)))
-    );
-  ")
+    );")
+  end
 end
