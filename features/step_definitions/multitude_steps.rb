@@ -3,6 +3,11 @@ Given(/^I'm logged in$/) do
   visit root_path
 end
 
+Given(/^I'm logged in as admin$/) do
+  @current_user = User.make! email: "ssi@meurio.org.br", admin: true
+  visit root_path
+end
+
 Given(/^there is an user with the "(.*?)" skill$/) do |arg1|
   @user = User.make! skills: ["programacao_de_softwares_e_aplicativos_ou_web"]
 end

@@ -21,5 +21,7 @@ module Multitude
     config.i18n.default_locale = "pt-BR"
 
     config.sass.preferred_syntax = :sass
+
+    I18n.enforce_available_locales = false
   end
 end

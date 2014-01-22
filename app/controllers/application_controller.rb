@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    nil
+    @current_user ||= User.find_by_id(session[:ssi_user_id])
   end
 end

@@ -20,6 +20,13 @@ def to_field string
 end
 
 def to_route string
-  return task_path(Task.order(:id).last) if string == "the new task page"
+  return task_path(Task.order(:id).last) if string == "the created task page"
+  return root_path if string == "the homepage"
+  raise "I don't know '#{string}'"
+end
+
+def to_element string
+  return ".title_field.error" if string == "the task title error message"
+  return "#new_task_button" if string == "the new task button"
   raise "I don't know '#{string}'"
 end

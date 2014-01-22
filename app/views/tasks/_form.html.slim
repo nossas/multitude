@@ -1,37 +1,28 @@
-= form_for @task do |f|
+= form_for @task, html: {"data-abide" => true} do |f|
   .row
     .title_field
       = f.label :title
-      = f.text_field :title
+      = f.text_field :title, required: true
+      small.error O título não pode ficar e branco
   .row
     .description_field
       = f.label :description
-      = f.text_area :description
+      = f.text_area :description, required: true
+      small.error A descrição não pode ficar e branco
   .row
     .task_type_id_field
       = f.label :task_type_id
       = f.select :task_type_id, options_from_collection_for_select(TaskType.order(:name).load, :id, :name)
     .task_points_field
       = f.label :points
-      = f.number_field :points
+      = f.number_field :points, required: true
+      small.error A pontuação não pode ficar em branco
     .min_capacity_field  
       = f.label :min_capacity
       = f.number_field :min_capacity
     .deadline_field
       = f.label :deadline
       = f.text_field :deadline, class: :datetimepicker
-  .row
-    .material_field
-      = f.label :material
-      = f.text_area :material
-  .row
-    .handout_field
-      = f.label :handout
-      = f.text_area :handout
-  .row
-    .deliverable_field
-      = f.label :deliverable
-      = f.text_area :deliverable
   .row
     .skills_label= f.label :skills
     = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|

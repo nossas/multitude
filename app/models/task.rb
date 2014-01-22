@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  validates :points, presence: true
+
   after_create :warn_matches
 
   def warn_matches

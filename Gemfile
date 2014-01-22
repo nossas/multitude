@@ -59,3 +59,5 @@ gem "slim-rails"
 gem 'meurio_ui'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'rails4-hack'
 gem 'rails_12factor'
+gem 'selenium-webdriver'
+gem 'cancan'
