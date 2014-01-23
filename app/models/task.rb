@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
-  validates :points, :task_type_id, presence: true
+  validates :title, :points, :task_type_id, :description, presence: true
+  validates :max_deliveries, :numericality => { :greater_than => 0 }, allow_nil: true
 
   belongs_to :task_type
   after_create :warn_matches

@@ -13,6 +13,7 @@ end
 Task.blueprint do
   title { "An amazing task #{sn}" }
   description { 'This is an amazing task' }
-  task_type
+  task_type { TaskType.make! }
   points { 3 }
+  deadline { Date.today + 1.week }
 end
