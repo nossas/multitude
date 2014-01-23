@@ -6,10 +6,14 @@
         span.has-tip {data-tooltip=true title="Comece com um verbo, seja curto e específico.<br />Ex. bom: Tirar foto da Gisele Bundchen em Ipanema; ex. ruim: Gisele no Rio"} ?
       = f.text_field :title, required: true
     .type_id_field
-      = f.label :task_type_id
+      = f.label :task_type_id do
+        = t("activerecord.attributes.task.task_type_id")
+        span.has-tip {data-tooltip=true title="O sistema irá conceder tempo e conquistas de acordo com o tipo selecionado"} ?
       = f.collection_select :task_type_id, TaskType.order(:name).load, :id, :name, { include_blank: "Escolha um tipo de tarefa" }, required: true
     .points_field
-      = f.label :points
+      = f.label :points do
+        = t("activerecord.attributes.task.points")
+        span.has-tip {data-tooltip=true title="O sistema dá uma estimativa, mas você pode alterá-la se necessário"} ?
       = f.number_field :points, required: true, "data-task-types" => TaskType.all.to_json
   .row
     .description_field
@@ -22,16 +26,23 @@
       = f.label :max_deliveries
       = f.number_field :max_deliveries
     .deadline_field
-      = f.label :deadline
+      = f.label :deadline do
+        = t("activerecord.attributes.task.deadline")
+        span.has-tip {data-tooltip=true title="Dia e hora finais para a entrega da tarefa pronta.<br />Leve em conta a necessidade de tempo extra para uma eventual refação"} ?
       = f.text_field :deadline, class: :datetimepicker
     .hashtag_field
       .row.collapse
-        = f.label :hashtag
+        = f.label :hashtag do
+          = t("activerecord.attributes.task.hashtag")
+          span.has-tip {data-tooltip=true title="Cole a hashtag da mobilização, o sistema faz o resto"} ?
         .hashtag_prefix.small-2.large-1.columns
           span.prefix #
         .field.small-10.large-11.columns= f.text_field :hashtag
   .row
-    .skills_label= f.label :skills
+    .skills_label
+      = f.label :skills do
+        = t("activerecord.attributes.task.skills")
+        span.has-tip {data-tooltip=true title="O sistema irá apresentar essa tarefa a pessoas com esses talentos"} ?
     = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|
       .skills_field
         = b.check_box
