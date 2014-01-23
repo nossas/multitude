@@ -10,3 +10,6 @@
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
 Multitude::Application.config.secret_token = 'c9a9f838489ee41537e443c03bd7a391e3af30ddc4280452574c5de3c33e87f174473accce3b1c7dc5edf70c8b90c602ffe47b9fe626e57533dc682d469b0855'
+
+# This line is here for a deprecation warning only
+Multitude::Application.config.secret_key_base = 'c9a9f838489ee41537e443c03bd7a391e3af30ddc4280452574c5de3c33e87f174473accce3b1c7dc5edf70c8b90c602ffe47b9fe626e57533dc682d469b0855'

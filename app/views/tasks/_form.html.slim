@@ -6,7 +6,7 @@
       small.error O título não pode ficar e branco
     .task_type_id_field
       = f.label :task_type_id
-      = f.collection_select :task_type_id, TaskType.order(:name).all, :id, :name, { include_blank: "Escolha um tipo de tarefa" }, required: true
+      = f.collection_select :task_type_id, TaskType.order(:name).load, :id, :name, { include_blank: "Escolha um tipo de tarefa" }, required: true
       small.error O tipo da tarefa não pode ficar e branco
     .task_points_field
       = f.label :points
@@ -24,6 +24,12 @@
     .deadline_field
       = f.label :deadline
       = f.text_field :deadline, class: :datetimepicker
+    .hashtag_field
+      .row.collapse
+        = f.label :hashtag
+        .hashtag_prefix.small-2.large-1.columns
+          span.prefix #
+        .field.small-10.large-11.columns= f.text_field :hashtag
   .row
     .skills_label= f.label :skills
     = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|
