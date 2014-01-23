@@ -3,11 +3,9 @@
     .title_field
       = f.label :title
       = f.text_field :title, required: true
-      small.error O título não pode ficar e branco
     .task_type_id_field
       = f.label :task_type_id
       = f.collection_select :task_type_id, TaskType.order(:name).load, :id, :name, { include_blank: "Escolha um tipo de tarefa" }, required: true
-      small.error O tipo da tarefa não pode ficar e branco
     .task_points_field
       = f.label :points
       = f.number_field :points, required: true, "data-task-types" => TaskType.all.to_json
@@ -15,7 +13,6 @@
     .description_field
       = f.label :description
       = f.text_area :description, required: true
-      small.error A descrição não pode ficar e branco
   .row
     .min_capacity_field  
       = f.label :min_capacity
