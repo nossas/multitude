@@ -4,12 +4,6 @@
       = f.label :title
       = f.text_field :title, required: true
       small.error O título não pode ficar e branco
-  .row
-    .description_field
-      = f.label :description
-      = f.text_area :description, required: true
-      small.error A descrição não pode ficar e branco
-  .row
     .task_type_id_field
       = f.label :task_type_id
       = f.collection_select :task_type_id, TaskType.order(:name).all, :id, :name, { include_blank: "Escolha um tipo de tarefa" }, required: true
@@ -18,6 +12,12 @@
       = f.label :points
       = f.number_field :points, required: true, "data-task-types" => TaskType.all.to_json
       small.error A pontuação não pode ficar em branco
+  .row
+    .description_field
+      = f.label :description
+      = f.text_area :description, required: true
+      small.error A descrição não pode ficar e branco
+  .row
     .min_capacity_field  
       = f.label :min_capacity
       = f.number_field :min_capacity
@@ -32,4 +32,4 @@
         = b.label { t("skills.#{b.text}") }
   .row
     .action_button
-      = f.submit id: :new_task_submit_button, class: :button
+      = f.submit id: :new_task_submit_button, class: [:button, :radius]

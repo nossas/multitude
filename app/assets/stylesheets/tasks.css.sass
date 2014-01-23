@@ -1,11 +1,29 @@
 body.tasks.new, body.tasks.edit, body.tasks.create
-  .description_field, .title_field, .action_button, .material_field, .handout_field, .deliverable_field, .remote_field, .skills_label, .title
+  .description_field
+    +grid-column(12)
+  .title_field
+    +grid-column(6)
+  .action_button
+    +grid-column(12)
+  .material_field
+    +grid-column(12)
+  .handout_field
+    +grid-column(12)
+  .deliverable_field
+    +grid-column(12)
+  .remote_field
+    +grid-column(12)
+  .skills_label
+    +grid-column(12)
+  .title
     +grid-column(12)
   .task_type_id_field
-    +grid-column(4)
+    +grid-column(3)
   .skills_field
     +grid-column(4)
-  .task_points_field, .min_capacity_field
+  .task_points_field
+    +grid-column(3)
+  .min_capacity_field
     +grid-column(3)
   .deadline_field
     +grid-column(2)
