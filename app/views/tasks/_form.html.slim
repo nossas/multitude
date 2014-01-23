@@ -11,7 +11,6 @@
     .task_points_field
       = f.label :points
       = f.number_field :points, required: true, "data-task-types" => TaskType.all.to_json
-      small.error A pontuação não pode ficar em branco
   .row
     .description_field
       = f.label :description
