@@ -213,7 +213,7 @@ pt-BR:
       task:
         title: "Título"
         description: "Descrição"
-        min_capacity: "Mínimo de participantes"
+        max_deliveries: "Máximo de participantes"
         deadline: "Prazo para concluir"
         remote: "Remoto?"
         task_type_id: "Tipo de tarefa"
