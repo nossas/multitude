@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require foundation
 //= require jquery.datetimepicker
+//= require modernizr
 //= require meurio_ui
 //= require_tree .
 

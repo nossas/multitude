@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -62,3 +63,4 @@ gem 'rails_12factor'
 gem 'selenium-webdriver'
 gem 'cancan'
 gem 'i18n', github: 'svenfuchs/i18n'
+gem 'rails-assets-modernizr'
