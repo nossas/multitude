@@ -1,7 +1,9 @@
 = form_for @task, html: {"data-abide" => true} do |f|
   .row
     .title_field
-      = f.label :title
+      = f.label :title do
+        = t("activerecord.attributes.task.title")
+        span.has-tip {data-tooltip=true title="Comece com um verbo, seja curto e específico.<br />Ex. bom: Tirar foto da Gisele Bundchen em Ipanema; ex. ruim: Gisele no Rio"} ?
       = f.text_field :title, required: true
     .type_id_field
       = f.label :task_type_id
@@ -11,7 +13,9 @@
       = f.number_field :points, required: true, "data-task-types" => TaskType.all.to_json
   .row
     .description_field
-      = f.label :description
+      = f.label :description do
+        = t("activerecord.attributes.task.description")
+        span.has-tip {data-tooltip=true title="Escreva, nessa ordem: <br />a) uma descrição objetiva e muito específica do produto ou serviço esperado com a realização da tarefa; <br />b) o contexto, as condições e o motivo pelo qual a tarefa deve ser realizada; <br />c) fontes de informação sobre a tarefa com links; <br />d) equipamentos, materiais ou quaisquer insumos necessários para a realização da tarefa"} ?
       = f.text_area :description, required: true
   .row
     .max_deliveries_field  

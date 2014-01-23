@@ -53,7 +53,7 @@ group :development, :test do
   gem 'rspec-its'
 end
 
-gem 'zurb-foundation'
+gem 'foundation-rails'
 gem 'inherited_resources'
 gem 'slim-rails'
 gem 'meurio_ui'
