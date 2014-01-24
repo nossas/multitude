@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require foundation
+//= require turbolinks
 //= require jquery.datetimepicker
 //= require modernizr
 //= require meurio_ui
