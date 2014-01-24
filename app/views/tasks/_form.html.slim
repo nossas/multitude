@@ -24,7 +24,8 @@
   .row
     .max_deliveries_field  
       = f.label :max_deliveries
-      = f.number_field :max_deliveries
+      = f.text_field :max_deliveries, pattern: "^[1-9][0-9]*$"
+      small.error O máximo de participantes deve ser maior que zero
     .deadline_field
       = f.label :deadline do
         = t("activerecord.attributes.task.deadline")
