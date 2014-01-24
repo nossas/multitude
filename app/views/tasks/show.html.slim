@@ -1,28 +1,29 @@
-.row
-  .large-8.small-12.columns
-    .task
-      .row
-        h2.title= @task.title
-      .row
-        = link_to "Editar tarefa", edit_task_path(@task), id: "edit_task_button" if can? :edit, @task
-      .row
-        .mobilization
-          span Nome da Mobilização
-      .row
-        .category
-          span= @task.type
-      .row
-        .deadline
-          h4.title Prazo para entrega
-          span= @task.deadline.strftime('Dia %d.%m.%Y, às %H:%M')
-      .row      
-        .description
-          h4.title Descrição
-          p= @task.description
-  .large-4.small-12.columns
-    .sidebar
-      .row
-        .talents
-          h4.title Talentos associados
-          - @task.skills.each do |skill|
-            li.skill= t "skills.#{skill}"
+.task
+  .row
+    .large-8.small-12.columns
+      .main
+        .row
+          h2.title= @task.title
+        .row
+          = link_to "Editar tarefa", edit_task_path(@task), id: "edit_task_button" if can? :edit, @task
+        .row
+          .hashtag
+            span= "##{@task.hashtag}"
+        .row
+          .category
+            span= @task.type
+        .row
+          .deadline
+            h4.title Prazo para entrega
+            span= @task.formatted_deadline
+        .row      
+          .description
+            h4.title Descrição
+            p= @task.description
+    .large-4.small-12.columns
+      .sidebar
+        .row
+          .skills
+            h4.title Talentos associados
+            - @task.skills.each do |skill|
+              li.skill= t "skills.#{skill}"
