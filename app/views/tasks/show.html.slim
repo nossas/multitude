@@ -23,6 +23,13 @@
     .large-4.small-12.columns
       .sidebar
         .row
+          .points
+            .text Ao realizar esta tarefa, você acumula
+            .number
+              strong= @task.points 
+              ' min
+            .text de serviço pela cidade
+        .row
           .skills
             h4.title Talentos associados
             - @task.skills.each do |skill|

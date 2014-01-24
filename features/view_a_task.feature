@@ -8,4 +8,5 @@ Feature: view a task
     And I should see "this task hashtag"    
     And I should see "this task deadline"
     And I should see "this task description"
+    And I should see "this task points"
     And I should see "this task skills"
