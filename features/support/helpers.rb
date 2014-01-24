@@ -31,9 +31,11 @@ end
 
 def to_element string
   return '.task .title' if string == 'this task title'
+  return '.task .hashtag' if string == 'this task hashtag'
   return '.task .category' if string == 'this task category'
   return '.task .description' if string == 'this task description'
-  return '.task .deadline' if string == 'this task deadline'  
+  return '.task .deadline' if string == 'this task deadline'
+  return '.task .skills' if string == 'this task skills'
   return ".title_field.error" if string == "the task title error message"
   return "#new_task_button" if string == "the new task button"
   return "#edit_task_button" if string == "the edit task button"
@@ -42,7 +44,8 @@ end
 
 def to_text string
   return @task.reload.title if string == 'this task title'
+  return @task.reload.hashtag if string == 'this task hashtag'
   return @task.reload.type if string == 'this task category'
   return @task.reload.description if string == 'this task description'
-  return @task.reload.deadline if string == 'this task deadline'
+  return @task.reload.formatted_deadline if string == 'this task deadline'
 end
