@@ -1,6 +1,8 @@
 def to_button string
   return "new_task_button" if string == "the new task button"
-  return "new_task_submit_button" if string == "the new task submit button"
+  return "task_submit_button" if string == "the new task submit button"
+  return "edit_task_button" if string == "the edit task button"
+  return "task_submit_button" if string == "the edit task submit button"
   raise "I don't know '#{string}'"
 end
 
@@ -34,12 +36,13 @@ def to_element string
   return '.task .deadline' if string == 'this task deadline'  
   return ".title_field.error" if string == "the task title error message"
   return "#new_task_button" if string == "the new task button"
+  return "#edit_task_button" if string == "the edit task button"
   raise "I don't know '#{string}'"
 end
 
 def to_text string
-  return @task.title if string == 'this task title'
-  return @task.type if string == 'this task category'
-  return @task.description if string == 'this task description'
-  return @task.deadline if string == 'this task deadline'
+  return @task.reload.title if string == 'this task title'
+  return @task.reload.type if string == 'this task category'
+  return @task.reload.description if string == 'this task description'
+  return @task.reload.deadline if string == 'this task deadline'
 end

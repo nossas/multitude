@@ -3,6 +3,8 @@
     .row
       h2.title= @task.title
     .row
+      = link_to "Editar tarefa", edit_task_path(@task), id: "edit_task_button" if can? :edit, @task
+    .row
       .mobilization
         span Nome da Mobilização
     .row
