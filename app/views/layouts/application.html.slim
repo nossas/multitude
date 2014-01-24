@@ -2,10 +2,10 @@ doctype html
 html
   head
     title Multitude
-    = stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = meurio_ui_assets
     = csrf_meta_tags
   body class=[controller.controller_name, controller.action_name]
     = meurio_header_for :multitude
     = yield
+    = javascript_include_tag "application", "data-turbolinks-track" => true
