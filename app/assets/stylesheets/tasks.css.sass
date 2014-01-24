@@ -50,17 +50,25 @@ body.tasks.show
   h2, h4, span, p
     font-family: Proxima Nova Soft
 
-  .task
-    +grid-column(8)
+  .task, .sidebar
+    +grid-column(12)
+
+  .task, .sidebar
     h2, h4
       color: $title-gray
-    p, span
+    p, span, li
       color: $text-gray
 
-    .title
-      font-weight: bolder
+    h2.title
+      font-weight: 800
       font-size: 1.7em
       margin-bottom: 0
+    h4.title
+      border-bottom: solid 1px $border-gray
+      margin-bottom: 1.5em
+      padding: 1em 0 .3em 0
+      font-weight: bold
+      font-size: 1em
     .mobilization
       margin-bottom: 1em
       span
@@ -76,15 +84,14 @@ body.tasks.show
         font-weight: 800
         font-size: .7em
         color: white
-    .deadline, .description
+    .deadline, .description, .talents
       margin-top: 2em
-      h4
-        border-bottom: solid 1px $border-gray
-        padding: 1em 0 .3em 0
-        margin-bottom: 1.5em
-        font-size: 1em
       p
         font-weight: 500
         font-size: .8em
-      span
+      span, li
         font-weight: 800
+        font-size: 1.1em
+      li
+        list-style-type: none
+        margin-bottom: .5em
