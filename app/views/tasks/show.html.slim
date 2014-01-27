@@ -23,12 +23,16 @@
     .large-4.small-12.columns
       .sidebar
         .row
-          .points
-            .text Ao realizar esta tarefa, você acumula
-            .number
-              strong= @task.points 
-              ' min
-            .text de serviço pela cidade
+          .first-row
+            .points
+              .text Ao realizar esta tarefa, você acumula
+              .number
+                strong= @task.points 
+                ' min
+              .text de serviço pela cidade
+            .volunteers
+              .text Voluntários
+              = image_tag 'icon-no-user.png'
         .row
           .skills
             h4.title Talentos associados
