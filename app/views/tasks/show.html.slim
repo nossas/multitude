@@ -29,6 +29,7 @@
               strong= @task.points 
               ' min
             .text de serviço pela cidade
+          = link_to "Aceitar", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button
         .row
           .skills
             h4.title Talentos associados

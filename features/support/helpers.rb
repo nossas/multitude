@@ -3,6 +3,7 @@ def to_button string
   return "task_submit_button" if string == "the new task submit button"
   return "edit_task_button" if string == "the edit task button"
   return "task_submit_button" if string == "the edit task submit button"
+  return "apply_for_a_task_button" if string == "the apply for a task button"
   raise "I don't know '#{string}'"
 end
 

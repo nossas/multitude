@@ -1,7 +1,9 @@
 Multitude::Application.routes.draw do
   root 'tasks#index'
 
-  resources :tasks, only: [:index, :new, :create, :show, :edit, :update]
+  resources :tasks, only: [:index, :new, :create, :show, :edit, :update] do
+    resources :deliveries, only: [:create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
