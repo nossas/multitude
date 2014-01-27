@@ -25,6 +25,13 @@
     .large-4.small-12.columns
       .sidebar
         .row
+          .points
+            .text Ao realizar esta tarefa, você acumula
+            .number
+              strong= @task.points 
+              ' min
+            .text de serviço pela cidade
+            /= link_to "Aceitar", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button
           .first-row
             .points
               .text Ao realizar esta tarefa, você acumula
