@@ -12,6 +12,8 @@
         .row
           .category
             span= @task.type
+          .max_deliveries.icon-user
+            span= t('count.person', count: @task.max_deliveries)
         .row
           .deadline
             h4.title Prazo para entrega

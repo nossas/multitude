@@ -79,6 +79,7 @@ body.tasks.show
         font-weight: 500
         font-size: .9em
     .category
+      display: inline-block
       span
         background: $category-red
         text-transform: uppercase
@@ -87,6 +88,19 @@ body.tasks.show
         font-weight: 800
         font-size: .7em
         color: white
+    .max_deliveries
+      display: inline-block
+      margin-left: 1em
+      span
+        color: $subtitle-gray
+        font-weight: 700
+        font-size: .9em
+      &.icon-user
+        &:before
+          color: $subtitle-gray
+          margin-right: .25em
+          position: relative
+          top: 2px
     .deadline, .description, .skills
       margin-top: 2em
       p

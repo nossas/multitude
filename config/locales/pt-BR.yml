@@ -252,3 +252,7 @@ pt-BR:
     sociologia_antropologia: "Sociologia / Antropologia"
     urbanismo_e_planejamento_urbano: "Urbanismo e planejamento urbano"
     experiencia_de_relacionamento_com_comunidades_e_favela: "Relacionamento com favela"
+  count:
+    person:
+      one: 1 pessoa
+      other: ! '%{count} pessoas'
