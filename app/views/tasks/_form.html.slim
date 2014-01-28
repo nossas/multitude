@@ -27,7 +27,9 @@
       = f.text_area :description, required: true
   .row
     .max_deliveries_field  
-      = f.label :max_deliveries
+      = f.label :max_deliveries do
+        = t("activerecord.attributes.task.max_deliveries")
+        span.has-tip {data-tooltip=true title="Uma tarefa pode ser realizada por mais de uma pessoa: defina o número máximo desejado.<br />Deixe o campo em branco para um número ilimitado de realizadores"} ?
       = f.text_field :max_deliveries, pattern: "^[1-9][0-9]*$"
       small.error O máximo de participantes deve ser maior que zero
     .deadline_field

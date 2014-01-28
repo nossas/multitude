@@ -211,17 +211,14 @@ pt-BR:
       <<: *errors
     attributes:
       task:
-        title: "Título"
-        description: "Descrição"
-        max_deliveries: "Máximo de participantes"
-        deadline: "Prazo para concluir"
-        remote: "Remoto?"
-        task_type_id: "Tipo de tarefa"
-        material: "Material necessário"
-        handout: "Material de apoio"
-        deliverable: "Descrição do deliverable esperado"
-        skills: "Talentos associados"
+        title: "Título da tarefa"
+        task_type_id: "Tipo da tarefa"
+        description: "Descrição da tarefa"
+        max_deliveries: "Máximo de realizadores"
+        deadline: "Prazo de conclusão"
+        skills: "Talentos associados à tarefa"
         points: "Tempo estimado para a realização da tarefa"
+        hashtag: "Mobilização"
     models:
       task: "Tarefa"
 
