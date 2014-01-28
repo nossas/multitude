@@ -31,13 +31,13 @@ def to_route string
 end
 
 def to_element string
-  return '.task .title' if string == 'this task title'
-  return '.task .hashtag' if string == 'this task hashtag'
-  return '.task .category' if string == 'this task category'
-  return '.task .description' if string == 'this task description'
-  return '.task .deadline' if string == 'this task deadline'
-  return '.task .points' if string == 'this task points'
-  return '.task .skills' if string == 'this task skills'
+  return '.title' if string == 'this task title'
+  return '.hashtag' if string == 'this task hashtag'
+  return '.category' if string == 'this task category'
+  return '.description' if string == 'this task description'
+  return '.deadline' if string == 'this task deadline'
+  return '.points' if string == 'this task points'
+  return '.skills' if string == 'this task skills'
   return ".title_field.error" if string == "the task title error message"
   return "#new_task_button" if string == "the new task button"
   return "#edit_task_button" if string == "the edit task button"

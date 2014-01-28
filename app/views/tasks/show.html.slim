@@ -1,44 +1,35 @@
-.task
-  .row
-    .large-8.small-12.columns
-      .main
-        .row
-          h2.title= @task.title
-        .row
-          = link_to "Editar tarefa", edit_task_path(@task), id: "edit_task_button" if can? :edit, @task
-        .row
-          .hashtag
-            span= "##{@task.hashtag}"
-        .row
-          .category
-            span= @task.type
-          .max_deliveries.icon-user
-            span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: @task.max_deliveries)
-        .row
-          .deadline
-            h4.title Prazo para entrega
-            span= @task.formatted_deadline
-        .row      
-          .description
-            h4.title Descrição
-            p= @task.description
-    .large-4.small-12.columns
-      .sidebar
-        .row
-          .first-row
-            .points
-              .text Ao realizar esta tarefa, você acumula
-              .number
-                strong= @task.points 
-                ' min
-              .text de serviço pela cidade
-            .volunteers
-              .text Voluntários
-              = image_tag 'icon-no-user.png'
-            - if current_user && !current_user.applied?(@task)
-              = link_to "Aceitar", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button
-        .row
-          .skills
-            h4.title Talentos associados
-            - @task.skills.each do |skill|
-              li.skill= t "skills.#{skill}"
+.row
+  .main
+    h2.title= @task.title
+    .menu
+      = link_to "Editar tarefa", edit_task_path(@task), id: "edit_task_button" if can? :edit, @task
+    .hashtag
+      span= "##{@task.hashtag}"
+    .details
+      .category
+        span= @task.type
+      .max_deliveries.icon-user
+        span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: @task.max_deliveries)
+    .deadline
+      h4.title Prazo para entrega
+      span= @task.formatted_deadline
+    .description
+      h4.title Descrição
+      p= @task.description
+  .sidebar
+    .first-row
+      .points
+        .text Ao realizar esta tarefa, você acumula
+        .number
+          strong= @task.points 
+          ' min
+        .text de serviço pela cidade
+      .volunteers
+        .text Voluntários
+        = image_tag 'icon-no-user.png'
+    - if current_user && !current_user.applied?(@task) 
+      = link_to "Aceitar", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
+    .skills
+      h4.title Talentos associados
+      - @task.skills.each do |skill|
+        li.skill= t "skills.#{skill}"

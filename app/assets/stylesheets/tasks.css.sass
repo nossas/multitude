@@ -47,15 +47,10 @@ body.tasks.new, body.tasks.edit, body.tasks.create
     margin-bottom: .5em
 
 body.tasks.show
-  h2, h4, span, p
-    font-family: Proxima Nova Soft
-    word-wrap: break-word
-
-  .task
-    padding-bottom: 10em
-
-  .main, .sidebar
-    +grid-column(12)
+  .main
+    +grid-column(8)
+  .sidebar
+    +grid-column(4)
 
   .main, .sidebar
     h2, h4
@@ -140,3 +135,7 @@ body.tasks.show
             font-size: 2em
         img
           padding: .7em 0
+
+  #apply_for_a_task_button
+    display: block
+    margin-top: 1em
