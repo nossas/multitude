@@ -23,3 +23,7 @@ end
 Then(/^no email should be sent$/) do
   ActionMailer::Base.deliveries.should be_empty
 end
+
+Given(/^there is an expired task$/) do
+  @task = Task.make! deadline: Time.now - 1.day
+end

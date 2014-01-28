@@ -24,4 +24,8 @@ class Task < ActiveRecord::Base
   def formatted_deadline
     self.deadline.strftime('Dia %d.%m.%Y, às %H:%M') if self.deadline
   end
+
+  def expired?
+    self.deadline > Time.now
+  end
 end
