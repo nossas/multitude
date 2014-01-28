@@ -4,6 +4,7 @@ class Task < ActiveRecord::Base
 
   belongs_to :task_type
   has_many :deliveries
+  belongs_to :mobilization, primary_key: :hashtag, foreign_key: :hashtag
 
   after_create :warn_matches
 
