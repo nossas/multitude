@@ -7,7 +7,7 @@
       span= "##{@task.hashtag}"
     .details
       .category
-        span= @task.type
+        span= @task.category
       .max_deliveries.icon-user
         span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: @task.max_deliveries)
     .deadline

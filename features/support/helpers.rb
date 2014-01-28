@@ -49,7 +49,7 @@ end
 def to_text string
   return @task.reload.title if string == 'this task title'
   return @task.reload.hashtag if string == 'this task hashtag'
-  return @task.reload.type if string == 'this task category'
+  return @task.reload.category if string == 'this task category'
   return @task.reload.description if string == 'this task description'
   return @task.reload.points if string == 'this task points'
   return @task.reload.formatted_deadline if string == 'this task deadline'

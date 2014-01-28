@@ -6,8 +6,13 @@ User.blueprint do
   email { "test#{sn}@meurio.org.br" }
 end
 
+Category.blueprint do
+  name { "Category #{sn}" }
+end
+
 TaskType.blueprint do
   name { "Type #{sn}" }
+  category { Category.make! }
 end
 
 Task.blueprint do

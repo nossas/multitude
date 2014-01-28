@@ -17,8 +17,8 @@ class Task < ActiveRecord::Base
     User.where("skills && ARRAY[?]::character varying[]", self.skills)
   end
 
-  def type
-    self.task_type.try(:name)
+  def category
+    self.task_type.category.try(:name) if self.task_type
   end
 
   def formatted_deadline
