@@ -27,7 +27,7 @@
       .volunteers
         .text Voluntários
         = image_tag 'icon-no-user.png'
-    - if current_user && !current_user.applied?(@task) 
+    - if current_user && !current_user.applied?(@task) && @task.expired?
       = link_to "Aceitar", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
     .skills
       h4.title Talentos associados
