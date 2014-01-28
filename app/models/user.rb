@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
+
+  def applied? task
+    Delivery.where("user_id = ? AND task_id = ?", self.id, task.id).any?
+  end
 end

@@ -17,6 +17,11 @@ html
       }(document, 'script', 'facebook-jssdk'));
 
     = meurio_header_for :multitude
+
+    - if flash[:notice]
+      .row
+        .notice= flash[:notice]
+
     = yield
 
     footer

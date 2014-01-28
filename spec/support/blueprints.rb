@@ -19,3 +19,8 @@ Task.blueprint do
   deadline { Date.today + 1.week }
   skills { [:ciencias_politicas, :design_grafico, :direito] }
 end
+
+Delivery.blueprint do
+  user { User.make! }
+  task { Task.make! }
+end

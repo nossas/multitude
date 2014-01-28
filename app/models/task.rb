@@ -3,12 +3,14 @@ class Task < ActiveRecord::Base
   validates :max_deliveries, :numericality => { :greater_than => 0 }, allow_nil: true
 
   belongs_to :task_type
+  has_many :deliveries
+
   after_create :warn_matches
 
   def warn_matches
-    #self.matches.each do |u|
-    #  TaskMailer.match(u, self).deliver
-    #end
+    self.matches.each do |u|
+      TaskMailer.match(u, self).deliver
+    end
   end
 
   def matches

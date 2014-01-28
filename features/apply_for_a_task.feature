@@ -1,5 +1,6 @@
 Feature: apply for a task
 
+  @ssi
   Scenario: when I'm logged in
     Given I'm logged in
     And there is a task

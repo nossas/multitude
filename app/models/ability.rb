@@ -6,6 +6,7 @@ class Ability
       can :manage, :all
     end
 
+    can :create, Delivery
     can :read, :all
   end
 end
