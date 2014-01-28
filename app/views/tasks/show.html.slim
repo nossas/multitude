@@ -3,8 +3,8 @@
     h2.title= @task.title
     .menu
       = link_to "Editar tarefa", edit_task_path(@task), id: "edit_task_button" if can? :edit, @task
-    .hashtag
-      span= "##{@task.hashtag}"
+    .mobilization
+      span= @task.mobilization.try(:short_title)
     .details
       .category
         span= @task.category
@@ -31,5 +31,6 @@
       = link_to "Aceitar", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
     .skills
       h4.title Talentos associados
-      - @task.skills.each do |skill|
-        li.skill= t "skills.#{skill}"
+      - if @task.skills.present?
+        - @task.skills.each do |skill|
+          li.skill= t "skills.#{skill}"

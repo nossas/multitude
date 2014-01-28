@@ -23,6 +23,7 @@ Task.blueprint do
   points { 3 }
   deadline { Date.today + 1.week }
   skills { [:ciencias_politicas, :design_grafico, :direito] }
+  mobilization { Mobilization.make! }
 end
 
 Delivery.blueprint do
