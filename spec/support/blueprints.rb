@@ -24,3 +24,8 @@ Delivery.blueprint do
   user { User.make! }
   task { Task.make! }
 end
+
+Mobilization.blueprint do
+  hashtag { "MyHashtag" }
+  short_title { "My Mobilization Short Title" }
+end

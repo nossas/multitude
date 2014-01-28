@@ -221,7 +221,7 @@ pt-BR:
         handout: "Material de apoio"
         deliverable: "Descrição do deliverable esperado"
         skills: "Talentos associados"
-        points: "Pontos"
+        points: "Tempo estimado para a realização da tarefa"
     models:
       task: "Tarefa"
 

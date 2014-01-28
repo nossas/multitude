@@ -27,3 +27,7 @@ end
 Given(/^there is an expired task$/) do
   @task = Task.make! deadline: Time.now - 1.day
 end
+
+Given(/^there is a mobilization called "(.*?)"$/) do |arg1|
+  @mobilization = Mobilization.make! short_title: arg1
+end
