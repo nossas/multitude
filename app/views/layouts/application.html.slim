@@ -20,7 +20,10 @@ html
 
     - if flash[:notice]
       .row
-        .notice= flash[:notice]
+        .notice
+          .alert-box.success.radius data-alert=true
+            = flash[:notice]
+            a href="#" class="close" &times;
 
     = yield
 
