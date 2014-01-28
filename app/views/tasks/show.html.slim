@@ -1,3 +1,8 @@
+- if current_user && current_user.applied?(@task)
+  .row
+    .task_warn
+      .remaining Falta #{distance_of_time_in_words_to_now @task.deadline} para a entrega desta tarefa.
+
 .row
   .main
     h2.title= @task.title
@@ -26,7 +31,9 @@
         .text de serviço pela cidade
       .volunteers
         .text Voluntários
-        = image_tag 'icon-no-user.png'
+        br
+        .number
+          strong= @task.deliveries.count
     - if current_user && !current_user.applied?(@task) && @task.expired?
       = link_to "Aceitar", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
     .skills

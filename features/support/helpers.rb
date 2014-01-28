@@ -41,7 +41,7 @@ def to_element string
   return ".title_field.error" if string == "the task title error message"
   return "#new_task_button" if string == "the new task button"
   return "#edit_task_button" if string == "the edit task button"
-  return ".notice" if string == "a successful message"
+  return ".remaining" if string == "the remaining warn for this task"
   return "#apply_for_a_task_button" if string == "the apply for a task button"
   raise "I don't know '#{string}'"
 end

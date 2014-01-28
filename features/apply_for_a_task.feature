@@ -6,7 +6,7 @@ Feature: apply for a task
     And there is a task
     And I'm in "this task page"
     When I click in "the apply for a task button"
-    Then I should see "a successful message"
+    Then I should see "the remaining warn for this task"
     And I should not see "the apply for a task button"
 
   @ssi

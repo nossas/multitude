@@ -52,6 +52,17 @@ body.tasks.show
   .sidebar
     +grid-column(4)
 
+  .task_warn
+    margin-top: -20px
+    margin-bottom: 2em
+    +grid-column(12)
+    .remaining
+      background: $yellow
+      color: white
+      text-align: center
+      padding: .5em
+      +border-radius(0 0 3px 3px)
+
   .main, .sidebar
     h2, h4
       color: $title-gray

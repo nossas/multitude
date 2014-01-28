@@ -2,8 +2,8 @@ class Task < ActiveRecord::Base
   validates :title, :points, :task_type_id, :description, presence: true
   validates :max_deliveries, :numericality => { :greater_than => 0 }, allow_nil: true
 
-  belongs_to :task_type
   has_many :deliveries
+  belongs_to :task_type
   belongs_to :mobilization, primary_key: :hashtag, foreign_key: :hashtag
 
   after_create :warn_matches

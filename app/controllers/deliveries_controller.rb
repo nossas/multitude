@@ -6,7 +6,7 @@ class DeliveriesController < InheritedResources::Base
     resource.user_id = current_user.id
     resource.task_id = @task.id
     create! do |success, failure|
-      success.html { redirect_to task_path(@task), notice: "Boa sorte na execução da sua tarefa!" }
+      success.html { redirect_to task_path(@task) }
     end
   end
 end
