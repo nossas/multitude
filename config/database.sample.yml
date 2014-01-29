@@ -51,6 +51,14 @@ test:
   username: multitude
   password:
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: multitude_staging
+  pool: 5
+  username: multitude
+  password:
+
 production:
   adapter: postgresql
   encoding: unicode
