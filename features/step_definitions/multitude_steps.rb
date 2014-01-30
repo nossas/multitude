@@ -31,3 +31,7 @@ end
 Given(/^there is a mobilization called "(.*?)"$/) do |arg1|
   @mobilization = Mobilization.make! short_title: arg1
 end
+
+Given(/^I applied for this task$/) do
+  Delivery.make! task: @task, user: @current_user
+end

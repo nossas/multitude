@@ -4,6 +4,7 @@ def to_button string
   return "edit_task_button" if string == "the edit task button"
   return "task_submit_button" if string == "the edit task submit button"
   return "apply_for_a_task_button" if string == "the apply for a task button"
+  return "delivery_submit_button" if string == "the delivery submit button"
   raise "I don't know '#{string}'"
 end
 
@@ -20,6 +21,8 @@ def to_field string
   return "task_deliverable" if string == "the task deliverable field"
   return "task_points" if string == "the task points field"
   return "task_hashtag" if string == "the task hashtag field"
+  return "delivery_text" if string == "the delivery text field"
+  return "delivery_file" if string == "the delivery file field"
   raise "I don't know '#{string}'"
 end
 
@@ -43,6 +46,7 @@ def to_element string
   return "#edit_task_button" if string == "the edit task button"
   return ".remaining" if string == "the remaining warn for this task"
   return "#apply_for_a_task_button" if string == "the apply for a task button"
+  return ".delivery .by" if string == "my delivery"
   raise "I don't know '#{string}'"
 end
 
@@ -53,4 +57,10 @@ def to_text string
   return @task.reload.description if string == 'this task description'
   return @task.reload.points if string == 'this task points'
   return @task.reload.formatted_deadline if string == 'this task deadline'
+  return @current_user.name if string == 'my delivery'
+end
+
+def to_file string
+  return File.open("#{Rails.root}/features/support/files/delivery.pdf") if string == "the delivery file"
+  raise "I don't know file '#{string}'"
 end

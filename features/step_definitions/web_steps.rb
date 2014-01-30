@@ -37,3 +37,7 @@ end
 When(/^I'm in "(.*?)"$/) do |arg1|
   visit to_route(arg1)
 end
+
+Given(/^I attach "(.*?)" in "(.*?)"$/) do |arg1, arg2|
+  attach_file to_field(arg2), to_file(arg1)
+end

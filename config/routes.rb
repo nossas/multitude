@@ -2,7 +2,7 @@ Multitude::Application.routes.draw do
   root 'tasks#index'
 
   resources :tasks, only: [:index, :new, :create, :show, :edit, :update] do
-    resources :deliveries, only: [:create]
+    resources :deliveries, only: [:create, :update]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

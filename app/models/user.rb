@@ -16,4 +16,12 @@ class User < ActiveRecord::Base
   def applied? task
     Delivery.where("user_id = ? AND task_id = ?", self.id, task.id).any?
   end
+
+  def delivery_for task
+    Delivery.where("user_id = ? AND task_id = ?", self.id, task.id).first
+  end
+
+  def delivered? task
+    Delivery.where("user_id = ? AND task_id = ? AND delivered_at IS NOT NULL", self.id, task.id).any?
+  end
 end

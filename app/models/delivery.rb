@@ -3,4 +3,6 @@ class Delivery < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :task
+
+  mount_uploader :file, DeliveryUploader
 end
