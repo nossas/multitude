@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140129234220) do
     t.text     "description",    null: false
     t.integer  "task_type_id",   null: false
     t.string   "skills",                      array: true
-    t.date     "deadline"
+    t.datetime "deadline"
     t.integer  "points",         null: false
     t.string   "hashtag"
     t.integer  "max_deliveries"
