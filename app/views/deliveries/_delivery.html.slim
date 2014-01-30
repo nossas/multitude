@@ -1,2 +1,11 @@
 .delivery
-  .by= delivery.user.name
+  .user_avatar_url.left= image_tag delivery.user.avatar_url
+  .delivery_content
+    .user_name_and_delivered_at
+      strong.by= delivery.user.name
+      |  | 
+      span.delivered_at= l delivery.delivered_at, format: :short 
+    - if delivery.text.present?
+      .text= delivery.text
+    - if delivery.file.present?
+      .file= link_to "Baixar arquivo", delivery.file.url, download: delivery.file.identifier.to_s

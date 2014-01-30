@@ -219,6 +219,9 @@ pt-BR:
         skills: "Talentos associados à tarefa"
         points: "Tempo estimado para a realização da tarefa"
         hashtag: "Mobilização"
+      delivery:
+        text: "Descreva a sua entrega"
+        file: "Você pode enviar um arquivo se necessário"
     models:
       task: "Tarefa"
 
