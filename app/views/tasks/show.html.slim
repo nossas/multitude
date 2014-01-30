@@ -27,11 +27,14 @@
         = link_to "Assumir Tarefa", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
       - elsif current_user.applied?(@task) && !current_user.delivered?(@task)
         h4.title Entregar tarefa
-        = form_for [@task, current_user.delivery_for(@task)] do |f|
-          = f.label :text
-          = f.text_area :text
-          = f.label :file
-          = f.file_field :file
+        = form_for [@task, current_user.delivery_for(@task)], html: {"data-abide" => true}  do |f|
+          .delivery_text_field
+            = f.label :text
+            = f.text_area :text, required: true
+            small.error Você precisa descrever a sua entrega
+          .delivery_file_field
+            = f.label :file
+            = f.file_field :file
           = f.submit "Entregar Tarefa", id: :delivery_submit_button, class: [:button, :radius]
       - elsif current_user.delivered?(@task)
         h4.title Entregas

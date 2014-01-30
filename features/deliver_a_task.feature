@@ -1,6 +1,6 @@
 Feature: deliver a task
 
-  @ssi @javascript
+  @ssi
   Scenario: when I submit a valid form
     Given I'm logged in
     And there is a task
@@ -11,3 +11,12 @@ Feature: deliver a task
     When I press "the delivery submit button"
     Then I should be in "this task page"
     And I should see "my delivery"
+
+  @ssi @javascript
+  Scenario: when I submit an invalid form
+    Given I'm logged in
+    And there is a task
+    And I applied for this task
+    And I'm in "this task page"
+    When I press "the delivery submit button"
+    Then I should see "the delivery text error message"
