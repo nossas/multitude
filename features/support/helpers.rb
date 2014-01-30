@@ -47,6 +47,8 @@ def to_element string
   return ".remaining" if string == "the remaining warn for this task"
   return "#apply_for_a_task_button" if string == "the apply for a task button"
   return ".delivery .by" if string == "my delivery"
+  return ".delivery_text_field.error" if string == "the delivery text error message"
+  return ".wait_for_validation" if string == "the wait for validation warn"
   raise "I don't know '#{string}'"
 end
 
@@ -61,6 +63,6 @@ def to_text string
 end
 
 def to_file string
-  return File.open("#{Rails.root}/features/support/files/delivery.pdf") if string == "the delivery file"
+  return "#{Rails.root}/features/support/files/delivery.txt" if string == "the delivery file"
   raise "I don't know file '#{string}'"
 end

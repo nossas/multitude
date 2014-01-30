@@ -1,7 +1,10 @@
 - if current_user && current_user.applied?(@task)
   .row
     .task_warn
-      .remaining Falta #{distance_of_time_in_words_to_now @task.deadline} para a entrega desta tarefa.
+      - if !current_user.delivered?(@task)
+        .remaining Falta #{distance_of_time_in_words_to_now @task.deadline} para a entrega desta tarefa.
+      - elsif current_user.delivered?(@task)
+        .wait_for_validation Obrigado por seu tempo e talento: sua entrega será validada em breve!
 
 .row
   .main
@@ -21,6 +24,25 @@
     .description
       h4.title Descrição
       p= @task.description
+
+    - if current_user.present?
+      - if !current_user.applied?(@task) && !@task.expired?
+        = link_to "Assumir Tarefa", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
+      - elsif current_user.applied?(@task) && !current_user.delivered?(@task)
+        h4.title Entregar tarefa
+        = form_for [@task, current_user.delivery_for(@task)], html: {"data-abide" => true}  do |f|
+          .delivery_text_field
+            = f.label :text
+            = f.text_area :text, required: true
+            small.error Você precisa descrever a sua entrega
+          .delivery_file_field
+            = f.label :file
+            = f.file_field :file
+          = f.submit "Entregar Tarefa", id: :delivery_submit_button, class: [:button, :radius]
+      - elsif current_user.delivered?(@task)
+        h4.title Entregas
+        = render current_user.delivery_for(@task)
+
   .sidebar
     .first-row
       .points
@@ -34,18 +56,6 @@
         br
         .number
           strong= @task.deliveries.count
-
-    - if current_user.present?
-      - if !current_user.applied?(@task) && !@task.expired?
-        = link_to "Aceitar", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
-      - elsif current_user.applied?(@task) && !current_user.delivered?(@task)
-        = form_for [@task, current_user.delivery_for(@task)] do |f|
-          = f.text_area :text
-          = f.file_field :file
-          = f.submit id: :delivery_submit_button
-      - elsif current_user.delivered?(@task)
-        = render current_user.delivery_for(@task)
-
     .skills
       h4.title Talentos associados
       - if @task.skills.present?

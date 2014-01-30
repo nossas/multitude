@@ -5,4 +5,6 @@ class Delivery < ActiveRecord::Base
   belongs_to :task
 
   mount_uploader :file, DeliveryUploader
+
+  after_save { DeliveryMailer.new_delivery(self).deliver if self.text.present? }
 end

@@ -56,19 +56,20 @@ body.tasks.show
     margin-top: -20px
     margin-bottom: 2em
     +grid-column(12)
-    .remaining
+    .remaining, .wait_for_validation
       background: $yellow
       color: white
       text-align: center
       padding: .5em
       +border-radius(0 0 3px 3px)
+    .wait_for_validation
+      background: #b0d27b
 
   .main, .sidebar
     h2, h4
       color: $title-gray
     p, span, li
       color: $text-gray
-
     h2.title
       font-weight: 800
       font-size: 1.7em
@@ -122,6 +123,8 @@ body.tasks.show
       li
         list-style-type: none
         margin-bottom: .5em
+    .description
+      margin-bottom: 2em
     .first-row
       height: 120px
       .points
@@ -150,6 +153,18 @@ body.tasks.show
         img
           padding: .7em 0
 
-  #apply_for_a_task_button
-    display: block
-    margin-top: 1em
+  form.edit_delivery
+    textarea
+      height: 100px
+
+  .delivery
+    font-size: .8em
+    color: #666
+    .user_avatar_url
+      img
+        width: 25px
+        +border-radius(25px)
+    .delivery_content
+      padding-left: 35px
+      .user_name_and_delivered_at
+        line-height: 25px

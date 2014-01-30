@@ -35,4 +35,6 @@ Multitude::Application.configure do
   config.active_support.deprecation = :stderr
 
   config.log_level = :error
+
+  default_url_options[:host] = "localhost:3000"
 end
