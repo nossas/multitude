@@ -11,6 +11,8 @@ Feature: deliver a task
     When I press "the delivery submit button"
     Then I should be in "this task page"
     And I should see "my delivery"
+    And I should see "the wait for validation warn"
+    And an email should be sent to the creator of the task
 
   @ssi @javascript
   Scenario: when I submit an invalid form

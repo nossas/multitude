@@ -48,6 +48,7 @@ def to_element string
   return "#apply_for_a_task_button" if string == "the apply for a task button"
   return ".delivery .by" if string == "my delivery"
   return ".delivery_text_field.error" if string == "the delivery text error message"
+  return ".wait_for_validation" if string == "the wait for validation warn"
   raise "I don't know '#{string}'"
 end
 

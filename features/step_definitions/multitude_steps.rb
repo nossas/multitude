@@ -35,3 +35,7 @@ end
 Given(/^I applied for this task$/) do
   Delivery.make! task: @task, user: @current_user
 end
+
+Then(/^an email should be sent to the creator of the task$/) do
+  ActionMailer::Base.deliveries.select{|d| d.to.include?(@task.user.email)}.should_not be_empty
+end
