@@ -1,6 +1,6 @@
 class AddServerMeurio < ActiveRecord::Migration
   def up
-    if Rails.env.production?
+    if Rails.env.production? || Rails.env.staging?
       raise "MEURIO_DBNAME is missing" if ENV["MEURIO_DBNAME"].nil?
       raise "MEURIO_DBHOST is missing" if ENV["MEURIO_DBHOST"].nil?
       raise "MEURIO_DBUSER is missing" if ENV["MEURIO_DBUSER"].nil?
@@ -12,7 +12,7 @@ class AddServerMeurio < ActiveRecord::Migration
   end
 
   def down
-    if Rails.env.production?
+    if Rails.env.production? || Rails.env.staging?
       execute "DROP EXTENSION postgres_fdw CASCADE;"
     end
   end
