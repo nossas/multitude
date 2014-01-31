@@ -38,4 +38,8 @@ class Task < ActiveRecord::Base
   def expired?
     self.deadline < Time.now
   end
+
+  def deliveries_missing
+    self.max_deliveries - self.deliveries.where("delivered_at IS NULL OR accepted_at IS NOT NULL").count
+  end
 end
