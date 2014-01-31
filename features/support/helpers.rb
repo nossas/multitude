@@ -6,6 +6,7 @@ def to_button string
   return "apply_for_a_task_button" if string == "the apply for a task button"
   return "delivery_submit_button" if string == "the delivery submit button"
   return "accept_delivery_button" if string == "the accept delivery button"
+  return "reject_delivery_button" if string == "the reject delivery button"
   raise "I don't know '#{string}'"
 end
 
