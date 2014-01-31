@@ -31,7 +31,7 @@
       p= @task.description
 
     - if current_user.present?
-      - if current_user.admin?
+      - if current_user.admin? and @task.deliveries.any?
         h4.title Entregas
         = render @task.deliveries
       - else
