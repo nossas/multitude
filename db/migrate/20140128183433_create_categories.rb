@@ -10,7 +10,7 @@ class CreateCategories < ActiveRecord::Migration
   end
 
   def down
-    if Rails.env.production? #|| Rails.env.staging?
+    if Rails.env.production? || Rails.env.staging?
       execute "DROP FOREIGN TABLE categories;"
     else
       drop_table :categories
