@@ -7,7 +7,7 @@ class Ability
     end
 
     can :create, Delivery
-    can :update, Delivery
+    can :deliver, Delivery
     can :read, :all
   end
 end

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140131194759) do
+=======
+ActiveRecord::Schema.define(version: 20140131164357) do
+>>>>>>> 344dfa3999357f45b228c5cbed692d6183ee475a
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +33,8 @@ ActiveRecord::Schema.define(version: 20140131194759) do
     t.text     "text"
     t.string   "file"
     t.datetime "delivered_at"
+    t.datetime "accepted_at"
+    t.datetime "rejected_at"
   end
 
   create_table "mobilizations", force: true do |t|
