@@ -33,7 +33,7 @@
     - if current_user.present?
       - if current_user.admin? and @task.deliveries.any?
         h4.title Entregas
-        = render @task.deliveries
+        = render @task.deliveries.where('delivered_at IS NOT NULL')
       - else
         - if !current_user.applied?(@task) && !@task.expired?
           = link_to "Assumir Tarefa", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
