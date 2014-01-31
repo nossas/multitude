@@ -1,5 +1,6 @@
 class TasksController < InheritedResources::Base
   load_and_authorize_resource
+  before_action(only: :show) { @deliveries = @task.deliveries.where("delivered_at IS NOT NULL").order(:delivered_at) }
 
   def create
     resource.user = current_user
