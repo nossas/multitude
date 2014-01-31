@@ -22,7 +22,7 @@
       .category
         span= @task.category
       .max_deliveries.icon-user
-        span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: @task.max_deliveries)
+        span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: @task.deliveries_missing)
     .deadline
       h4.title Entregar tarefa pronta até
       span= @task.formatted_deadline
