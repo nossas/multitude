@@ -7,4 +7,18 @@ class Delivery < ActiveRecord::Base
   mount_uploader :file, DeliveryUploader
 
   after_save { DeliveryMailer.new_delivery(self).deliver if self.text.present? }
+
+  def status
+    if self.accepted_at
+      :accepted
+    elsif self.rejected_at
+      :rejected
+    else
+      :pending
+    end
+  end
+
+  def pending?
+    status == :pending
+  end
 end
