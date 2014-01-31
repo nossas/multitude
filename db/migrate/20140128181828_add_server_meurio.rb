@@ -7,7 +7,7 @@ class AddServerMeurio < ActiveRecord::Migration
       raise "MEURIO_DBPASS is missing" if ENV["MEURIO_DBPASS"].nil?
       execute "CREATE EXTENSION postgres_fdw;"
       execute "CREATE SERVER meurio FOREIGN DATA WRAPPER postgres_fdw OPTIONS (dbname '#{ENV["MEURIO_DBNAME"]}', host '#{ENV["MEURIO_DBHOST"]}');"
-      execute "CREATE USER MAPPING for daepabepgpfewv SERVER meurio OPTIONS (user '#{ENV["MEURIO_DBUSER"]}', password '#{ENV["MEURIO_DBPASS"]}');"
+      execute "CREATE USER MAPPING for #{ENV["DB_USERNAME"]} SERVER meurio OPTIONS (user '#{ENV["MEURIO_DBUSER"]}', password '#{ENV["MEURIO_DBPASS"]}');"
     end
   end
 
