@@ -68,3 +68,4 @@ gem 'shoulda-matchers'
 gem 'carrierwave'
 gem 'thin'
 gem 'fog'
+gem "auto_html"

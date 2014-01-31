@@ -23,7 +23,7 @@
       span= @task.formatted_deadline
     .description
       h4.title Descrição
-      p= @task.description
+      p= @task.description_html
 
     - if current_user.present?
       - if !current_user.applied?(@task) && !@task.expired?
