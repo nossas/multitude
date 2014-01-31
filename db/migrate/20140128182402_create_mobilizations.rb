@@ -1,6 +1,6 @@
 class CreateMobilizations < ActiveRecord::Migration
   def up
-    if Rails.env.production?
+    if Rails.env.production? || Rails.env.staging?
       execute "CREATE FOREIGN TABLE mobilizations(id integer, hashtag character varying(255), short_title character varying(255)) SERVER meurio OPTIONS (table_name 'mobilizations');"
     else
       create_table :mobilizations do |t|
@@ -11,7 +11,7 @@ class CreateMobilizations < ActiveRecord::Migration
   end
 
   def down
-    if Rails.env.production?
+    if Rails.env.production? || Rails.env.staging?
       execute "DROP FOREIGN TABLE mobilizations;"
     else
       drop_table :mobilizations
