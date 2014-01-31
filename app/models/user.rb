@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def delivered? task
-    Delivery.where("user_id = ? AND task_id = ? AND delivered_at IS NOT NULL", self.id, task.id).any?
+    delivery = self.delivery_for(task)
+    delivery and delivery.delivered_at.present?
   end
 end
