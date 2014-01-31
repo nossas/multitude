@@ -1,7 +1,8 @@
-.delivery
+.delivery *{class: delivery.status}
   .user_avatar_url.left= image_tag delivery.user.avatar_url
   .delivery_content
     .user_name_and_delivered_at
+      = delivery.status
       strong.by= delivery.user.name
       |  | 
       span.delivered_at= l delivery.delivered_at, format: :short 
@@ -9,3 +10,7 @@
       .text= delivery.text
     - if delivery.file.present?
       .file= link_to "Baixar arquivo", delivery.file.url, download: delivery.file.identifier.to_s
+    - if current_user.admin? and delivery.pending?
+      .action
+        = link_to "Validar", accept_task_delivery_path(@task, delivery), method: :patch, id: :accept_delivery_button, class: [:button, :radius]
+        = link_to "Recusar", reject_task_delivery_path(@task, delivery), method: :patch, id: :reject_delivery_button, class: [:button, :radius]
