@@ -42,6 +42,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
+    auto_html (1.6.1)
+      redcarpet (~> 2.0)
+      rinku (~> 1.5.0)
     builder (3.1.4)
     cancan (1.6.10)
     capybara (2.2.1)
@@ -160,8 +163,10 @@ GEM
     rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (2.3.0)
     responders (1.0.0)
       railties (>= 3.2, < 5)
+    rinku (1.5.1)
     rspec-collection_matchers (0.0.2)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.0.beta1)
@@ -242,6 +247,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  auto_html
   cancan
   carrierwave
   compass-rails!

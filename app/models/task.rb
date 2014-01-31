@@ -9,6 +9,14 @@ class Task < ActiveRecord::Base
 
   after_create :warn_matches
 
+  auto_html_for :description do
+    html_escape
+    image
+    youtube(:width => "100%", :height => 250)
+    link :target => "_blank", :rel => "nofollow"
+    simple_format
+  end
+
   def warn_matches
     self.matches.each do |u|
       TaskMailer.match(u, self).deliver

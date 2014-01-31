@@ -28,7 +28,7 @@
       span= @task.formatted_deadline
     .description
       h4.title Descrição da tarefa
-      p= @task.description
+      p= @task.description_html
 
     - if current_user.present?
       - if current_user.admin? and @deliveries.any?
