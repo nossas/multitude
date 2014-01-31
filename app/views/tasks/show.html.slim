@@ -50,11 +50,11 @@
             = f.submit "Entregar Tarefa", id: :delivery_submit_button, class: [:button, :radius]
         - elsif current_user.delivered?(@task)
           - if current_user.delivery_for(@task).accepted?
-            = link_to "Tarefa Concluída", '#', disabled: true, id: :task_completed_button, class: [:button, :radius]
+            = link_to "Tarefa Concluída", '#', disabled: true, id: :task_completed_button, class: [:button, :radius, :disabled]
           - elsif current_user.delivery_for(@task).rejected?
             = link_to "Reentregar Tarefa", task_deliveries_path(@task), method: :post, id: :redeliver_task_button, class: [:button, :radius]
           - elsif current_user.delivery_for(@task).pending?
-            = link_to "Aguardando Validação", '#', disabled: true, id: :waiting_for_validation_button, class: [:button, :radius]
+            = link_to "Aguardando Validação", '#', disabled: true, id: :waiting_for_validation_button, class: [:button, :radius, :disabled]
           h4.title Entregas
           = render current_user.delivery_for(@task)
 
