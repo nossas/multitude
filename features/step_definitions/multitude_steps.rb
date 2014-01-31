@@ -12,6 +12,10 @@ Given(/^there is a task$/) do
   @task = Task.make!
 end
 
+Given(/^there is a delivery for this task awaiting approval$/) do
+  @delivery = Delivery.make! task: @task, delivered_at: Time.now
+end
+
 Given(/^there is an user with the "(.*?)" skill$/) do |arg1|
   @user = User.make! skills: ["programacao_de_softwares_e_aplicativos_ou_web"]
 end
@@ -39,3 +43,8 @@ end
 Then(/^an email should be sent to the creator of the task$/) do
   ActionMailer::Base.deliveries.select{|d| d.to.include?(@task.user.email)}.should_not be_empty
 end
+
+Then(/^an email should be sent to the creator of the delivery$/) do
+  ActionMailer::Base.deliveries.select{|d| d.to.include?(@delivery.user.email)}.should_not be_empty
+end
+
