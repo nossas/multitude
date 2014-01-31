@@ -56,7 +56,7 @@ body.tasks.show
     margin-top: -20px
     margin-bottom: 2em
     +grid-column(12)
-    .remaining, .wait_for_validation
+    .remaining, .wait_for_validation, .accepted, .rejected
       background: $yellow
       color: white
       text-align: center
@@ -64,6 +64,8 @@ body.tasks.show
       +border-radius(0 0 3px 3px)
     .wait_for_validation
       background: #b0d27b
+    .accepted
+    .rejected
 
   .main, .sidebar
     h2, h4

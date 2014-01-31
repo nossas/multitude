@@ -4,7 +4,12 @@
       - if !current_user.delivered?(@task)
         .remaining Falta #{distance_of_time_in_words_to_now @task.deadline} para a entrega desta tarefa.
       - elsif current_user.delivered?(@task)
-        .wait_for_validation Obrigado por seu tempo e talento: sua entrega será validada em breve!
+        - if current_user.delivery_for(@task).accepted?
+          .accepted Obrigado, a tarefa está concluída! Confira suas conquistas em sua página de perfil.
+        - elsif current_user.delivery_for(@task).rejected?
+          .rejected A tarefa precisa de correções: veja seu email para entender o que houve, obrigado!
+        - else
+          .wait_for_validation Obrigado por seu tempo e talento: sua entrega será validada em breve!
 
 .row
   .main
@@ -44,6 +49,12 @@
               = f.file_field :file
             = f.submit "Entregar Tarefa", id: :delivery_submit_button, class: [:button, :radius]
         - elsif current_user.delivered?(@task)
+          - if current_user.delivery_for(@task).accepted?
+            = link_to "Tarefa Concluída", task_deliveries_path(@task), method: :post, id: :task_completed_button, class: [:button, :radius]
+          - elsif current_user.delivery_for(@task).rejected?
+            = link_to "Reentregar Tarefa", task_deliveries_path(@task), method: :post, id: :redeliver_task_button, class: [:button, :radius]
+          - elsif current_user.delivery_for(@task).pending?
+            = link_to "Aguardando Validação", task_deliveries_path(@task), method: :post, id: :waiting_for_validation_button, class: [:button, :radius]
           h4.title Entregas
           = render current_user.delivery_for(@task)
 

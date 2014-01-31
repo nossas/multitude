@@ -2,7 +2,6 @@
   .user_avatar_url.left= image_tag delivery.user.avatar_url
   .delivery_content
     .user_name_and_delivered_at
-      = delivery.status
       strong.by= delivery.user.name
       |  | 
       span.delivered_at= l delivery.delivered_at, format: :short 

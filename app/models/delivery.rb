@@ -21,4 +21,12 @@ class Delivery < ActiveRecord::Base
   def pending?
     status == :pending
   end
+
+  def accepted?
+    status == :accepted
+  end
+
+  def rejected?
+    status == :rejected
+  end
 end

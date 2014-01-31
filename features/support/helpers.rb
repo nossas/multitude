@@ -6,7 +6,6 @@ def to_button string
   return "apply_for_a_task_button" if string == "the apply for a task button"
   return "delivery_submit_button" if string == "the delivery submit button"
   return "accept_delivery_button" if string == "the accept delivery button"
-  return "reject_delivery_button" if string == "the reject delivery button"
   raise "I don't know '#{string}'"
 end
 
@@ -55,6 +54,12 @@ def to_element string
   return ".delivery.pending" if string == "the pending delivery"
   return ".delivery_text_field.error" if string == "the delivery text error message"
   return ".wait_for_validation" if string == "the wait for validation warn"
+  return ".task_warn .rejected" if string == "the task rejected warn"
+  return ".task_warn .accepted" if string == "the task completed warn"
+  return "#task_completed_button" if string == "the task completed button"
+  return "#reject_delivery_button" if string == "the reject delivery button"
+  return "#redeliver_task_button" if string == "the redeliver task button"
+  return "#waiting_for_validation_button" if string == "the waiting for validation button"
   raise "I don't know '#{string}'"
 end
 

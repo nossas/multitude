@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def delivery_for task
-    Delivery.where("user_id = ? AND task_id = ?", self.id, task.id).first
+    Delivery.where("user_id = ? AND task_id = ?", self.id, task.id).order(:delivered_at).last
   end
 
   def delivered? task
