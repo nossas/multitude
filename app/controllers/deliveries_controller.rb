@@ -11,21 +11,21 @@ class DeliveriesController < InheritedResources::Base
   end
 
   def deliver
-    resource.delivered_at = Time.now
+    resource.deliver
     update! do |success, failure|
       success.html { redirect_to task_path(@task) }
     end
   end
 
   def accept
-    resource.accepted_at = Time.now
+    resource.accept
     update! do |success, failure|
       success.html { redirect_to task_path(@task) }
     end
   end
 
   def reject
-    resource.rejected_at = Time.now
+    resource.reject
     update! do |success, failure|
       success.html { redirect_to task_path(@task) }
     end
