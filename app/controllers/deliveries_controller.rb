@@ -18,17 +18,13 @@ class DeliveriesController < InheritedResources::Base
   end
 
   def accept
-    resource.accepted_at = Time.now
-    update! do |success, failure|
-      success.html { redirect_to task_path(@task) }
-    end
+    resource.accept!
+    redirect_to task_path(@task)
   end
 
   def reject
-    resource.rejected_at = Time.now
-    update! do |success, failure|
-      success.html { redirect_to task_path(@task) }
-    end
+    resource.reject!
+    redirect_to task_path(@task)
   end
 
   def permitted_params

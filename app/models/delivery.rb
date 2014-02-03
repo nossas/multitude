@@ -29,4 +29,14 @@ class Delivery < ActiveRecord::Base
   def rejected?
     status == :rejected
   end
+
+  def accept!
+    self.update_attribute :accepted_at, Time.now
+    DeliveryMailer.accepted(self).deliver
+  end
+
+  def reject!
+    self.update_attribute :rejected_at, Time.now
+    DeliveryMailer.rejected(self).deliver
+  end
 end
