@@ -11,10 +11,8 @@ class DeliveriesController < InheritedResources::Base
   end
 
   def deliver
-    resource.delivered_at = Time.now
-    update! do |success, failure|
-      success.html { redirect_to task_path(@task) }
-    end
+    resource.deliver! file: params[:delivery][:file], text: params[:delivery][:text]
+    redirect_to task_path(@task)
   end
 
   def accept

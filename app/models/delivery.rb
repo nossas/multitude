@@ -6,8 +6,6 @@ class Delivery < ActiveRecord::Base
 
   mount_uploader :file, DeliveryUploader
 
-  after_save { DeliveryMailer.new_delivery(self).deliver if self.text.present? }
-
   def status
     if self.accepted_at
       :accepted
@@ -28,6 +26,11 @@ class Delivery < ActiveRecord::Base
 
   def rejected?
     status == :rejected
+  end
+
+  def deliver! options
+    self.update_attributes delivered_at: Time.now, file: options[:file], text: options[:text]
+    DeliveryMailer.new_delivery(self).deliver
   end
 
   def accept!

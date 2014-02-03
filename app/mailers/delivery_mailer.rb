@@ -18,4 +18,5 @@ class DeliveryMailer < ActionMailer::Base
     @delivery = delivery
     mail(to: delivery.user.email, subject: "Sua entrega foi rejeitada")
   end
+
 end
