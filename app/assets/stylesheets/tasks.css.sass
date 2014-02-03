@@ -164,10 +164,12 @@ body.tasks.show
       height: 100px
 
   .delivery
+    border-bottom: solid 1px $border-gray
     padding-bottom: 1em
+    margin-bottom: 1em
     font-size: .8em
     color: #666
-    .content
+    .wrapper
       display: inline-block
       .user_avatar_url
         img
@@ -177,11 +179,17 @@ body.tasks.show
         padding-left: 35px
         .user_name_and_delivered_at
           line-height: 25px
+        .file
+          padding-top: .5em
     .action
       display: inline-block
+      padding-top: 1em
+      float: right
       a
-        margin-left: 1em
         padding: .3em 1em
+        margin-left: 1em
+        font-size: 1.2em
+        width: 90px
         &.accept
           background: #8DC73D
         &.reject

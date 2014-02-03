@@ -40,7 +40,8 @@ class Task < ActiveRecord::Base
   end
 
   def deliveries_missing
-    self.max_deliveries - self.deliveries.where("delivered_at IS NULL OR accepted_at IS NOT NULL").count
+    missing = self.max_deliveries - self.deliveries.where("delivered_at IS NULL OR accepted_at IS NOT NULL").count
+    missing > 0 ? missing : 0
   end
 
   def full?
