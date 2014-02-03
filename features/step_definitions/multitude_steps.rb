@@ -55,3 +55,8 @@ end
 Then(/^an email should be sent to the creator of the delivery$/) do
   ActionMailer::Base.deliveries.select{|d| d.to.include?(@delivery.user.email)}.should_not be_empty
 end
+
+Given(/^there is a full task$/) do
+  @task = Task.make! max_deliveries: 1
+  Delivery.make! task: @task
+end

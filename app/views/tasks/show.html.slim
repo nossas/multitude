@@ -35,7 +35,7 @@
         h4.title Entregas
         = render @deliveries
       - else
-        - if !current_user.applied?(@task) && !@task.expired?
+        - if !current_user.applied?(@task) && !@task.expired? && !@task.full?
           = link_to "Assumir Tarefa", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
         - elsif current_user.applied?(@task) && !current_user.delivered?(@task)
           h4.title Entregar tarefa

@@ -42,4 +42,8 @@ class Task < ActiveRecord::Base
   def deliveries_missing
     self.max_deliveries - self.deliveries.where("delivered_at IS NULL OR accepted_at IS NOT NULL").count
   end
+
+  def full?
+    self.max_deliveries.present? ? self.max_deliveries <= self.deliveries.select(:user_id).map{|x| x.user_id}.uniq.size : false
+  end
 end
