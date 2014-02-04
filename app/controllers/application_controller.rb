@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def check_precreate
     puts "In check_precreate session[:task_id] is #{session[:task_id]}"
     if session[:task_id]
-      redirect_to create_from_session_task_task_subscriptions_path(task_id: session.delete(:task_id))
+      redirect_to create_from_session_task_task_subscriptions_path(task_id: session[:task_id])
     end
   end
 end
