@@ -257,3 +257,6 @@ pt-BR:
       zero: Todas as vagas para esta tarefa foram preenchidas
       one: Esta tarefa ainda pode ser realizada por 1 voluntário
       other: Esta tarefa ainda pode ser realizada por %{count} voluntários
+    deliver:
+      zero: Entregar Tarefa
+      other: Reentregar Tarefa

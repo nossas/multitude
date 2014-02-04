@@ -2,13 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user && user.admin?
-      can :manage, :all
+    if user
+      if user.admin?
+        can :manage, :all
+      end
+
+      can :read, Delivery
+      can :create, Delivery
+      can :create, TaskSubscription
     end
 
-    can :create, TaskSubscription
-    can :create, Delivery
-    can :deliver, Delivery
-    can :read, :all
+    can :read, Task
   end
 end

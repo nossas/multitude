@@ -49,4 +49,4 @@ Feature: validate a task
     When I go to "this task page"
     Then I should see "the rejected delivery"
     And I should see "the task rejected warn"
-    And I should see "the redeliver task button"
+    And I should see "the deliver task button"

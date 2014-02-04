@@ -33,4 +33,12 @@ class User < ActiveRecord::Base
   def pending_delivery_for? task
     Delivery.joins(:task_subscription).where("task_subscriptions.user_id = ? AND task_subscriptions.task_id = ? AND deliveries.accepted_at IS NULL AND deliveries.rejected_at IS NULL", self.id, task.id).any?
   end
+
+  def ready_to_deliver? task
+    self.subscribed?(task) && !self.accepted_delivery_for?(task) && !self.pending_delivery_for?(task)
+  end
+
+  def ready_to_subscribe? task
+    !self.subscribed?(task) && !task.expired? && !task.full?
+  end
 end
