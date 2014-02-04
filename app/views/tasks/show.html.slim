@@ -30,7 +30,7 @@
       h4.title Descrição da tarefa
       p= @task.description_html
 
-    - if can?(:create, TaskSubscription) && current_user.ready_to_subscribe?(@task)
+    - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
       = link_to "Assumir Tarefa", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
 
     - if can?(:create, Delivery) && current_user.ready_to_deliver?(@task)

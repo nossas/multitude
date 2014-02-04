@@ -37,8 +37,4 @@ class User < ActiveRecord::Base
   def ready_to_deliver? task
     self.subscribed?(task) && !self.accepted_delivery_for?(task) && !self.pending_delivery_for?(task)
   end
-
-  def ready_to_subscribe? task
-    !self.subscribed?(task) && !task.expired? && !task.full?
-  end
 end

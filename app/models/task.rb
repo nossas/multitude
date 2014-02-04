@@ -48,4 +48,8 @@ class Task < ActiveRecord::Base
   def full?
     self.max_deliveries.present? ? self.max_deliveries <= self.task_subscriptions.count : false
   end
+
+  def subscribable?
+    !self.expired? && !self.full?
+  end
 end

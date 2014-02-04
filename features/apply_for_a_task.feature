@@ -22,3 +22,8 @@ Feature: apply for a task
     And there is a full task
     When I'm in "this task page"
     Then I should not see "the apply for a task button"
+
+  Scenario: when I'm not logged in
+    Given there is a task
+    When I'm in "this task page"
+    Then I should see "the apply for a task button"
