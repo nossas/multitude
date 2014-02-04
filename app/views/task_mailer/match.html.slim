@@ -1,0 +1,15 @@
+p #{@user.name},
+
+p Acabei de criar uma nova tarefa que é perfeita pra você! Dá uma olhada:
+
+p #{link_to @task.title, task_url(@task)}, da Mobilização #{@task.mobilization.short_title}.
+
+p A participação voluntária é fundamental para construirmos juntos uma cidade melhor. Com um pouco do seu tempo e do seu talento, você faz a diferença!
+
+p #{link_to "Clique aqui", task_url(@task)} e veja mais detalhes dessa tarefa.
+
+p Um grande abraço,
+
+p #{@user.name} e toda equipe da Rede Meu Rio.
+
+p Multitude: compartilhando recursos da Rede Meu Rio por uma cidade melhor e ainda mais nossa!
