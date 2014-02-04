@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  establish_connection (Rails.env.production? or Rails.env.staging?) ? ENV["ACCOUNTS_DATABASE"] : "accounts_#{Rails.env}"
-
   def avatar_url
     if self.avatar
       "https://#{ENV['ACCOUNTS_BUCKET']}.s3.amazonaws.com/uploads/user/avatar/#{self.id}/square_#{self.avatar}"
