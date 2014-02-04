@@ -4,7 +4,7 @@ Feature: deliver a task
   Scenario: when I submit a valid form
     Given I'm logged in
     And there is a task
-    And I applied for this task
+    And I subscribed for this task
     And I'm in "this task page"
     And I fill in "the delivery text field" with "It's done!"
     And I attach "the delivery file" in "the delivery file field"
@@ -18,7 +18,7 @@ Feature: deliver a task
   Scenario: when I submit an invalid form
     Given I'm logged in
     And there is a task
-    And I applied for this task
+    And I subscribed for this task
     And I'm in "this task page"
     When I press "the delivery submit button"
     Then I should see "the delivery text error message"

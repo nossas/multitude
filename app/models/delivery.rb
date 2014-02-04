@@ -1,10 +1,12 @@
 class Delivery < ActiveRecord::Base
-  validates :task_id, :user_id, presence: true
-
-  belongs_to :user
-  belongs_to :task
+  validates :task_subscription_id, presence: true
+  belongs_to :task_subscription
+  has_one :user, through: :task_subscription
+  has_one :task, through: :task_subscription
 
   mount_uploader :file, DeliveryUploader
+
+  after_create { DeliveryMailer.delay.new_delivery(self) }
 
   def status
     if self.accepted_at
@@ -26,11 +28,6 @@ class Delivery < ActiveRecord::Base
 
   def rejected?
     status == :rejected
-  end
-
-  def deliver! options
-    self.update_attributes delivered_at: Time.now, file: options[:file], text: options[:text]
-    DeliveryMailer.delay.new_delivery(self)
   end
 
   def accept!

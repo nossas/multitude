@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   validates :title, :points, :task_type_id, :description, presence: true
   validates :max_deliveries, :numericality => { :greater_than => 0 }, allow_nil: true
 
-  has_many :deliveries
+  has_many :deliveries, through: :task_subscriptions
   has_many :task_subscriptions
   belongs_to :task_type
   belongs_to :mobilization, primary_key: :hashtag, foreign_key: :hashtag
@@ -41,11 +41,11 @@ class Task < ActiveRecord::Base
   end
 
   def deliveries_missing
-    missing = self.max_deliveries - self.deliveries.where("delivered_at IS NULL OR accepted_at IS NOT NULL").count
+    missing = self.max_deliveries - self.task_subscriptions.count
     missing > 0 ? missing : 0
   end
 
   def full?
-    self.max_deliveries.present? ? self.max_deliveries <= self.deliveries.select(:user_id).map{|x| x.user_id}.uniq.size : false
+    self.max_deliveries.present? ? self.max_deliveries <= self.task_subscriptions.count : false
   end
 end

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :task_subscriptions
+  has_many :deliveries, through: :task_subscriptions
 
   def avatar_url
     if self.avatar
@@ -13,20 +14,23 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def delivery_for task
-    Delivery.where("user_id = ? AND task_id = ?", self.id, task.id).order(:delivered_at).last
-  end
-
-  def delivered? task
-    delivery = self.delivery_for(task)
-    delivery and delivery.delivered_at.present?
-  end
-
   def subscribed? task
     self.task_subscriptions.where(task_id: task.id).any?
   end
 
   def task_subscription_for task
     self.task_subscriptions.find_by_task_id task.id
+  end
+
+  def delivered? task
+    Delivery.joins(:task_subscription).where("task_subscriptions.user_id = ? AND task_subscriptions.task_id = ?", self.id, task.id).any?
+  end
+
+  def accepted_delivery_for? task
+    Delivery.joins(:task_subscription).where("task_subscriptions.user_id = ? AND task_subscriptions.task_id = ? AND deliveries.accepted_at IS NOT NULL", self.id, task.id).any?
+  end
+
+  def pending_delivery_for? task
+    Delivery.joins(:task_subscription).where("task_subscriptions.user_id = ? AND task_subscriptions.task_id = ? AND deliveries.accepted_at IS NULL AND deliveries.rejected_at IS NULL", self.id, task.id).any?
   end
 end

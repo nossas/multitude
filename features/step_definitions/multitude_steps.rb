@@ -12,16 +12,12 @@ Given(/^there is a task$/) do
   @task = Task.make!
 end
 
-Given(/^there is a delivery for this task awaiting approval$/) do
-  @delivery = Delivery.make! task: @task, delivered_at: Time.now, accepted_at: nil, rejected_at: nil
-end
-
 Given(/^my delivery is accepted$/) do
-  @delivery.update_attributes delivered_at: Time.now, accepted_at: Time.now
+  @delivery.update_attributes accepted_at: Time.now
 end
 
 Given(/^my delivery is rejected$/) do
-  @delivery.update_attributes delivered_at: Time.now, rejected_at: Time.now
+  @delivery.update_attributes rejected_at: Time.now
 end
 
 Given(/^there is an user with the "(.*?)" skill$/) do |arg1|
@@ -44,8 +40,8 @@ Given(/^there is a mobilization called "(.*?)"$/) do |arg1|
   @mobilization = Mobilization.make! short_title: arg1
 end
 
-Given(/^I applied for this task$/) do
-  @delivery = Delivery.make! task: @task, user: @current_user
+Given(/^I subscribed for this task$/) do
+  @task_subscription = TaskSubscription.make! task: @task, user: @current_user
 end
 
 Then(/^an email should be sent to the creator of the task$/) do
@@ -58,5 +54,15 @@ end
 
 Given(/^there is a full task$/) do
   @task = Task.make! max_deliveries: 1
-  Delivery.make! task: @task
+  TaskSubscription.make! task: @task
+end
+
+Given(/^somebody contributed for this task$/) do
+  @task_subscription = TaskSubscription.make! task: @task
+  @delivery = Delivery.make! task_subscription: @task_subscription
+end
+
+Given(/^I contributed for this task$/) do
+  @task_subscription = TaskSubscription.make! task: @task
+  @delivery = Delivery.make! task_subscription: @task_subscription, user: @current_user
 end

@@ -1,10 +1,10 @@
 class DeliveriesController < InheritedResources::Base
   load_and_authorize_resource
   belongs_to :task
+  belongs_to :task_subscription
 
   def create
-    resource.user_id = current_user.id
-    resource.task_id = @task.id
+    resource.task_subscription_id = @task_subscription.id
     create! do |success, failure|
       success.html { redirect_to task_path(@task) }
     end
