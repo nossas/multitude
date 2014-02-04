@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204124449) do
+ActiveRecord::Schema.define(version: 20140204142819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgres_fdw"
 
   create_table "categories", force: true do |t|
     t.string "name"
@@ -71,7 +70,7 @@ ActiveRecord::Schema.define(version: 20140204124449) do
     t.text     "description",      null: false
     t.integer  "task_type_id",     null: false
     t.string   "skills",                        array: true
-    t.date     "deadline"
+    t.datetime "deadline"
     t.integer  "points",           null: false
     t.string   "hashtag"
     t.integer  "max_deliveries"
@@ -86,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140204124449) do
     t.string  "last_name",               null: false
     t.string  "avatar"
     t.string  "skills",     default: [],              array: true
+    t.boolean "admin"
   end
 
 end
