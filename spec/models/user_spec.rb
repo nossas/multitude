@@ -1,29 +1,24 @@
 require 'spec_helper'
 
 describe User do
-  describe "#applied?" do
-    let(:task) { Task.make! }
+  it { should have_many :task_subscriptions }
+
+  describe "#subscribed?" do
     subject { User.make! }
+    let(:task) { Task.make! }
 
-    context "when the user didn't applied for any task" do
+    context "when the user didn't subscribed to the task" do
       it "should be false" do
-        subject.applied?(task).should == false
+        subject.subscribed?(task).should be == false
       end
     end
 
-    context "when the user applied for the task" do
-      before { Delivery.make! user: subject, task: task }
+    context "when the user subscribed to a task" do
+      before { TaskSubscription.make! user: subject, task: task }
+
       it "should be true" do
-        subject.applied?(task).should == true
+        subject.subscribed?(task).should be == true
       end
     end
-
-    context "when the user applied for another task" do
-      before { Delivery.make! user: subject }
-      it "should be false" do
-        subject.applied?(task).should == false
-      end
-    end
-
   end
 end

@@ -36,3 +36,8 @@ Mobilization.blueprint do
   hashtag { "MyHashtag" }
   short_title { "My Mobilization Short Title" }
 end
+
+TaskSubscription.blueprint do
+  user { User.make! }
+  task { Task.make! }
+end

@@ -3,6 +3,7 @@ class Task < ActiveRecord::Base
   validates :max_deliveries, :numericality => { :greater_than => 0 }, allow_nil: true
 
   has_many :deliveries
+  has_many :task_subscriptions
   belongs_to :task_type
   belongs_to :mobilization, primary_key: :hashtag, foreign_key: :hashtag
   belongs_to :user

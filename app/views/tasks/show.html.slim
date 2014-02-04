@@ -1,4 +1,4 @@
-- if current_user && current_user.applied?(@task)
+- if current_user && current_user.subscribed?(@task)
   .row
     .task_warn
       - if !current_user.delivered?(@task)
@@ -35,11 +35,11 @@
         h4.title Entregas
         = render @deliveries
       - else
-        - if !current_user.applied?(@task) && !@task.expired? && !@task.full?
-          = link_to "Assumir Tarefa", task_deliveries_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
-        - elsif current_user.applied?(@task) && !current_user.delivered?(@task)
+        - if !current_user.subscribed?(@task) && !@task.expired? && !@task.full?
+          = link_to "Assumir Tarefa", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
+        - elsif current_user.subscribed?(@task) && !current_user.delivered?(@task)
           h4.title Entregar tarefa
-          = form_for current_user.delivery_for(@task), url: deliver_task_delivery_path(@task, current_user.delivery_for(@task)), html: {"data-abide" => true, method: :patch}  do |f|
+          = form_for [@task, current_user.task_subscription_for(@task), Delivery.new], html: {"data-abide" => true}  do |f|
             .delivery_text_field
               = f.label :text
               = f.text_area :text, required: true
