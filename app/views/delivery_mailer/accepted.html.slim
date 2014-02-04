@@ -1,3 +1,11 @@
-p A sua entrega para a tarefa #{@delivery.task.title} foi aceita!
+p Olá #{@user.name},
 
-p #{link_to "Clique aqui", task_url(@delivery.task)} para ver a tarefa.
+p Acabei de ver a sua entrega da tarefa #{@task.title}. Gostei muito e quero te parabenizar por ter dedicado seu tempo e talento pela mobilização #{@mobilization.short_title}. Com essa validação, seu tempo e talento dedicados já foram inseridos em seu perfil da Rede Meu Rio. Depois vai lá conferir (;
+
+p E antes de me despedir, uma dica: compartilhe com seus amigos a notícia de sua participação nessa mobilização #{link_to "clicando aqui", "http://www.facebook.com/sharer/sharer.php?u=#{task_url(@task)}"}.
+
+p Um grande abraço e até a próxima tarefa!
+
+p #{@task_owner.name} e toda a equipe da Rede Meu Rio
+
+p Multitude: compartilhando recursos da Rede Meu Rio por uma cidade melhor e ainda mais nossa!

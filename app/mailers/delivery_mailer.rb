@@ -9,8 +9,14 @@ class DeliveryMailer < ActionMailer::Base
 
   def accepted delivery
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"accepted\"] }"
-    @delivery = delivery
-    mail(to: delivery.user.email, subject: "Sua entrega foi aceita")
+
+    @delivery     = delivery
+    @user         = @delivery.user
+    @task         = @delivery.task
+    @task_owner   = @task.user
+    @mobilization = @task.mobilization
+
+    mail(to: "#{@user.name} <#{@user.email}>", subject: "Parabéns! Sua tarefa foi validada!", from: "#{@task_owner.name} <#{@task_owner.email}>")
   end
 
   def rejected delivery

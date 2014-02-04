@@ -30,16 +30,16 @@ class Delivery < ActiveRecord::Base
 
   def deliver! options
     self.update_attributes delivered_at: Time.now, file: options[:file], text: options[:text]
-    DeliveryMailer.new_delivery(self).deliver
+    DeliveryMailer.delay.new_delivery(self)
   end
 
   def accept!
     self.update_attribute :accepted_at, Time.now
-    DeliveryMailer.accepted(self).deliver
+    DeliveryMailer.delay.accepted(self)
   end
 
   def reject!
     self.update_attribute :rejected_at, Time.now
-    DeliveryMailer.rejected(self).deliver
+    DeliveryMailer.delay.rejected(self)
   end
 end
