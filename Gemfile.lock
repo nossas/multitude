@@ -84,6 +84,11 @@ GEM
       rails (>= 3.0.0)
     daemons (1.1.9)
     database_cleaner (1.0.0.RC1)
+    delayed_job (4.0.0)
+      activesupport (>= 3.0, < 4.1)
+    delayed_job_active_record (4.0.0)
+      activerecord (>= 3.0, < 4.1)
+      delayed_job (>= 3.0, < 4.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -253,6 +258,7 @@ DEPENDENCIES
   compass-rails!
   cucumber-rails
   database_cleaner (= 1.0.0.RC1)
+  delayed_job_active_record
   fog
   foundation-rails
   i18n!

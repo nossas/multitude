@@ -68,4 +68,5 @@ gem 'shoulda-matchers'
 gem 'carrierwave'
 gem 'thin'
 gem 'fog'
-gem "auto_html"
+gem 'auto_html'
+gem 'delayed_job_active_record'
