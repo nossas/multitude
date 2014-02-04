@@ -43,7 +43,7 @@
         .delivery_file_field
           = f.label :file
           = f.file_field :file
-        = f.submit t("deliver", count: current_user.task_subscription_for(@task).deliveries.count), id: :deliver_submit_button, class: [:button, :radius]
+        = f.submit t("count.deliver", count: current_user.task_subscription_for(@task).deliveries.count), id: :deliver_submit_button, class: [:button, :radius]
     
     - if current_user.present? && current_user.pending_delivery_for?(@task)
       = link_to "Aguardando Validação", '#', disabled: true, id: :waiting_for_validation_button, class: [:button, :radius, :disabled]
