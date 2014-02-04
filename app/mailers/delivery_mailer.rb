@@ -1,5 +1,6 @@
 class DeliveryMailer < ActionMailer::Base
   default from: "Meu Rio <contato@meurio.org.br>"
+  layout "layouts/mailer"
   
   def new_delivery delivery
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"new_delivery\"] }"
