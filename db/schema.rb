@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20140204155133) do
     t.string  "last_name",               null: false
     t.string  "avatar"
     t.string  "skills",     default: [],              array: true
+    t.boolean "admin"
   end
 
 end
