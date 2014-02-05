@@ -10,6 +10,8 @@ class Task < ActiveRecord::Base
 
   after_create :warn_matches
 
+  scope :expiring, -> { where("deadline <= ? AND deadline >= ?", Time.now + 24.hours, Time.now) }
+
   auto_html_for :description do
     html_escape
     image
