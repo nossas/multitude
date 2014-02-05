@@ -4,6 +4,7 @@
     .delivery_content
       .user_name_and_delivered_at
         strong.by= delivery.user.name
+        span= " (#{delivery.user.email})"
         |  | 
         span.delivered_at= l delivery.created_at, format: :short 
       - if delivery.text.present?
