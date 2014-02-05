@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20140204155133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgres_fdw"
 
   create_table "categories", force: true do |t|
     t.string "name"
@@ -78,7 +77,7 @@ ActiveRecord::Schema.define(version: 20140204155133) do
     t.text     "description",      null: false
     t.integer  "task_type_id",     null: false
     t.string   "skills",                        array: true
-    t.date     "deadline"
+    t.datetime "deadline"
     t.integer  "points",           null: false
     t.string   "hashtag"
     t.integer  "max_deliveries"
@@ -86,14 +85,15 @@ ActiveRecord::Schema.define(version: 20140204155133) do
     t.text     "description_html"
   end
 
-  create_table "users", id: false, force: true do |t|
-    t.integer "id",                      null: false
-    t.string  "email",      default: "", null: false
-    t.string  "first_name",              null: false
-    t.string  "last_name",               null: false
-    t.string  "avatar"
-    t.string  "skills",     default: [],              array: true
-    t.boolean "admin"
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "avatar"
+    t.string   "skills",     array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
 end

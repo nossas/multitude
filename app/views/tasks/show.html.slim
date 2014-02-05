@@ -2,7 +2,7 @@
   .row
     .task_warn
       - if !current_user.delivered?(@task)
-        .remaining Falta #{distance_of_time_in_words_to_now @task.deadline} para a entrega desta tarefa.
+        .remaining Esta tarefa precisa ser entregue até #{@task.deadline.strftime("%d/%m/%y %H:%M")}.
       - elsif current_user.delivered?(@task)
         - if current_user.pending_delivery_for?(@task)
           .wait_for_validation Obrigado por seu tempo e talento: sua entrega será validada em breve!

@@ -6,7 +6,14 @@ class CreateUsers < ActiveRecord::Migration
         "SERVER meurio_accounts "\
         "OPTIONS (table_name 'users');"
     else
-      execute "CREATE TABLE users(id integer NOT NULL, email character varying(255) DEFAULT ''::character varying NOT NULL, first_name character varying(255) NOT NULL, last_name character varying(255) NOT NULL, avatar character varying(255), skills character varying(255)[] DEFAULT '{}'::character varying[])"
+      create_table :users do |t|
+        t.string :email
+        t.string :first_name
+        t.string :last_name
+        t.string :avatar
+        t.string :skills, array: true
+        t.timestamps
+      end
     end
   end
 
