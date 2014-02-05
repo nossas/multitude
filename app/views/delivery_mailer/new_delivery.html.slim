@@ -1,3 +1,13 @@
 p A tarefa #{@delivery.task.title} recebeu uma entrega de #{@delivery.user.name}.
 
+p Olá equipe da Rede Meu Rio!
+
+p Acabo de entregar uma tarefa para a validação de vocês. É esta: #{link_to @delivery.task.title, task_url(@delivery.task)}, da mobilização #{@delivery.task.mobilization.short_title}.
+
+p Peço que avaliem o resultado dessa tarefa. Se ela estiver de acordo com as expectativas de vocês, por favor apertem Validar Tarefa no Multitude. Do contrário, se houver necessidade de refação, por favor apertem Recursar Tarefa no Multitude e respondam essa mensagem com informações sobre o que preciso refazer.
+
+p Abraços!
+
+p #{@delivery.user.name}
+
 p #{link_to "Clique aqui", task_url(@delivery.task)} para avaliar a entrega.
