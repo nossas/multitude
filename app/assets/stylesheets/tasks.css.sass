@@ -185,12 +185,22 @@ body.tasks.show
       display: inline-block
       padding-top: 1em
       float: right
-      a
+      a, span
         padding: .3em 1em
         margin-left: 1em
         font-size: 1.2em
         width: 90px
         &.accept
           background: #8DC73D
+        &.accepted
+          background: $light-green
+          border: 1px solid green
+          color: green
+          margin-bottom: .5em
         &.reject
-          background: $category-red
+          background: $failure-red
+        &.rejected
+          background: $light-red
+          border: 1px solid $failure-red
+          color: $failure-red
+          margin-bottom: .5em

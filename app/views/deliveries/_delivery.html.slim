@@ -4,13 +4,18 @@
     .delivery_content
       .user_name_and_delivered_at
         strong.by= delivery.user.name
+        span= " (#{delivery.user.email})"
         |  | 
         span.delivered_at= l delivery.created_at, format: :short 
       - if delivery.text.present?
         .text= delivery.text
       - if delivery.file.present?
         .file= link_to "Baixar arquivo", delivery.file.url, download: delivery.file.identifier.to_s
-  - if current_user.admin? and delivery.pending?
-    .action
-      = link_to "Validar", accept_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :accept_delivery_button, class: [:button, :radius, :accept]
-      = link_to "Recusar", reject_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :reject_delivery_button, class: [:button, :radius, :reject]
+  .action
+    - if current_user.admin? and delivery.pending?
+        = link_to "Validar", accept_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :accept_delivery_button, class: [:button, :radius, :accept]
+        = link_to "Recusar", reject_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :reject_delivery_button, class: [:button, :radius, :reject]
+    - elsif delivery.accepted?
+      span.button.radius.accepted Aceita
+    - elsif delivery.rejected?
+      span.button.radius.rejected Recusada
