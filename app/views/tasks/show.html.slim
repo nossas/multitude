@@ -2,7 +2,7 @@
   .row
     .task_warn
       - if !current_user.delivered?(@task)
-        .remaining Esta tarefa precisa ser entregue até #{@task.deadline.strftime("%d/%m/%y %H:%M")}.
+        .remaining Esta tarefa precisa ser entregue até #{@task.deadline.strftime("%d/%m/%Y %H:%M")}
       - elsif current_user.delivered?(@task)
         - if current_user.pending_delivery_for?(@task)
           .wait_for_validation Obrigado por seu tempo e talento: sua entrega será validada em breve!
