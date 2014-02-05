@@ -259,4 +259,5 @@ pt-BR:
       other: Esta tarefa ainda pode ser realizada por %{count} voluntários
     deliver:
       zero: Entregar Tarefa
+      one: Reentregar Tarefa
       other: Reentregar Tarefa
