@@ -66,3 +66,7 @@ Given(/^I contributed for this task$/) do
   @task_subscription = TaskSubscription.make! task: @task
   @delivery = Delivery.make! task_subscription: @task_subscription, user: @current_user
 end
+
+Then(/^I should receive an email$/) do
+  ActionMailer::Base.deliveries.select{|d| d.to.include?(@current_user.email)}.should_not be_empty
+end

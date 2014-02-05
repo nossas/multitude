@@ -24,6 +24,8 @@ class Task < ActiveRecord::Base
     self.matches.each do |u|
       TaskMailer.match(u, self).deliver
     end
+
+    TaskMailer.no_match(self).deliver if self.matches.empty?
   end
 
   def matches

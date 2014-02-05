@@ -34,7 +34,7 @@ Feature: create a task
     And I check "the task programming skill field"
     When I press "the new task submit button"
     Then I should be in "the created task page"
-    And no email should be sent
+    And I should receive an email
 
   Scenario: when I'm not logged in
     When I'm in "the homepage"

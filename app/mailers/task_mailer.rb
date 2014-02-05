@@ -11,4 +11,10 @@ class TaskMailer < ActionMailer::Base
 
     mail(to: "#{user.name} <#{user.email}>", subject: "O Multitude tem uma nova tarefa perfeita pra você", from: "#{task.user.name} <#{task.user.email}>")
   end
+
+  def no_match task
+    headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"no_match\"] }"
+    @task_owner   = task.user
+    mail(to: "#{@task_owner.name} <#{@task_owner.email}>", subject: "Você criou uma tarefa pra ninguém!")
+  end
 end
