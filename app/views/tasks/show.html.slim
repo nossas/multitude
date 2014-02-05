@@ -67,7 +67,7 @@
         .text Voluntários
         br
         .number
-          strong= @task.deliveries.count
+          strong= @task.task_subscriptions.count
     .skills
       h4.title Talentos associados
       - if @task.skills.present?
