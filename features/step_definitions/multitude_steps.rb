@@ -70,3 +70,7 @@ end
 Then(/^I should receive an email$/) do
   ActionMailer::Base.deliveries.select{|d| d.to.include?(@current_user.email)}.should_not be_empty
 end
+
+Then(/^the email 'I applied for your task' should be sent to the task owner$/) do
+  ActionMailer::Base.deliveries.select{|d| d.to.include?(@task.user.email) && d.subject == "Acabo de assumir a tarefa que você criou!"}.should_not be_empty
+end

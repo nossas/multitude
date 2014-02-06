@@ -8,6 +8,8 @@ Feature: apply for a task
     When I click in "the apply for a task button"
     Then I should see "the remaining warn for this task"
     And I should not see "the apply for a task button"
+    And I should receive an email
+    And the email 'I applied for your task' should be sent to the task owner
 
   @ssi
   Scenario: when the task is expired
