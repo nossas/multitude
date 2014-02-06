@@ -6,7 +6,7 @@ class Delivery < ActiveRecord::Base
 
   mount_uploader :file, DeliveryUploader
 
-  after_create { DeliveryMailer.delay.new_delivery(self) }
+  after_create { MultitudeMailer.delay.new_delivery(self) }
 
   def status
     if self.accepted_at
@@ -32,11 +32,11 @@ class Delivery < ActiveRecord::Base
 
   def accept!
     self.update_attribute :accepted_at, Time.now
-    DeliveryMailer.delay.accepted(self)
+    MultitudeMailer.delay.accepted(self)
   end
 
   def reject!
     self.update_attribute :rejected_at, Time.now
-    DeliveryMailer.delay.rejected(self)
+    MultitudeMailer.delay.rejected(self)
   end
 end

@@ -23,10 +23,10 @@ class Task < ActiveRecord::Base
 
   def warn_matches
     self.matches.each do |u|
-      TaskMailer.match(u, self).deliver
+      MultitudeMailer.match(u, self).deliver
     end
 
-    TaskMailer.no_match(self).deliver if self.matches.empty?
+    MultitudeMailer.no_match(self).deliver if self.matches.empty?
   end
 
   def matches
