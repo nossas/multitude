@@ -1,0 +1,11 @@
+p #{@user.name}
+
+p Em 24 horas vence o prazo final para a realização desta tarefa: #{link_to @task.title, task_url(@task)}, da mobilização #{@mobilization.short_title}. Para entregá-la, #{link_to "clique aqui", task_url(@task)}.
+
+p Caso ainda tenha qualquer dúvida sobre a tarefa, por favor não deixe de me contatar por telefone: #{@user.phone}.
+
+p A participação voluntária é fundamental para construirmos juntos uma cidade melhor. Com um pouco do seu tempo e do seu talento, você faz a diferença!
+
+p Grande abraço e até breve!
+
+p #{@user.name} e toda a equipe da Rede Meu Rio

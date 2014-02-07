@@ -10,6 +10,9 @@ class Task < ActiveRecord::Base
 
   after_create :warn_matches
 
+  scope :expiring,  -> { where("deadline <= ? AND deadline >= ?", Time.now + 24.hours, Time.now) }
+  scope :expired,   -> { where("deadline < ?", Time.now) }
+
   auto_html_for :description do
     html_escape
     image
@@ -20,8 +23,10 @@ class Task < ActiveRecord::Base
 
   def warn_matches
     self.matches.each do |u|
-      TaskMailer.match(u, self).deliver
+      MultitudeMailer.match(u, self).deliver
     end
+
+    MultitudeMailer.no_match(self).deliver if self.matches.empty?
   end
 
   def matches

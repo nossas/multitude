@@ -6,4 +6,9 @@ class TaskSubscription < ActiveRecord::Base
 
   validates :user_id, :task_id, presence: true
   validates :task_id, uniqueness: { scope: :user_id }
+
+  scope :undelivered, -> { joins('LEFT OUTER JOIN deliveries ON deliveries.task_subscription_id = task_subscriptions.id').where("deliveries.id IS NULL") }
+
+  after_create { MultitudeMailer.delay.thanks_for_apply_to_this_task(self) }
+  after_create { MultitudeMailer.delay.i_applied_for_your_task(self) }
 end

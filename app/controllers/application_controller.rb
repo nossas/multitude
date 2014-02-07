@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  # This is how you can sign in on the development environment
+  before_filter { session[:ssi_user_id] = params[:sign_in] if Rails.env.development? && params[:sign_in] }
+
   rescue_from CanCan::AccessDenied do |exception|
     if controller_name == "task_subscriptions" && action_name == "create"
       redirect_to "#{ENV["ACCOUNTS_HOST"]}?redirect_url=#{create_from_session_task_task_subscriptions_url(task_id: @task.id)}"

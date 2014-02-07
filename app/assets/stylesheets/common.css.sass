@@ -31,3 +31,21 @@ footer
 
 .notice
   +grid-column(12)
+
+.file-input-wrapper
+  overflow: hidden
+  position: relative
+  display: inline-block
+  input[type="file"]
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    right: 0
+    opacity: 0
+    cursor: pointer
+  button
+    background: none
+    color: #748894
+    border: dotted 2px #748894
+    +border-radius(5px)
