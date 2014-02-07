@@ -70,6 +70,8 @@ body.tasks.show
   .disabled
     background: #C2C8D4
 
+
+
   .main, .sidebar
     h2, h4
       color: $title-gray
@@ -117,6 +119,23 @@ body.tasks.show
           margin-right: .25em
           position: relative
           top: 2px
+    .share
+      position: relative
+      float: right
+      top: 16px
+      .twitter-share-button
+        color: $tw_blue
+        &:before
+          top: 1px
+      .facebook-share-button
+        color: $fb_blue
+        margin-right: 2em
+      .twitter-share-button, .facebook-share-button
+        font-family: inherit
+        font-weight: 700
+        &:before
+          margin-right: .25em
+          position: relative
     .deadline, .description, .skills
       margin-top: 2em
       p

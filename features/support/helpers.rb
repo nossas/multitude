@@ -63,6 +63,10 @@ def to_element string
   return "#waiting_for_validation_button" if string == "the waiting for validation button"
   return ".available_tasks .empty" if string == "a warning saying that there is no available task"
   return ".task .title" if string == "this task"
+  return ".main .share .facebook-share-button" if string == "the Facebook share button of this task"
+  return ".main .share .twitter-share-button" if string == "the Twitter share button of this task"
+  
+
   raise "I don't know '#{string}'"
 end
 
