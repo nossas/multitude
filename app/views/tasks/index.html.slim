@@ -1,1 +1,7 @@
 = link_to "Criar Tarefa", new_task_path, id: :new_task_button if can? :create, Task
+
+.available_tasks
+  - if @tasks.empty?
+    .empty Não existem tarefas disponíveis :(
+  - else
+    = render @tasks
