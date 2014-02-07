@@ -28,7 +28,7 @@
     .deadline
       .share
         = link_to "Compartilhar", "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", class: ["facebook-share-button", "icon-facebook2"]
-        = link_to "Twittar", "https://twitter.com/share?url=#{request.url}&text=#{'No Multitude você usa seu tempo e talento por uma cidade melhor! ' + request.url}", class: ["twitter-share-button", "icon-twitter2"]
+        = link_to "Twittar", "https://twitter.com/share?url=#{request.url}&text=#{'No Multitude você usa seu tempo e talento por uma cidade melhor!'}", class: ["twitter-share-button", "icon-twitter2"]
       h4.title Entregar tarefa pronta até
       span= @task.formatted_deadline
     .description
