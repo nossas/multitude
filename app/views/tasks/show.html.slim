@@ -24,7 +24,7 @@
       .category
         span= @task.category
       .max_deliveries.icon-user
-        span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: @task.deliveries_missing)
+        span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person.long', count: @task.deliveries_missing)
     .deadline
       .share
         = link_to "Compartilhar", "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", class: ["facebook-share-button", "icon-facebook2"]
