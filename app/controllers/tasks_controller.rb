@@ -11,6 +11,10 @@ class TasksController < InheritedResources::Base
     end
   end
 
+  def index
+    @tasks = Task.available
+  end
+
   def create
     resource.user = current_user
     create!

@@ -61,6 +61,8 @@ def to_element string
   return "#reject_delivery_button" if string == "the reject delivery button"
   return "#deliver_submit_button" if string == "the deliver task button"
   return "#waiting_for_validation_button" if string == "the waiting for validation button"
+  return ".available_tasks .empty" if string == "a warning saying that there is no available task"
+  return ".task .title" if string == "this task"
   raise "I don't know '#{string}'"
 end
 
@@ -71,6 +73,7 @@ def to_text string
   return @task.reload.description if string == 'this task description'
   return @task.reload.points if string == 'this task points'
   return @task.reload.formatted_deadline if string == 'this task deadline'
+  return @task.reload.title if string == 'this task'
   return @current_user.name if string == 'my delivery'
 end
 

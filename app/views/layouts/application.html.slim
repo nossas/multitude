@@ -16,6 +16,9 @@ html
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
+    - content_for :application_menu
+      = link_to "Criar Tarefa", new_task_path, id: :new_task_button if can? :create, Task
+    
     = meurio_header_for :multitude
 
     - if flash[:notice]
