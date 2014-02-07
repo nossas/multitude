@@ -254,9 +254,14 @@ pt-BR:
     experiencia_de_relacionamento_com_comunidades_e_favela: "Relacionamento com favela"
   count:
     person:
-      zero: Todas as vagas para esta tarefa foram preenchidas
-      one: Esta tarefa ainda pode ser realizada por 1 voluntário
-      other: Esta tarefa ainda pode ser realizada por %{count} voluntários
+      long:
+        zero: Todas as vagas para esta tarefa foram preenchidas
+        one: Esta tarefa ainda pode ser realizada por 1 voluntário
+        other: Esta tarefa ainda pode ser realizada por %{count} voluntários
+      short:
+        zero: "Esgotado"
+        one: "+1 pessoa"
+        other: "+%{count} pessoas"
     deliver:
       zero: Entregar Tarefa
       one: Reentregar Tarefa

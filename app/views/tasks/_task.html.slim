@@ -1,7 +1,8 @@
-.task
+.task class="category-#{task.task_type.category.id}"
   .task-wrapper
-    span class="label radius category-#{task.task_type.category.id}" = task.category
-    .title= task.title
-    .mobilization= task.mobilization.short_title
+    span class="label radius" = task.category
+    .title_and_mobilization
+      .title= link_to truncate(task.title, length: 60), task
+      .mobilization = task.mobilization.short_title
     .max_deliveries.icon-user
-      span= task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: task.deliveries_missing)
+      span= task.max_deliveries.nil? ? 'Ilimitado' : t('count.person.short', count: task.deliveries_missing)
