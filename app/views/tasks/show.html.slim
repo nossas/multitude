@@ -1,5 +1,4 @@
 = content_for(:title) { @task.title }
-= content_for(:image) { 'http://multitude.meurio.org.br/assets/mrui_multitude-5a2cfcd02b8706e1a0f076db03edf329.png' }
 
 - if current_user && current_user.subscribed?(@task)
   .row
