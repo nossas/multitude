@@ -1,3 +1,6 @@
+= content_for(:title) { @task.title }
+= content_for(:image) { 'http://multitude.meurio.org.br/assets/mrui_multitude-5a2cfcd02b8706e1a0f076db03edf329.png' }
+
 - if current_user && current_user.subscribed?(@task)
   .row
     .task_warn
@@ -24,6 +27,9 @@
       .max_deliveries.icon-user
         span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: @task.deliveries_missing)
     .deadline
+      .share
+        = link_to "Compartilhar", "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", class: ["facebook-share-button", "icon-facebook2"]
+        = link_to "Twittar", "https://twitter.com/share?url=#{request.url}&text=#{'No Multitude você usa seu tempo e talento por uma cidade melhor! ' + request.url}", class: ["twitter-share-button", "icon-twitter2"]
       h4.title Entregar tarefa pronta até
       span= @task.formatted_deadline
     .description
