@@ -37,6 +37,5 @@ class Delivery < ActiveRecord::Base
 
   def reject!
     self.update_attribute :rejected_at, Time.now
-    MultitudeMailer.delay.rejected(self)
   end
 end

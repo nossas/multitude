@@ -68,12 +68,6 @@ class MultitudeMailer < ActionMailer::Base
     mail(to: "#{@user.name} <#{@user.email}>", subject: "Parabéns! Sua tarefa foi validada!", from: "#{@task_owner.name} <#{@task_owner.email}>")
   end
 
-  def rejected delivery
-    headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"rejected\"] }"
-    @delivery = delivery
-    mail(to: delivery.user.email, subject: "Sua entrega foi rejeitada")
-  end
-
   def expiring_alert task_subscription
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"expiring_alert\"] }"
     @user         = task_subscription.user
