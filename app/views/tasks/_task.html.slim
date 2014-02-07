@@ -1,3 +1,7 @@
 .task
-  .title= task.title
-  .deadline= task.deadline
+  .task-wrapper
+    span class="label radius category-#{task.task_type.category.id}" = task.category
+    .title= task.title
+    .mobilization= task.mobilization.short_title
+    .max_deliveries.icon-user
+      span= task.max_deliveries.nil? ? 'Ilimitado' : t('count.person', count: task.deliveries_missing)
