@@ -51,30 +51,56 @@ footer
     +border-radius(5px)
 
 .task
+  span.label
+    text-transform: uppercase
+    padding: 0 1em
+    line-height: 2em
+    margin-bottom: 1em
+    background: gray
+  &.category-1
+    span.label
+      background: #01a14b
+    .mobilization
+      color: #01a14b
+  &.category-2
+    span.label
+      background: #ed1b24
+    .mobilization
+      color: #ed1b24
+  &.category-3
+    span.label
+      background: #8cc540
+    .mobilization
+      color: #8cc540
+  &.category-4
+    span.label
+      background: #105990
+    .mobilization
+      color: #105990
   .task-wrapper
     background: white
     padding: 1em
     border: 1px solid #e6e7e9
     +border-radius(3px)
-    span.label
-      text-transform: uppercase
-      padding: 0 1em
-      line-height: 2em
+    .title_and_mobilization
+      height: 64px
       margin-bottom: 1em
-    span.category-1
-      background: #01a14b
-    span.category-2
-      background: #ed1b24
-    span.category-3
-      background: #8cc540
-    span.category-4
-      background: #105990
+      color: #333
+      a
+        color: #333
     .title
       font-weight: bold
+      margin-bottom: .2em
     .mobilization
       font-size: .8em
       margin-bottom: 1em
     .max_deliveries
+      &:before
+        position: relative
+        top: 2px
+        color: lightgray
       span
         margin-left: .5em
         font-size: .8em
+        color: gray
+        font-family: "Proxima Nova Soft"
