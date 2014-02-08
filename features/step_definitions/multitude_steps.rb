@@ -74,3 +74,11 @@ end
 Then(/^the email 'I applied for your task' should be sent to the task owner$/) do
   ActionMailer::Base.deliveries.select{|d| d.to.include?(@task.user.email) && d.subject == "Acabo de assumir a tarefa que você criou!"}.should_not be_empty
 end
+
+Given(/^there are (\d+) a tasks$/) do |arg1|
+  arg1.to_i.times { Task.make! }
+end
+
+Then(/^I should see (\d+) tasks$/) do |arg1|
+  page.should have_css(".task", count: arg1)
+end

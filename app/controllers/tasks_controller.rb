@@ -12,7 +12,12 @@ class TasksController < InheritedResources::Base
   end
 
   def index
-    @tasks = Task.available
+    if request.xhr?
+      render Task.available.page(params[:page]).per(8)
+    else
+      @tasks_count = Task.available.count
+      render :index
+    end
   end
 
   def create

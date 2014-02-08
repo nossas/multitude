@@ -1,5 +1,8 @@
-.row.available_tasks
-  - if @tasks.empty?
+.row#available_tasks {data-count=@tasks_count}
+  - if Task.available.empty?
     .empty Não existem tarefas disponíveis :(
-  - else
-    = render @tasks
+
+.row
+  .load_more_available_tasks
+    a#load_more_available_tasks_button.button.radius.secondary href="" Veja mais tarefas
+    .loader= image_tag "ajax-loader.gif"

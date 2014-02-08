@@ -7,6 +7,7 @@ def to_button string
   return "deliver_submit_button" if string == "the delivery submit button"
   return "accept_delivery_button" if string == "the accept delivery button"
   return "reject_delivery_button" if string == "the reject delivery button"
+  return "load_more_available_tasks_button" if string == "the load more available tasks button"
   raise "I don't know '#{string}'"
 end
 
@@ -61,12 +62,11 @@ def to_element string
   return "#reject_delivery_button" if string == "the reject delivery button"
   return "#deliver_submit_button" if string == "the deliver task button"
   return "#waiting_for_validation_button" if string == "the waiting for validation button"
-  return ".available_tasks .empty" if string == "a warning saying that there is no available task"
+  return "#available_tasks .empty" if string == "a warning saying that there is no available task"
   return ".task .title" if string == "this task"
   return ".main .share .facebook-share-button" if string == "the Facebook share button of this task"
   return ".main .share .twitter-share-button" if string == "the Twitter share button of this task"
-  
-
+  return "#load_more_available_tasks_button" if string == "the load more available tasks button"
   raise "I don't know '#{string}'"
 end
 
