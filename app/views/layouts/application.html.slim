@@ -5,9 +5,10 @@ html
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = meurio_ui_assets
     = csrf_meta_tags
+    = favicon_link_tag 'favicon.png'
     meta name="fb:app_id"       content="#{ENV["FB_APP_ID"]}"
     meta name="og:title"        content="#{content_for?(:title)       ? yield(:title) : 'Multitude'}"
-    meta name="og:image"        content="#{content_for?(:image)       ? yield(:image) : 'http://i.imgur.com/D7Ivv0a.jpg'}"
+    meta name="og:image"        content="#{content_for?(:image)       ? yield(:image) : image_url('multitude-facebook.jpg')}"
     meta name="og:type"         content="#{content_for?(:type)        ? yield(:type)  : 'website'}"
     meta name="og:description"  content="#{content_for?(:description) ? yield(:description)  : 'No Multitude você trabalha por grandes mobilizações. Use seu tempo e talento por uma cidade melhor!'}"
     meta name="og:url"          content=request.url
