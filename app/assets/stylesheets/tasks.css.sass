@@ -98,13 +98,28 @@ body.tasks.show
     .category
       display: inline-block
       span
-        background: $category-red
+        background: gray
         text-transform: uppercase
         +border-radius(3px)
         padding: .5em 1em
         font-weight: 800
         font-size: .7em
         color: white
+      &.mobilizacao-em-rede
+        span
+          background: $mobilizacao-em-rede
+      &.mobilizacao-na-rua
+        span
+          background: $mobilizacao-na-rua
+      &.audio-e-visual
+        span
+          background: $audio-e-visual
+      &.producao-e-consultoria
+        span
+          background: $producao-e-consultoria
+      &.tecnologia
+        span
+          background: $tecnologia
     .max_deliveries
       display: inline-block
       margin-left: 1em

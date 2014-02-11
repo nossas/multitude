@@ -23,16 +23,6 @@ $(function(){
   $(document).foundation();
   $('.datetimepicker').datetimepicker({format:'d/m/Y H:i', lang: 'pt'});
 
-  // Tasks#new
-  $('#task_task_type_id').change(function(){
-    var taskTypes = $("#task_points").data("task-types");
-    for(var i = 0; i < taskTypes.length; i++){
-      if(taskTypes[i]["id"] == $('#task_task_type_id').val()){
-        $("#task_points").val(taskTypes[i]["points"]);
-      }
-    }
-  });
-
   $(".twitter-share-button").click(function(event){
     window.open(
       $(event.target).attr("href"), 

@@ -21,8 +21,8 @@
     .mobilization
       span= @task.mobilization.try(:short_title)
     .details
-      .category
-        span= @task.category
+      .category class=@task.category.slug
+        span= @task.category.name
       .max_deliveries.icon-user
         span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person.long', count: @task.deliveries_missing)
     .deadline

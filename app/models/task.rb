@@ -7,6 +7,7 @@ class Task < ActiveRecord::Base
   belongs_to :task_type
   belongs_to :mobilization, primary_key: :hashtag, foreign_key: :hashtag
   belongs_to :user
+  has_one :category, through: :task_type
 
   after_create :warn_matches
 
@@ -32,10 +33,6 @@ class Task < ActiveRecord::Base
 
   def matches
     User.where("skills && ARRAY[?]::character varying[]", self.skills)
-  end
-
-  def category
-    self.task_type.category.try(:name) if self.task_type
   end
 
   def formatted_deadline
