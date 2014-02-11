@@ -21,3 +21,4 @@ public/uploads/
 config/initializers/01_envvars.rb
 *.swo
 nohup.out
+.DS_Store
