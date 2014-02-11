@@ -1,3 +1,24 @@
+.about
+  .row
+    .step
+      .image= image_tag "icon-1.png"
+      span
+        | Conte-nos quem é você e
+        br
+        | o que te interessa
+    .step
+      .image= image_tag "icon-2.png"
+      span
+        | Receba oportunidades de ação
+        br
+        | de acordo com o seu perfil
+    .step
+      .image= image_tag "icon-3.png"
+      span
+        | Ganhe reconhecimento pelo tempo
+        br
+        | e talento dedicados à cidade
+
 .row#available_tasks {data-count=@tasks_count}
   - if Task.available.empty?
     .empty Não existem tarefas disponíveis :(
