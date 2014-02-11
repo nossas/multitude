@@ -2,6 +2,7 @@ Feature: create a task
 
   Background:
     Given there is a mobilization called "A Ponte do Rio Que Cai"
+    And there is a task type called "Organizar coletiva de imprensa"
 
   @ssi
   Scenario: when there is a match between the task and an user

@@ -82,3 +82,7 @@ end
 Then(/^I should see (\d+) tasks$/) do |arg1|
   page.should have_css(".task", count: arg1)
 end
+
+Given(/^there is a task type called "(.*?)"$/) do |arg1|
+  TaskType.make! name: arg1
+end
