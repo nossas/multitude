@@ -31,7 +31,7 @@ class MultitudeMailer < ActionMailer::Base
     @task_owner_phone = task_owner.phone
 
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"i_applied_for_your_task\"] }"
-    mail(to: "#{task_owner.name} <#{task_owner.email}>", subject: "Acabo de assumir a tarefa que você criou!")
+    mail(to: "#{task_owner.name} <#{task_owner.email}>", subject: "Acabo de assumir a tarefa que você criou!", from: "#{user.name} <#{user.email}>")
   end
 
   def match user, task
@@ -53,7 +53,7 @@ class MultitudeMailer < ActionMailer::Base
   def new_delivery delivery
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"new_delivery\"] }"
     @delivery = delivery
-    mail(to: delivery.task.user.email, subject: "Sua tarefa recebeu uma entrega")
+    mail(to: delivery.task.user.email, subject: "Sua tarefa recebeu uma entrega", from: "#{delivery.user.name} <#{delivery.user.email}>")
   end
 
   def accepted delivery
