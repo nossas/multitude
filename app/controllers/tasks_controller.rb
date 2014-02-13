@@ -13,7 +13,7 @@ class TasksController < InheritedResources::Base
 
   def index
     if request.xhr?
-      render Task.available.page(params[:page]).per(8)
+      render Task.available.order(:deadline).page(params[:page]).per(8)
     else
       @tasks_count = Task.available.count
       render :index
