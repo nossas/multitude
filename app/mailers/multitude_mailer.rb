@@ -15,7 +15,7 @@ class MultitudeMailer < ActionMailer::Base
     @task_owner_name = task_owner.name
 
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"thanks_for_apply_to_this_task\"] }"
-    mail(to: "#{user.name} <#{user.email}>", subject: "Obrigado por assumir esta tarefa no Multitude")
+    mail(to: "#{user.name} <#{user.email}>", subject: "Obrigado por assumir esta tarefa no Multitude", from: "#{task_owner.name} <#{task_owner.email}>")
   end
 
   def i_applied_for_your_task task_subscription
@@ -31,7 +31,7 @@ class MultitudeMailer < ActionMailer::Base
     @task_owner_phone = task_owner.phone
 
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"i_applied_for_your_task\"] }"
-    mail(to: "#{task_owner.name} <#{task_owner.email}>", subject: "Acabo de assumir a tarefa que você criou!")
+    mail(to: "#{task_owner.name} <#{task_owner.email}>", subject: "Acabo de assumir a tarefa que você criou!", from: "#{user.name} <#{user.email}>")
   end
 
   def we_have_a_new_task_for_you user, task
@@ -43,7 +43,7 @@ class MultitudeMailer < ActionMailer::Base
     @task_title               = task.title
     @mobilization_short_title = task.mobilization.short_title
 
-    mail(to: "#{user.name} <#{user.email}>", subject: "O Multitude tem uma nova tarefa perfeita pra você", from: "#{task.user.name} <#{task.user.email}>")
+    mail(to: "#{user.name} <#{user.email}>", subject: "O Multitude tem uma nova tarefa perfeita pra você", from: "#{@sender.name} <#{@sender.email}>")
   end
 
   def no_match task
@@ -55,7 +55,7 @@ class MultitudeMailer < ActionMailer::Base
   def new_delivery delivery
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"new_delivery\"] }"
     @delivery = delivery
-    mail(to: delivery.task.user.email, subject: "Sua tarefa recebeu uma entrega")
+    mail(to: delivery.task.user.email, subject: "Sua tarefa recebeu uma entrega", from: "#{delivery.user.name} <#{delivery.user.email}>")
   end
 
   def accepted delivery
