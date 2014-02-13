@@ -32,7 +32,7 @@ class Delivery < ActiveRecord::Base
 
   def accept!
     self.update_attribute :accepted_at, Time.now
-    MultitudeMailer.delay.accepted(self)
+    MultitudeMailer.delay.your_delivery_was_accepted(self)
   end
 
   def reject!
