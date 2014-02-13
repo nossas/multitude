@@ -25,7 +25,7 @@ class Task < ActiveRecord::Base
 
   def warn_matches
     self.matches.each do |u|
-      MultitudeMailer.match(u, self).deliver
+      MultitudeMailer.we_have_a_new_task_for_you(u, self).deliver
     end
 
     MultitudeMailer.no_match(self).deliver if self.matches.empty?

@@ -1,13 +1,13 @@
-p #{@user.name},
+p #{@user_name},
 
 p Acabei de criar uma nova tarefa que é perfeita pra você! Dá uma olhada:
 
-p #{link_to @task.title, task_url(@task)}, da Mobilização #{@mobilization.short_title}.
+p #{link_to @task_title, @task_url}, da Mobilização #{@mobilization_short_title}.
 
 p A participação voluntária é fundamental para construirmos juntos uma cidade melhor. Com um pouco do seu tempo e do seu talento, você faz a diferença!
 
-p #{link_to "Clique aqui", task_url(@task)} e veja mais detalhes dessa tarefa.
+p #{link_to "Clique aqui", @task_url} e veja mais detalhes dessa tarefa.
 
 p Um grande abraço,
 
-p #{@user.name} e toda equipe da Rede Meu Rio.
+p #{@task_owner_name} e toda equipe da Rede Meu Rio.

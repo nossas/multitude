@@ -34,12 +34,14 @@ class MultitudeMailer < ActionMailer::Base
     mail(to: "#{task_owner.name} <#{task_owner.email}>", subject: "Acabo de assumir a tarefa que você criou!")
   end
 
-  def match user, task
+  def we_have_a_new_task_for_you user, task
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"match\"] }"
 
-    @user         = user
-    @task         = task
-    @mobilization = task.mobilization
+    @user_name                = user.name
+    @task_owner_name          = task.user.name
+    @task_url                 = task_url(task)
+    @task_title               = task.title
+    @mobilization_short_title = task.mobilization.short_title
 
     mail(to: "#{user.name} <#{user.email}>", subject: "O Multitude tem uma nova tarefa perfeita pra você", from: "#{task.user.name} <#{task.user.email}>")
   end
