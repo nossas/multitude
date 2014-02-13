@@ -15,7 +15,7 @@ class MultitudeMailer < ActionMailer::Base
     @task_owner_name = task_owner.name
 
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"thanks_for_apply_to_this_task\"] }"
-    mail(to: "#{user.name} <#{user.email}>", subject: "Obrigado por assumir esta tarefa no Multitude")
+    mail(to: "#{user.name} <#{user.email}>", subject: "Obrigado por assumir esta tarefa no Multitude", from: "#{task_owner.name} <#{task_owner.email}>")
   end
 
   def i_applied_for_your_task task_subscription
@@ -39,9 +39,10 @@ class MultitudeMailer < ActionMailer::Base
 
     @user         = user
     @task         = task
+    @sender       = task.user
     @mobilization = task.mobilization
 
-    mail(to: "#{user.name} <#{user.email}>", subject: "O Multitude tem uma nova tarefa perfeita pra você", from: "#{task.user.name} <#{task.user.email}>")
+    mail(to: "#{user.name} <#{user.email}>", subject: "O Multitude tem uma nova tarefa perfeita pra você", from: "#{@sender.name} <#{@sender.email}>")
   end
 
   def no_match task
