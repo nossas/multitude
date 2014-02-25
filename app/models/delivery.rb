@@ -33,7 +33,7 @@ class Delivery < ActiveRecord::Base
   def accept!
     self.update_attribute :accepted_at, Time.now
     MultitudeMailer.delay.your_delivery_was_accepted(self)
-    sync_reward
+    self.delay.sync_reward
   end
 
   def reject!
@@ -42,8 +42,9 @@ class Delivery < ActiveRecord::Base
 
   def sync_reward
     url = "#{ENV["MEURIO_HOST"]}/rewards.json"
-    reward = {task_type_id: self.task.task_type.id, user_uid: self.user.id, points: task.points}
+    reward = { task_type_id: self.task.task_type.id, user_id: self.user.id, points: task.points, source_app: "Mutitude", source_model: "Delivery", source_id: self.id }
     body = { token: ENV["MEURIO_API_TOKEN"], reward: reward }
-    puts HTTParty.post(url, body: body)
+    response = HTTParty.post(url, body: body)
+    self.update_attribute :rewarded, true if response.code == 201
   end
 end
