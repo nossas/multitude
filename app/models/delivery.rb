@@ -33,6 +33,7 @@ class Delivery < ActiveRecord::Base
   def accept!
     self.update_attribute :accepted_at, Time.now
     MultitudeMailer.delay.your_delivery_was_accepted(self)
+    HTTParty.post("#{ENV["MEURIO_HOST"]}/rewards.json", body: {token: ENV["MEURIO_API_TOKEN"], reward: {task_type_id: self.task.task_type.id, user_uid: self.user.id, points: task.points}})
   end
 
   def reject!
