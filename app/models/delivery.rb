@@ -1,5 +1,3 @@
-require 'httparty'
-
 class Delivery < ActiveRecord::Base
   validates :task_subscription_id, presence: true
   belongs_to :task_subscription

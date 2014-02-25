@@ -117,6 +117,9 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
+    httparty (0.13.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
@@ -142,6 +145,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.4)
     multi_test (0.0.3)
+    multi_xml (0.5.5)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
@@ -267,6 +271,7 @@ DEPENDENCIES
   delayed_job_active_record
   fog
   foundation-rails
+  httparty
   i18n!
   inherited_resources
   jbuilder (~> 1.2)
