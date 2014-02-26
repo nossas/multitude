@@ -1,4 +1,6 @@
 {<img src="https://travis-ci.org/meurio/multitude.png?branch=master" alt="Build Status" />}[https://travis-ci.org/meurio/multitude]
+{<img src="https://codeclimate.com/github/meurio/multitude.png" />}[https://codeclimate.com/github/meurio/multitude]
+{<img src="https://coveralls.io/repos/meurio/multitude/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/meurio/multitude]
 
 == README
 
