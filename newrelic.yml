@@ -15,7 +15,7 @@ common: &default_settings
   # You must specify the license key associated with your New Relic
   # account.  This key binds your Agent's data to your account in the
   # New Relic service.
-  license_key: '0612e01d7056ea5349353da4e25031d21fca0655'
+  license_key: ENV["NEWRELIC_KEY"]
 
   # Agent Enabled (Ruby/Rails Only)
   # Use this setting to force the agent to run or not run.
@@ -42,7 +42,7 @@ common: &default_settings
   #       - Ajax Service
   #       - All Services
   #
-  app_name: Multitude (staging)
+  app_name: Rails.env.staging? ? "Multitude (staging)" : "Multitude"
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
