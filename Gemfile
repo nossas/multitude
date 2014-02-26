@@ -48,6 +48,7 @@ group :test do
   gem 'database_cleaner', '1.0.0.RC1'
   gem 'machinist', '>= 2.0.0.beta2'
   gem 'launchy'
+  gem 'webmock'
 end
 
 group :development, :test do
