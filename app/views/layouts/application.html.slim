@@ -10,8 +10,10 @@ html
     meta name="og:title"        content="#{content_for?(:title)       ? yield(:title) : 'Multitude'}"
     meta name="og:image"        content="#{content_for?(:image)       ? yield(:image) : image_url('multitude-facebook.jpg')}"
     meta name="og:type"         content="#{content_for?(:type)        ? yield(:type)  : 'website'}"
-    meta name="og:description"  content="#{content_for?(:description) ? yield(:description)  : 'No Multitude você trabalha por grandes mobilizações. Use seu tempo e talento por uma cidade melhor!'}"
+    meta name="og:description"  content="#{content_for?(:description) ? yield(:description)  : 'O Multitude é o aplicativo da Rede Meu Rio que oferece oportunidades de ação voluntária a você, cidadão interessado em trabalhar por mobilizações que melhoram a cidade.'}"
     meta name="og:url"          content=request.url
+    meta name="keywords"        content="multitude, voluntário, participação, colaboração, cidade, carioca, tarefas, conquistas, rio de Janeiro, rio, meu rio, ong meu rio, rede, rede meu rio, movimento, movimento meu rio"
+    meta name="description"     content="#{content_for?(:description) ? yield(:description)  : 'O Multitude é o aplicativo da Rede Meu Rio que oferece oportunidades de ação voluntária a você, cidadão interessado em trabalhar por mobilizações que melhoram a cidade.'}"
     link rel='image_src' type='image/jpeg' href='http://i.imgur.com/D7Ivv0a.jpg'
   body class=[controller.controller_name, controller.action_name]
     #fb-root
