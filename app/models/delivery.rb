@@ -42,7 +42,7 @@ class Delivery < ActiveRecord::Base
 
   def sync_reward
     url = "#{ENV["MEURIO_HOST"]}/rewards.json"
-    reward = { task_type_id: self.task.task_type.id, user_id: self.user.id, points: task.points, source_app: "Mutitude", source_model: "Delivery", source_id: self.id }
+    reward = { task_type_id: self.task.task_type.id, user_id: self.user.id, points: task.points, source_app: "Multitude", source_model: "Delivery", source_id: self.id }
     body = { token: ENV["MEURIO_API_TOKEN"], reward: reward }
     response = HTTParty.post(url, body: body)
     self.update_attribute :rewarded, true if response.code == 201
