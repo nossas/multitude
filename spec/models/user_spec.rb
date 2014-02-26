@@ -55,6 +55,7 @@ describe User do
 
     context "when the user have an accepted delivery for the task" do
       before { @delivery.accept! }
+      before(:all) { stub_request(:post, "#{ENV["MEURIO_HOST"]}/rewards.json").to_return(status: 201) }
 
       it "should be true" do
         subject.accepted_delivery_for?(task).should be == true
