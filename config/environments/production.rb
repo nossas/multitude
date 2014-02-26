@@ -90,4 +90,6 @@ Multitude::Application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }  
+
+  GA.tracker = "UA-26278513-19"
 end
