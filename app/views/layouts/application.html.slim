@@ -29,7 +29,11 @@ html
 
     - content_for :application_menu
       = link_to "Criar Tarefa", new_task_path, id: :new_task_button if can? :create, Task
-    
+      - if current_user.present?
+        = link_to "Complete seu Perfil", "http://accounts.#{ENV["MEURIO_DOMAIN"]}/users/#{current_user.id}/edit?redirect_url=#{request.url}", class: :btn
+      - else
+        = link_to "Crie sua conta", "http://accounts.#{ENV["MEURIO_DOMAIN"]}?redirect_url=#{request.url}", class: :btn
+
     = meurio_header_for :multitude
 
     - if flash[:notice]
