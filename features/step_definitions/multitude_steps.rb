@@ -86,3 +86,11 @@ end
 Given(/^there is a task type called "(.*?)"$/) do |arg1|
   TaskType.make! name: arg1
 end
+
+Given(/^there is an user$/) do
+  @user = User.make!
+end
+
+Given(/^this user applyied for this task$/) do
+  TaskSubscription.make! task: @task, user: @user
+end

@@ -62,7 +62,11 @@
 
     - if can?(:read, Delivery) && @deliveries.present?
       h4.title Entregas
-      = render @deliveries 
+      = render @deliveries
+    
+    - if can?(:read, TaskSubscription)
+      h4.title Pessoas que aceitaram fazer a tarefa
+      = render @task_subscriptions
 
   .sidebar
     .first-row
