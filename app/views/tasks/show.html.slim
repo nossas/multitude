@@ -82,3 +82,9 @@
       - if @task.skills.present?
         - @task.skills.each do |skill|
           li.skill= t "skills.#{skill}"
+
+#thanks-for-applying.reveal-modal.medium{data-reveal=true}
+  h2 Obrigado por assumir essa tarefa!
+  p.lead Você receberá um email com mais detalhes e o contato do organizador da tarefa em alguns minutos.
+  p Agora, não se esqueça de #{link_to "completar seu perfil", "http://accounts.#{ENV["MEURIO_DOMAIN"]}/users/#{current_user.id}/edit"}. Conte um pouquinho mais sobre seus interesses e habilidades e receba oportunidades de tarefas impactantes que têm a ver com você e com seus temas de interesse!
+  a.close-reveal-modal &#215;

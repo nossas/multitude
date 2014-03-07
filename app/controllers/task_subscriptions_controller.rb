@@ -6,7 +6,7 @@ class TaskSubscriptionsController < InheritedResources::Base
     resource.task = @task
     resource.user = current_user
     create! do |success, failure|
-      success.html { redirect_to task_path(@task, anchor: "created") }
+      success.html { redirect_to task_path(@task, anchor: "thanks-for-applying") }
       failure.html { redirect_to task_path(@task) }
     end
   end

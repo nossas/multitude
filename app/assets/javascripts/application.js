@@ -22,6 +22,7 @@
 $(function(){
   $(document).foundation();
   $('.datetimepicker').datetimepicker({format:'d/m/Y H:i', lang: 'pt'});
+  $(window.location.hash).foundation('reveal', 'open');
 
   $(".twitter-share-button").click(function(event){
     window.open(
