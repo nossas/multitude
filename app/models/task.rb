@@ -11,9 +11,9 @@ class Task < ActiveRecord::Base
 
   after_create :warn_matches
 
-  scope :expiring,  -> { where("deadline <= ? AND deadline >= ?", Time.now + 24.hours, Time.now) }
-  scope :expired,   -> { where("deadline < ?", Time.now) }
-  scope :available, -> { where("deadline >= ? AND ((SELECT count(*) FROM task_subscriptions WHERE task_subscriptions.task_id = tasks.id) < tasks.max_deliveries OR tasks.max_deliveries IS NULL)", Time.now) }
+  scope :expiring,  -> { where("deadline <= ? AND deadline >= ?", Time.zone.now + 24.hours, Time.zone.now) }
+  scope :expired,   -> { where("deadline < ?", Time.zone.now) }
+  scope :available, -> { where("deadline >= ? AND ((SELECT count(*) FROM task_subscriptions WHERE task_subscriptions.task_id = tasks.id) < tasks.max_deliveries OR tasks.max_deliveries IS NULL)", Time.zone.now) }
 
   auto_html_for :description do
     html_escape
