@@ -8,7 +8,7 @@ html
     = favicon_link_tag 'favicon.png'
     meta name="fb:app_id"       content="#{ENV["FB_APP_ID"]}"
     meta name="og:title"        content="#{content_for?(:title)       ? yield(:title) : 'Multitude'}"
-    meta name="og:image"        content="#{content_for?(:image)       ? yield(:image) : 'http://i.imgur.com/D7Ivv0a.jpg'}"
+    meta name="og:image"        content="#{content_for?(:image)       ? yield(:image) : image_url('multitude-facebook.jpg')}"
     meta name="og:type"         content="#{content_for?(:type)        ? yield(:type)  : 'website'}"
     meta name="og:description"  content="#{content_for?(:description) ? yield(:description)  : 'O Multitude é o aplicativo da Rede Meu Rio que oferece oportunidades de ação voluntária a você, cidadão interessado em trabalhar por mobilizações que melhoram a cidade.'}"
     meta name="og:url"          content=request.url
