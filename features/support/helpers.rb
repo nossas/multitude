@@ -68,7 +68,7 @@ def to_element string
   return ".main .share .twitter-share-button" if string == "the Twitter share button of this task"
   return "#load_more_available_tasks_button" if string == "the load more available tasks button"
   return "#thanks-for-applying" if string == "the thank you for applying message"
-  return ".appliance .user_name" if string == "this user appliance"
+  return ".appliance .user-name" if string == "this user appliance"
   raise "I don't know '#{string}'"
 end
 

@@ -5,7 +5,7 @@ class TasksController < InheritedResources::Base
     if current_user.present?
       if current_user.admin?
         @deliveries = @task.deliveries
-        @task_subscriptions = @task.task_subscriptions
+        @task_subscriptions = @task.task_subscriptions.undelivered
       elsif current_user.subscribed?(@task)
         @deliveries = @task.deliveries.where(task_subscription_id: current_user.task_subscription_for(@task).id)
       end

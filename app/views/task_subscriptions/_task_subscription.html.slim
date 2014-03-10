@@ -1,5 +1,5 @@
 .appliance
-  .user_name
-    = task_subscription.user.name
-    |  - 
-    = task_subscription.user.email
+  = image_tag task_subscription.user.avatar_url
+  span.user-name= task_subscription.user.name
+  span.user-email
+    |  (#{task_subscription.user.email})

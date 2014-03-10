@@ -60,13 +60,13 @@
     - if current_user.present? && current_user.accepted_delivery_for?(@task)
       = link_to "Tarefa Concluída", '#', disabled: true, id: :task_completed_button, class: [:button, :radius, :disabled]
 
-    - if can?(:read, Delivery) && @deliveries.present?
-      h4.title Entregas
-      = render @deliveries
-    
     - if can?(:read, TaskSubscription)
-      h4.title Pessoas que aceitaram fazer a tarefa
+      h4.title Quem aceitou fazer a tarefa
       = render @task_subscriptions
+    
+    - if can?(:read, Delivery) && @deliveries.present?
+      h4.title Quem entregou a tarefa
+      = render @deliveries
 
   .sidebar
     .first-row
