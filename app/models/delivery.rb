@@ -8,6 +8,11 @@ class Delivery < ActiveRecord::Base
 
   after_create { MultitudeMailer.delay.new_delivery(self) }
 
+  auto_html_for :text do
+    link :target => "_blank", :rel => "nofollow"
+  end
+
+
   def status
     if self.accepted_at
       :accepted

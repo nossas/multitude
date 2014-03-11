@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225191410) do
+ActiveRecord::Schema.define(version: 20140311202929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140225191410) do
     t.datetime "rejected_at"
     t.integer  "task_subscription_id", null: false
     t.boolean  "rewarded"
+    t.text     "text_html"
   end
 
   create_table "mobilizations", force: true do |t|
