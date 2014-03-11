@@ -13,11 +13,11 @@ Given(/^there is a task$/) do
 end
 
 Given(/^my delivery is accepted$/) do
-  @delivery.update_attributes accepted_at: Time.now
+  @delivery.update_attributes accepted_at: Time.current
 end
 
 Given(/^my delivery is rejected$/) do
-  @delivery.update_attributes rejected_at: Time.now
+  @delivery.update_attributes rejected_at: Time.current
 end
 
 Given(/^there is an user with the "(.*?)" skill$/) do |arg1|
@@ -33,7 +33,7 @@ Then(/^no email should be sent$/) do
 end
 
 Given(/^there is an expired task$/) do
-  @task = Task.make! deadline: Time.now - 1.day
+  @task = Task.make! deadline: Time.current - 1.day
 end
 
 Given(/^there is a mobilization called "(.*?)"$/) do |arg1|

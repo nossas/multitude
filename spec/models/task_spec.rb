@@ -27,19 +27,19 @@ describe Task do
       end
     end
     context "there is an expired task" do
-      before { Task.make! deadline: Time.now - 1.hour }
+      before { Task.make! deadline: Time.current - 1.hour }
       it "should be empty" do
         Task.expiring.should be_empty
       end
     end
     context "there is a task with deadline for 2 months" do
-      before { Task.make! deadline: Time.now + 2.months }
+      before { Task.make! deadline: Time.current + 2.months }
       it "should be empty" do
         Task.expiring.should be_empty
       end
     end
     context "there is a task with deadline for 24 hours" do
-      before { Task.make! deadline: Time.now + 1.day }
+      before { Task.make! deadline: Time.current + 1.day }
       it "should not be empty" do
         Task.expiring.should_not be_empty
       end

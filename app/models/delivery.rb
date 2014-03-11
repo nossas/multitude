@@ -31,13 +31,13 @@ class Delivery < ActiveRecord::Base
   end
 
   def accept!
-    self.update_attribute :accepted_at, Time.now
+    self.update_attribute :accepted_at, Time.current
     MultitudeMailer.delay.your_delivery_was_accepted(self)
     self.delay.sync_reward
   end
 
   def reject!
-    self.update_attribute :rejected_at, Time.now
+    self.update_attribute :rejected_at, Time.current
   end
 
   def sync_reward
