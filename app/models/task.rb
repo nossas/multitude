@@ -36,7 +36,7 @@ class Task < ActiveRecord::Base
   end
 
   def formatted_deadline
-    self.deadline.strftime('Dia %d.%m.%Y, às %H:%M').in_time_zone(Time.zone) if self.deadline
+    self.deadline.in_time_zone(Time.zone).strftime('Dia %d.%m.%Y, às %H:%M') if self.deadline
   end
 
   def expired?

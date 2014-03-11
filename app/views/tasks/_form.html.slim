@@ -36,7 +36,7 @@
       = f.label :deadline do
         = t("activerecord.attributes.task.deadline")
         span.has-tip {data-tooltip=true title="Dia e hora finais para a entrega da tarefa pronta.<br />Leve em conta a necessidade de tempo extra para uma eventual refação"} ?
-      = f.text_field :deadline, class: :datetimepicker
+      = f.text_field :deadline, value: (@task.deadline.strftime('%d/%m/%Y %H:%M') if @task.deadline), class: :datetimepicker
     .hashtag_field
       = f.label :hashtag
       = f.collection_select :hashtag, Mobilization.order(:short_title).load, :hashtag, :short_title, { include_blank: "Escolha uma mobilização" }
