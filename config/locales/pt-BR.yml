@@ -219,6 +219,7 @@ pt-BR:
         skills: "Talentos associados à tarefa"
         points: "Tempo estimado para a realização da tarefa"
         hashtag: "Mobilização"
+        call_to_action: "Texto do botão de entrega"
       delivery:
         text: "Descreva a sua entrega"
         file: "Você pode enviar um arquivo se necessário"

@@ -26,6 +26,7 @@ def to_field string
   return "task_hashtag" if string == "the task hashtag field"
   return "delivery_text" if string == "the delivery text field"
   return "delivery_file" if string == "the delivery file field"
+  return "task_call_to_action" if string == "the task call to action field"
   raise "I don't know '#{string}'"
 end
 
