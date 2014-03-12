@@ -12,5 +12,9 @@ class AddServerMeurioAccounts < ActiveRecord::Migration
   end
 
   def down
+    if Rails.env.production? || Rails.env.staging?
+      execute "DROP SERVER IF EXISTS meurio_accounts CASCADE;"
+      execute "DROP USER MAPPING IF EXISTS FOR #{ENV["DB_USERNAME"]} SERVER meurio_accounts;"
+    end
   end
 end
