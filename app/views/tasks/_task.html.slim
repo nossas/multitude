@@ -1,9 +1,9 @@
-.task class=task.task_type.category.slug
+.task class=task.task_type.category.try(:slug)
   = link_to task do
     .task-wrapper
-      span class="label radius" = task.category.name
+      span class="label radius" = task.category.try(:name)
       .title_and_mobilization
         .title{title=task.title}= truncate(task.title, length: 60)
-        .mobilization = task.mobilization.short_title
+        .mobilization = task.mobilization.try(:short_title)
       .max_deliveries.icon-user
         span= task.max_deliveries.nil? ? 'Ilimitado' : t('count.person.short', count: task.deliveries_missing)
