@@ -34,6 +34,7 @@ def to_route string
   return task_path(Task.order(:id).last) if string == "the created task page"
   return root_path if string == "the homepage"
   return task_path(@task) if string == "this task page"
+  return about_path if string == "the about page"
   raise "I don't know '#{string}'"
 end
 
@@ -70,6 +71,7 @@ def to_element string
   return "#load_more_available_tasks_button" if string == "the load more available tasks button"
   return "#thanks-for-applying" if string == "the thank you for applying message"
   return ".appliance .user-name" if string == "this user appliance"
+  return ".pages.about" if string == "the about section"
   raise "I don't know '#{string}'"
 end
 

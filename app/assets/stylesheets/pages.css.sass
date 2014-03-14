@@ -1,0 +1,39 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass here: http://sass-lang.com/
+
+.pages.about
+  section
+    +grid-column(12)
+    +border-radius(3px)
+    border: dotted 2px #ccc
+    text-align: center
+    padding: 1em 3em
+    margin: 1em 0
+  h1
+    font-weight: 800
+    font-size: 1.9em
+  p
+    color: $subtitle-gray
+    line-height: 1.4em
+    font-size: 1.1em
+    &.title
+      color: $title-gray
+  .image
+    margin-bottom: 1em
+    img
+      width: 500px
+      height: 120px
+  .call-to-action
+    +grid-column(12)
+    margin: 2em 0
+    padding: 0 3em
+    text-align: center
+    font-size: 1.2em
+    p.title
+      margin-bottom: 1.5em
+    .action_button
+      a
+        font-size: 1.2em
+        font-weight: 700 !important
+        margin-bottom: 0

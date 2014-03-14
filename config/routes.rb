@@ -1,5 +1,6 @@
 Multitude::Application.routes.draw do
   root 'tasks#index'
+  get '/about', to: "pages#about", as: :about
 
   resources :tasks, only: [:index, :new, :create, :show, :edit, :update] do
     resources :task_subscriptions, only: [:create] do
