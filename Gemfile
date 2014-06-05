@@ -39,7 +39,7 @@ end
 gem 'foundation-rails'
 gem 'inherited_resources'
 gem 'slim-rails'
-gem 'meurio_ui'
+gem 'meurio_ui', github: 'meurio/meurio_ui', branch: 'minhascidades'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'rails4-hack'
 gem 'rails_12factor'
 gem 'selenium-webdriver'
