@@ -13,7 +13,7 @@ class Task < ActiveRecord::Base
 
   scope :expiring,  -> { where("deadline <= ? AND deadline >= ?", Time.zone.now + 24.hours, Time.zone.now) }
   scope :expired,   -> { where("deadline < ?", Time.zone.now) }
-  scope :available, -> { where("deadline >= ? AND ((SELECT count(*) FROM task_subscriptions WHERE task_subscriptions.task_id = tasks.id) < tasks.max_deliveries OR tasks.max_deliveries IS NULL)", Time.zone.now) }
+  scope :available, -> { where("(SELECT count(*) FROM task_subscriptions WHERE task_subscriptions.task_id = tasks.id) < tasks.max_deliveries OR tasks.max_deliveries IS NULL") }
 
   auto_html_for :description do
     html_escape
@@ -53,6 +53,6 @@ class Task < ActiveRecord::Base
   end
 
   def subscribable?
-    !self.expired? && !self.full?
+    !self.full?
   end
 end
