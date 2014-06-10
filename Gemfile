@@ -9,7 +9,7 @@ gem 'rails', '4.1.1'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -29,6 +29,8 @@ group :test do
   gem 'machinist', '>= 2.0.0.beta2'
   gem 'launchy'
   gem 'webmock'
+  gem 'minitest'
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do
@@ -40,13 +42,12 @@ gem 'foundation-rails'
 gem 'inherited_resources'
 gem 'slim-rails'
 gem 'meurio_ui', github: 'meurio/meurio_ui', branch: 'minhascidades'
-gem 'compass-rails', github: 'Compass/compass-rails', branch: 'rails4-hack'
+gem 'compass-rails'
 gem 'rails_12factor'
 gem 'selenium-webdriver'
 gem 'cancan'
 gem 'i18n', github: 'svenfuchs/i18n'
 gem 'rails-assets-modernizr'
-gem 'shoulda-matchers'
 gem 'carrierwave'
 gem 'thin'
 gem 'fog'
