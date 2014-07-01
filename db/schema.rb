@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408113058) do
+ActiveRecord::Schema.define(version: 20140701131531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(version: 20140408113058) do
   create_table "mobilizations", force: true do |t|
     t.string "hashtag"
     t.string "short_title"
+  end
+
+  create_table "organizations", force: true do |t|
   end
 
   create_table "task_subscriptions", force: true do |t|
