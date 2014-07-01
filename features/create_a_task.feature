@@ -3,6 +3,7 @@ Feature: create a task
   Background:
     Given there is a mobilization called "A Ponte do Rio Que Cai"
     And there is a task type called "Organizar coletiva de imprensa"
+    And there is an organization in "Rio de Janeiro"
 
   @ssi
   Scenario: when there is a match between the task and an user
@@ -10,6 +11,7 @@ Feature: create a task
     And there is an user with the "programming" skill
     And I click in "the new task button"
     And I fill in "the task title field" with "My new task"
+    And I select "Rio de Janeiro" from "the city field"
     And I fill in "the task description field" with "My new task description"
     And I select "Organizar coletiva de imprensa" from "the task type field"
     And I fill in "the task points field" with "20"
@@ -27,6 +29,7 @@ Feature: create a task
     Given I'm logged in as admin
     And I click in "the new task button"
     And I fill in "the task title field" with "My new task"
+    And I select "Rio de Janeiro" from "the city field"
     And I fill in "the task description field" with "My new task description"
     And I select "Organizar coletiva de imprensa" from "the task type field"
     And I fill in "the task points field" with "20"

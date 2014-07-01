@@ -27,6 +27,6 @@ class TasksController < InheritedResources::Base
   end
 
   def permitted_params
-    {:task => params.fetch(:task, {}).permit(:title, :description, :max_deliveries, :task_type_id, {:skills => []}, :deadline, :points, :hashtag, :call_to_action)}
+    {:task => params.fetch(:task, {}).permit(:title, :description, :max_deliveries, :task_type_id, {:skills => []}, :deadline, :points, :hashtag, :call_to_action, :organization_id)}
   end
 end
