@@ -25,6 +25,7 @@ Task.blueprint do
   skills { [:ciencias_politicas, :design_grafico, :direito] }
   mobilization { Mobilization.make! }
   user { User.make! }
+  organization { Organization.make! }
 end
 
 Delivery.blueprint do
@@ -39,4 +40,7 @@ end
 TaskSubscription.blueprint do
   user { User.make! }
   task { Task.make! }
+end
+
+Organization.blueprint do
 end
