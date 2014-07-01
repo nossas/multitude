@@ -6,6 +6,7 @@ describe Task do
   it { should validate_presence_of :task_type_id }
   it { should validate_presence_of :points }
   it { should validate_presence_of :description }
+  it { should validate_presence_of :organization_id }
   it { should validate_numericality_of(:max_deliveries).is_greater_than 0 }
 
   describe "#matches" do
