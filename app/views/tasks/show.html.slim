@@ -25,6 +25,8 @@
         span= @task.category.name
       .max_deliveries.icon-user
         span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person.long', count: @task.deliveries_missing)
+      .city.icon-location
+        span= @task.organization.city
     .deadline
       .share
         = link_to "Compartilhar", "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", class: ["facebook-share-button", "icon-facebook2"]
@@ -53,7 +55,7 @@
             = f.button "Adicionar Arquivo", class: "btn-file-input"
             = f.file_field :file
         = f.submit submit_delivery_button_text(current_user, @task), id: :deliver_submit_button, class: [:button, :radius]
-    
+
     - if current_user.present? && current_user.pending_delivery_for?(@task)
       = link_to "Aguardando Validação", '#', disabled: true, id: :waiting_for_validation_button, class: [:button, :radius, :disabled]
 
@@ -63,7 +65,7 @@
     - if can?(:read, TaskSubscription)
       h4.title Quem aceitou fazer a tarefa
       = render @task_subscriptions
-    
+
     - if can?(:read, Delivery) && @deliveries.present?
       h4.title Quem entregou a tarefa
       = render @deliveries
@@ -73,7 +75,7 @@
       .points
         .text Ao realizar esta tarefa, você acumula
         .number
-          strong= @task.points 
+          strong= @task.points
           ' min
         .text de serviço pela cidade
       .volunteers
