@@ -1,11 +1,11 @@
 .meurio_header
   margin-bottom: 20px
-  .meurio_logo, .user_menu
-    +grid-column(6)
   .meurio_apps
     +grid-column(3)
+  .alert
+    +grid-column(1)
   .application_menu
-    +grid-column(9)
+    +grid-column(8)
     .btn
       +border-radius(2px)
 
@@ -95,7 +95,7 @@ footer
     padding: 1em
     border: 1px solid $border-gray
     +border-radius(3px)
-    .title_and_mobilization
+    .title_mobilization_and_city
       height: 64px
       margin-bottom: 1em
       color: #333
@@ -106,8 +106,8 @@ footer
       margin-bottom: .2em
     .mobilization
       font-size: .8em
-      margin-bottom: 1em
-    .max_deliveries
+      margin-bottom: .2em
+    .max_deliveries, .city
       &:before
         position: relative
         top: 2px

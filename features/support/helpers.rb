@@ -27,6 +27,7 @@ def to_field string
   return "delivery_text" if string == "the delivery text field"
   return "delivery_file" if string == "the delivery file field"
   return "task_call_to_action" if string == "the task call to action field"
+  return "task_organization_id" if string == "the city field"
   raise "I don't know '#{string}'"
 end
 
@@ -51,7 +52,7 @@ def to_element string
   return "#edit_task_button" if string == "the edit task button"
   return ".remaining" if string == "the remaining warn for this task"
   return "#apply_for_a_task_button" if string == "the apply for a task button"
-  return "#accept_delivery_button" if string == "the accept delivery button"  
+  return "#accept_delivery_button" if string == "the accept delivery button"
   return ".delivery .by" if string == "my delivery"
   return ".delivery.accepted" if string == "the accepted delivery"
   return ".delivery.rejected" if string == "the rejected delivery"

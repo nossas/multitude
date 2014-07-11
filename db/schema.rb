@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408113058) do
+ActiveRecord::Schema.define(version: 20140703192342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(version: 20140408113058) do
     t.string "short_title"
   end
 
+  create_table "organizations", force: true do |t|
+    t.string "city"
+    t.text   "email_signature_html"
+  end
+
   create_table "task_subscriptions", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "task_id",    null: false
@@ -89,6 +94,7 @@ ActiveRecord::Schema.define(version: 20140408113058) do
     t.boolean  "delivered_expiring_alert", default: false
     t.boolean  "delivered_expired_alert",  default: false
     t.string   "call_to_action"
+    t.integer  "organization_id",                          null: false
   end
 
   create_table "users", force: true do |t|

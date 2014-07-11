@@ -218,8 +218,9 @@ pt-BR:
         deadline: "Prazo de conclusão"
         skills: "Talentos associados à tarefa"
         points: "Tempo estimado para a realização da tarefa"
-        hashtag: "Mobilização"
+        hashtag: "Tema"
         call_to_action: "Texto do botão de entrega"
+        organization_id: "Cidade"
       delivery:
         text: "Descreva a sua entrega"
         file: "Você pode enviar um arquivo se necessário"

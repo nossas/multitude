@@ -5,6 +5,10 @@
         = t("activerecord.attributes.task.title")
         span.has-tip {data-tooltip=true title="Comece com um verbo, seja curto e específico.<br />Ex. bom: Tirar foto da Gisele Bundchen em Ipanema; ex. ruim: Gisele no Rio"} ?
       = f.text_field :title, required: true
+    .organization_id_field
+      = f.label :organization_id do
+        = t("activerecord.attributes.task.organization_id")
+      = f.collection_select :organization_id, Organization.all, :id, :city, { include_blank: "Escolha uma cidade" }, required: true
   .row
     .type_id_field
       = f.label :task_type_id do
@@ -29,7 +33,7 @@
         span.has-tip {data-tooltip=true title="Escreva, nessa ordem: <br />a) uma descrição objetiva e muito específica do produto ou serviço esperado com a realização da tarefa; <br />b) o contexto, as condições e o motivo pelo qual a tarefa deve ser realizada; <br />c) fontes de informação sobre a tarefa com links; <br />d) equipamentos, materiais ou quaisquer insumos necessários para a realização da tarefa"} ?
       = f.text_area :description, required: true
   .row
-    .max_deliveries_field  
+    .max_deliveries_field
       = f.label :max_deliveries do
         = t("activerecord.attributes.task.max_deliveries")
         span.has-tip {data-tooltip=true title="Uma tarefa pode ser realizada por mais de uma pessoa: defina o número máximo desejado.<br />Deixe o campo em branco para um número ilimitado de realizadores"} ?
@@ -42,7 +46,7 @@
       = f.text_field :deadline, value: (@task.deadline.strftime('%d/%m/%Y %H:%M') if @task.deadline), class: :datetimepicker
     .hashtag_field
       = f.label :hashtag
-      = f.collection_select :hashtag, Mobilization.order(:short_title).load, :hashtag, :short_title, { include_blank: "Escolha uma mobilização" }
+      = f.collection_select :hashtag, Mobilization.order(:short_title).load, :hashtag, :short_title, { include_blank: "Escolha um tema" }
   .row
     .skills_label
       = f.label :skills do

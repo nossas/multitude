@@ -11,4 +11,15 @@ class TaskSubscription < ActiveRecord::Base
 
   after_create { MultitudeMailer.delay.thanks_for_apply_to_this_task(self) }
   after_create { MultitudeMailer.delay.i_applied_for_your_task(self) }
+  after_create { self.delay.create_membership }
+
+  def create_membership
+    begin
+      url = "#{ENV["ACCOUNTS_HOST"]}/users/#{self.user_id}/memberships.json"
+      body = { token: ENV["ACCOUNTS_API_TOKEN"], membership: { organization_id: self.task.organization_id } }
+      HTTParty.post(url, body: body.to_json, headers: { 'Content-Type' => 'application/json' })
+    rescue Exception => e
+      logger.error e.message
+    end
+  end
 end

@@ -1,6 +1,8 @@
 body.tasks.new, body.tasks.edit, body.tasks.create
   .title_field
-    +grid-column(12)
+    +grid-column(8)
+  .organization_id_field
+    +grid-column(4)
   .type_id_field
     +grid-column(4)
   .points_field
@@ -99,6 +101,7 @@ body.tasks.show
         font-size: .9em
     .category
       display: inline-block
+      margin-bottom: .5em
       span
         background: gray
         text-transform: uppercase
@@ -122,14 +125,12 @@ body.tasks.show
       &.tecnologia
         span
           background: $tecnologia
-    .max_deliveries
-      display: inline-block
-      margin-left: 1em
+    .max_deliveries, .city
       span
         color: $subtitle-gray
         font-weight: 700
         font-size: .9em
-      &.icon-user
+      &.icon-user, &.icon-location
         font-family: inherit
         &:before
           color: $subtitle-gray

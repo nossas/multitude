@@ -94,3 +94,7 @@ end
 Given(/^this user applyied for this task$/) do
   TaskSubscription.make! task: @task, user: @user
 end
+
+Given(/^there is an organization in "(.*?)"$/) do |arg1|
+  Organization.make! city: arg1
+end
