@@ -46,7 +46,7 @@
       = f.text_field :deadline, value: (@task.deadline.strftime('%d/%m/%Y %H:%M') if @task.deadline), class: :datetimepicker
     .hashtag_field
       = f.label :hashtag
-      = f.collection_select :hashtag, Mobilization.order(:short_title).load, :hashtag, :short_title, { include_blank: "Escolha uma mobilização" }
+      = f.collection_select :hashtag, Mobilization.order(:short_title).load, :hashtag, :short_title, { include_blank: "Escolha um tema" }
   .row
     .skills_label
       = f.label :skills do
