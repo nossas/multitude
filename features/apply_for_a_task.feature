@@ -18,6 +18,7 @@ Feature: apply for a task
     And there is an expired task
     When I'm in "this task page"
     Then I should not see "the apply for a task button"
+    And I should see "the task expired button"
 
   @ssi
   Scenario: when the task is full
