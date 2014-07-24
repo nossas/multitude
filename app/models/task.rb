@@ -54,6 +54,6 @@ class Task < ActiveRecord::Base
   end
 
   def subscribable?
-    !self.full?
+    !self.expired? && !self.full?
   end
 end
