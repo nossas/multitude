@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   # TODO: move this development environment login workaround to the proper gem (rack-cas for example)
   # This is how you can sign in on the development environment
-  before_filter { session[:ssi_user_id] = params[:sign_in] if Rails.env.development? && params[:sign_in] }
+  before_filter { session['cas'] = { 'user' => params[:sign_in] } if Rails.env.development? && params[:sign_in] }
 
   rescue_from CanCan::AccessDenied do |exception|
     if controller_name == "task_subscriptions" && action_name == "create"
