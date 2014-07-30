@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by_id(session[:ssi_user_id])
+    @current_user ||= User.find_by_email(session['cas']['user']) if session['cas']
   end
 end

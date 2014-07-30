@@ -4,7 +4,7 @@ describe ApplicationController do
   describe "#current_user" do
     context "when current user have a session" do
       let(:user) { User.make! }
-      before { session[:ssi_user_id] = user.id }
+      before { session['cas'] = { 'user' => user.email } }
 
       it "should return an user" do
         expect(subject.current_user).to eq(user)
