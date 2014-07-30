@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  # TODO: move this development environment login workaround to the proper gem (rack-cas for example)
   # This is how you can sign in on the development environment
   before_filter { session[:ssi_user_id] = params[:sign_in] if Rails.env.development? && params[:sign_in] }
 
