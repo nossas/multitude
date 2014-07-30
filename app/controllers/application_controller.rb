@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     if controller_name == "task_subscriptions" && action_name == "create"
-      redirect_to "#{ENV["ACCOUNTS_HOST"]}?redirect_url=#{create_from_session_task_task_subscriptions_url(task_id: @task.id)}"
+      redirect_to "#{ENV["CAS_SERVER_URL"]}?service=#{create_from_session_task_task_subscriptions_url(task_id: @task.id)}"
     else
       redirect_to root_url, :alert => exception.message
     end
