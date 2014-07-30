@@ -24,5 +24,6 @@ module Multitude
     config.sass.preferred_syntax = :sass
 
     I18n.enforce_available_locales = false
+    config.rack_cas.server_url = ENV["CAS_SERVER_URL"]
   end
 end
