@@ -37,6 +37,10 @@
       h4.title Descrição da tarefa
       p= @task.description_html
 
+    - if @task.expired? && (current_user.nil? || !current_user.subscribed?(@task))
+      = link_to "Assumir Tarefa", '#', disabled: true, id: :task_expired_button, class: [:button, :radius, :disabled]
+      .hint A data limite para realizar a tarefa expirou, portanto não é mais possível assumir essa tarefa
+
     - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
       = link_to "Assumir Tarefa", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
       - if current_user.nil?
