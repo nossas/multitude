@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140730163438) do
   create_table "organizations", force: true do |t|
     t.string "city"
     t.text   "email_signature_html"
+    t.string "multitude_mailchimp_segment_id"
   end
 
   create_table "sessions", force: true do |t|
