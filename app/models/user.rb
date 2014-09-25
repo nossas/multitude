@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :task_subscriptions
   has_many :deliveries, through: :task_subscriptions
+  has_many :memberships, inverse_of: :user
+  has_many :organizations, through: :memberships
+
 
   def avatar_url
     if self.avatar
