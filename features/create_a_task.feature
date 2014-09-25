@@ -8,7 +8,7 @@ Feature: create a task
   @ssi
   Scenario: when there is a match between the task and an user
     Given I'm logged in as admin
-    And there is an user with the "programming" skill
+    And there is an user from "Rio de Janeiro" with the "programming" skill
     And I click in "the new task button"
     And I fill in "the task title field" with "My new task"
     And I select "Rio de Janeiro" from "the city field"

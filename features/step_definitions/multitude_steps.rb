@@ -20,8 +20,8 @@ Given(/^my delivery is rejected$/) do
   @delivery.update_attributes rejected_at: Time.current
 end
 
-Given(/^there is an user with the "(.*?)" skill$/) do |arg1|
-  @user = User.make! skills: ["programacao_de_softwares_e_aplicativos_ou_web"]
+Given(/^there is an user from "(.*?)" with the "(.*?)" skill$/) do |arg1, arg2|
+  @user = User.make! skills: ["programacao_de_softwares_e_aplicativos_ou_web"], organizations: [ Organization.find_by(city: arg1) ]
 end
 
 Then(/^the user should receive an email$/) do

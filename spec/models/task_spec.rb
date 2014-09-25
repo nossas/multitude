@@ -15,8 +15,12 @@ describe Task do
     end
 
     context "when there is at least one matching user" do
-      before { subject.skills = ["a"] }
-      let(:user) { User.make! skills: ["a"] }
+      before do
+        subject.skills = ["a"]
+        subject.organization = Organization.make!
+      end
+      
+      let(:user) { User.make! skills: ["a"], organizations: [ subject.organization ] }
       its(:matches) { should include(user) }
     end
   end
