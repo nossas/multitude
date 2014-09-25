@@ -33,7 +33,9 @@ class Task < ActiveRecord::Base
   end
 
   def matches
-    User.where("skills && ARRAY[?]::character varying[]", self.skills)
+    User.joins(:organizations)
+      .where(organizations: { id: self.organization_id })
+      .where("skills && ARRAY[?]::character varying[]", self.skills)
   end
 
   def formatted_deadline
