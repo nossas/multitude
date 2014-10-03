@@ -144,7 +144,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meurio_ui (1.4.8)
+    meurio_ui (1.4.9)
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (5.4.1)
