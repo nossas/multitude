@@ -78,13 +78,13 @@ Multitude::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  default_url_options[:host] = "multitude.minhascidades.org.br"
+  default_url_options[:host] = "multitude.nossascidades.org"
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :user_name => ENV["SENDGRID_USERNAME"],
     :password => ENV["SENDGRID_PASSWORD"],
-    :domain => "multitude.minhascidades.org.br",
+    :domain => "multitude.nossascidades.org",
     :address => "smtp.sendgrid.net",
     :port => 587,
     :authentication => :plain,
