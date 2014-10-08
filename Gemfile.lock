@@ -35,6 +35,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.5)
+    appsignal (0.10.6)
+      rack
+      thread_safe
     arel (5.0.1.20140414130214)
     auto_html (1.6.1)
       redcarpet (~> 2.0)
@@ -280,6 +283,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  appsignal
   auto_html
   cancan
   carrierwave

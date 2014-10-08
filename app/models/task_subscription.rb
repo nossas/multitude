@@ -20,6 +20,7 @@ class TaskSubscription < ActiveRecord::Base
       body = { token: ENV["ACCOUNTS_API_TOKEN"], membership: { organization_id: self.task.organization_id } }
       HTTParty.post(url, body: body.to_json, headers: { 'Content-Type' => 'application/json' })
     rescue Exception => e
+      Appsignal.add_exception e
       logger.error e.message
     end
   end
@@ -36,6 +37,7 @@ class TaskSubscription < ActiveRecord::Base
       }
       HTTParty.post(url, body: body.to_json, headers: { 'Content-Type' => 'application/json' })
     rescue Exception => e
+      Appsignal.add_exception e
       logger.error e.message
     end
   end

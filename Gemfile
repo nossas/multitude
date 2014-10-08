@@ -59,3 +59,4 @@ gem 'coveralls', require: false
 gem 'newrelic_rpm'
 gem 'google-analytics-rails'
 gem 'rack-cas'
+gem 'appsignal'
