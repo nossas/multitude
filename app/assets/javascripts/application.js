@@ -14,14 +14,19 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//= require jquery.datetimepicker
+//= require datetimepicker
 //= require modernizr
 //= require meurio_ui
 //= require_tree .
 
 $(function(){
   $(document).foundation();
-  $('.datetimepicker').datetimepicker({format:'d/m/Y H:i', lang: 'pt'});
+
+  $('[data-datetimepicker]').datetimepicker({
+    format:'d/m/Y H:i', 
+    lang: 'pt'
+  });
+  
   $(window.location.hash).foundation('reveal', 'open');
 
   $(".twitter-share-button").click(function(event){
