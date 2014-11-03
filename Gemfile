@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -56,7 +55,10 @@ gem 'delayed_job_active_record'
 gem 'kaminari'
 gem 'httparty'
 gem 'coveralls', require: false
-gem 'newrelic_rpm'
 gem 'google-analytics-rails'
 gem 'rack-cas'
 gem 'appsignal'
+
+# Rails assets
+source 'https://rails-assets.org'
+gem 'rails-assets-datetimepicker'
