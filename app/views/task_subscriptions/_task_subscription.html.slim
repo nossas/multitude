@@ -1,5 +1,5 @@
 .appliance
-  = image_tag task_subscription.user.avatar_url
-  span.user-name= task_subscription.user.name
+  = link_to image_tag(task_subscription.user.avatar_url), user_path(task_subscription.user), target: :blank
+  span.user-name= link_to task_subscription.user.name, user_path(task_subscription.user), target: :blank
   span.user-email
     |  (#{task_subscription.user.email})

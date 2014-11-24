@@ -3,4 +3,8 @@ module ApplicationHelper
     default = t("count.deliver", count: current_user.task_subscription_for(task).deliveries.count)
     task.call_to_action.present? ? task.call_to_action : default
   end
+
+  def user_path user
+    "#{ENV['MEURIO_HOST']}/users/#{user.id}"
+  end
 end
