@@ -62,3 +62,5 @@ gem 'appsignal'
 # Rails assets
 source 'https://rails-assets.org'
 gem 'rails-assets-datetimepicker'
+gem 'rails-assets-medium-editor'
+gem 'rails-assets-fontawesome'

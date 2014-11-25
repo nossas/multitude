@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require datetimepicker
+//= require medium-editor
 //= require modernizr
 //= require meurio_ui
 //= require_tree .
@@ -23,27 +24,27 @@ $(function(){
   $(document).foundation();
 
   $('[data-datetimepicker]').datetimepicker({
-    format:'d/m/Y H:i', 
+    format:'d/m/Y H:i',
     lang: 'pt'
   });
-  
+
   $(window.location.hash).foundation('reveal', 'open');
 
   $(".twitter-share-button").click(function(event){
     window.open(
-      $(event.target).attr("href"), 
-      'twitter-share-dialog', 
+      $(event.target).attr("href"),
+      'twitter-share-dialog',
       'width=550,height=450'
-    ); 
+    );
     return false;
   });
 
   $(".facebook-share-button").click(function(event){
     window.open(
-      $(event.target).attr("href"), 
-      'facebox-share-dialog', 
+      $(event.target).attr("href"),
+      'facebox-share-dialog',
       'width=626,height=436'
-    ); 
+    );
     return false;
   });
 

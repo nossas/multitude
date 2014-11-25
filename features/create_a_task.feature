@@ -5,14 +5,14 @@ Feature: create a task
     And there is a task type called "Organizar coletiva de imprensa"
     And there is an organization in "Rio de Janeiro"
 
-  @ssi
+  @ssi @javascript
   Scenario: when there is a match between the task and an user
     Given I'm logged in as admin
     And there is an user from "Rio de Janeiro" with the "programming" skill
     And I click in "the new task button"
     And I fill in "the task title field" with "My new task"
     And I select "Rio de Janeiro" from "the city field"
-    And I fill in "the task description field" with "My new task description"
+    And I fill in the task description field with "My new task description"
     And I select "Organizar coletiva de imprensa" from "the task type field"
     And I fill in "the task points field" with "20"
     And I fill in "the task call to action field" with "Go!"
@@ -24,13 +24,13 @@ Feature: create a task
     Then I should be in "the created task page"
     And the user should receive an email
 
-  @ssi
+  @ssi @javascript
   Scenario: when there is no match between the task and any user
     Given I'm logged in as admin
     And I click in "the new task button"
     And I fill in "the task title field" with "My new task"
     And I select "Rio de Janeiro" from "the city field"
-    And I fill in "the task description field" with "My new task description"
+    And I fill in the task description field with "My new task description"
     And I select "Organizar coletiva de imprensa" from "the task type field"
     And I fill in "the task points field" with "20"
     And I fill in "the task call to action field" with "Go!"

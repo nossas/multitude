@@ -17,11 +17,9 @@ class Task < ActiveRecord::Base
   scope :available, -> { where("(SELECT count(*) FROM task_subscriptions WHERE task_subscriptions.task_id = tasks.id) < tasks.max_deliveries OR tasks.max_deliveries IS NULL") }
 
   auto_html_for :description do
-    html_escape
     image
-    youtube(:width => "100%", :height => 250)
+    youtube(:width => "100%", :height => 350)
     link :target => "_blank", :rel => "nofollow"
-    simple_format
   end
 
   def warn_matches

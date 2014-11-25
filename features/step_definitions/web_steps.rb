@@ -41,3 +41,7 @@ end
 Given(/^I attach "(.*?)" in "(.*?)"$/) do |arg1, arg2|
   attach_file to_field(arg2), to_file(arg1)
 end
+
+Given(/^I fill in the task description field with "(.*?)"$/) do |arg1|
+  page.execute_script("$('#task_description').val('#{arg1}');")
+end
