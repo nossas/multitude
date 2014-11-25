@@ -1,9 +1,9 @@
 .delivery *{class: delivery.status}
   .wrapper
-    .user_avatar_url.left= image_tag delivery.user.avatar_url
+    .user_avatar_url.left= link_to image_tag(delivery.user.avatar_url), user_path(delivery.user), target: :blank
     .delivery_content
       .user_name_and_delivered_at
-        strong.by= delivery.user.name
+        strong.by= link_to delivery.user.name, user_path(delivery.user), target: :blank
         span= " (#{delivery.user.email})"
         |  | 
         span.delivered_at= l delivery.created_at, format: :short 
