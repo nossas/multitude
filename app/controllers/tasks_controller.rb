@@ -2,14 +2,8 @@ class TasksController < InheritedResources::Base
   load_and_authorize_resource
 
   before_action(only: :show) do
-    if current_user.present?
-      if current_user.admin?
-        @deliveries = @task.deliveries
-        @task_subscriptions = @task.task_subscriptions.undelivered
-      elsif current_user.subscribed?(@task)
-        @deliveries = @task.deliveries.where(task_subscription_id: current_user.task_subscription_for(@task).id)
-      end
-    end
+    @deliveries = @task.deliveries
+    @task_subscriptions = @task.task_subscriptions.undelivered if current_user.try(:admin?)
   end
 
   # TODO: the check_box helper is adding a hidden skill option with no value and it
