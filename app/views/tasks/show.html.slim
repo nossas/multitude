@@ -67,12 +67,14 @@
       = link_to "Tarefa Concluída", '#', disabled: true, id: :task_completed_button, class: [:button, :radius, :disabled]
 
     - if can?(:read, TaskSubscription)
-      h4.title Quem aceitou fazer a tarefa
-      = render @task_subscriptions
+      .task_subscriptions
+        h4.title Quem aceitou fazer a tarefa
+        = render @task_subscriptions
 
     - if can?(:read, Delivery) && @deliveries.present?
-      h4.title Quem entregou a tarefa
-      = render @deliveries
+      .deliveries
+        h4.title Quem entregou a tarefa
+        = render @deliveries
 
   .sidebar
     .first-row
