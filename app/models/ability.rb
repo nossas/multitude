@@ -7,11 +7,12 @@ class Ability
         can :manage, :all
       end
 
-      can :read, Delivery
       can :create, Delivery
       can :create, TaskSubscription
+      can :view_status, Delivery, task_subscription: { user_id: user.id }
     end
 
+    can :read, Delivery
     can :read, Task
   end
 end
