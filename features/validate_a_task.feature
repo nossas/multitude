@@ -4,7 +4,8 @@ Feature: validate a task
     Given there is a task
     And somebody contributed for this task
     When I go to "this task page"
-    Then I should not see "the pending delivery"
+    Then I should see "the pending delivery"
+    Then I should not see "the accept delivery button"
 
   @ssi
   Scenario: when I accept the delivery
