@@ -3,21 +3,15 @@
     .step
       .image= image_tag "icon-1.png"
       span
-        | Conte-nos quem é você e
-        br
-        | o que te interessa
+        | Conte-nos quem é você e o que te interessa
     .step
       .image= image_tag "icon-2.png"
       span
-        | Receba oportunidades de ação
-        br
-        | de acordo com o seu perfil
+        | Receba oportunidades de ação de acordo com o seu perfil
     .step
       .image= image_tag "icon-3.png"
       span
-        | Ganhe reconhecimento pelo tempo
-        br
-        | e talento dedicados à cidade
+        | Ganhe reconhecimento pelo tempo e talento dedicados à cidade
 
 .row#available_tasks {data-count=@tasks_count}
   - if Task.available.empty?
