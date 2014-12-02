@@ -152,12 +152,30 @@ body.tasks.show
         &:before
           margin-right: .25em
           position: relative
-    .deadline, .description, .skills, .task_subscriptions, .deliveries, .task-actions
+    .deadline, .description, .skills, .task_subscriptions, .deliveries, .rewarded-users
       margin-top: 2em
       p
         word-wrap: break-word
       li
         margin-bottom: .5em
+    .rewarded-users
+      p.empty
+        font-size: .9em
+      ul
+        margin-bottom: 2em
+        margin-left: 0
+      li
+        line-height: 20px
+        overflow: hidden
+        margin-bottom: 1em
+        list-style: none
+        img
+          float: left
+          width: 50px
+          height: 50px
+          margin-right: .5em
+        .name
+          margin-top: 5px
     #apply_for_a_task_button
       margin-bottom: .5em
     .hint

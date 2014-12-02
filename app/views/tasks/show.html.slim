@@ -90,7 +90,13 @@
         .number
           strong= @task.task_subscriptions.count
         .text &nbsp;
-    .task-actions
+
+    .rewarded-users
+      h4.title Voluntários recompensados
+      - if(@task.rewards.empty?)
+        p.empty Ainda nenhum voluntário foi recompensado por essa tarefa
+      - else
+        ul= render @task.rewards
       - if(can? :create, Reward)
         a#reward-button.button.radius data={"reveal-id" => "reward-form"} href="#reward-form"
           | Recompensar
@@ -111,6 +117,8 @@
                 small.error Email é obrigatório e deve ser válido
             = form.submit("Recompensar", id: "reward-submit-button", class: [:button, :radius])
           a.close-reveal-modal &#215;
+    // End rewarded-users
+
     .skills
       h4.title Talentos associados
       - if @task.skills.present?

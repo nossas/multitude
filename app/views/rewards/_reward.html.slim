@@ -1,0 +1,4 @@
+li.rewarded-user
+  = image_tag(reward.user.avatar_url)
+  .name= link_to(reward.user.name, user_path(reward.user), target: :blank)
+  .created-at #{distance_of_time_in_words_to_now reward.created_at} atrás
