@@ -1,11 +1,6 @@
 class TasksController < InheritedResources::Base
   load_and_authorize_resource
 
-  before_action(only: :show) do
-    @deliveries = @task.deliveries
-    @task_subscriptions = @task.task_subscriptions.undelivered if current_user.try(:admin?)
-  end
-
   # TODO: the check_box helper is adding a hidden skill option with no value and it
   # is been submitted to the create and update actions. We have to figure out what's
   # the best way to supress this hidden checkbox, and then remove this before filter
@@ -27,6 +22,12 @@ class TasksController < InheritedResources::Base
     resource.user = current_user
     resource.skills = params[:task][:skills]
     create!
+  end
+
+  def show
+    @deliveries = @task.deliveries
+    @task_subscriptions = @task.task_subscriptions.undelivered if current_user.try(:admin?)
+    @reward = Reward.new
   end
 
   def permitted_params

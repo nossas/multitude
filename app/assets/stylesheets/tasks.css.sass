@@ -74,8 +74,6 @@ body.tasks.show
   .disabled
     background: #C2C8D4
 
-
-
   .main, .sidebar
     h2, h4
       color: $title-gray
@@ -154,7 +152,7 @@ body.tasks.show
         &:before
           margin-right: .25em
           position: relative
-    .deadline, .description, .skills, .task_subscriptions, .deliveries
+    .deadline, .description, .skills, .task_subscriptions, .deliveries, .task-actions
       margin-top: 2em
       p
         word-wrap: break-word
@@ -251,6 +249,9 @@ body.tasks.show
           border: 1px solid $failure-red
           color: $failure-red
           margin-bottom: .5em
+  .new_reward
+    input[type="submit"]
+      margin: 0
 
 body.tasks.index
   .about

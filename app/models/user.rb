@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :deliveries, through: :task_subscriptions
   has_many :memberships, inverse_of: :user
   has_many :organizations, through: :memberships
-
+  has_many :rewards
 
   def avatar_url
     if self.avatar

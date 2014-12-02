@@ -37,4 +37,5 @@ Multitude::Application.configure do
   config.log_level = :error
 
   default_url_options[:host] = "localhost:3000"
+  config.middleware.use RackSessionAccess::Middleware
 end

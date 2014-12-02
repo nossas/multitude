@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
   it { should have_many :task_subscriptions }
+  it { should have_many :rewards }
 
   describe "#subscribed?" do
     subject { User.make! }

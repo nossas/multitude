@@ -4,6 +4,7 @@ class Task < ActiveRecord::Base
 
   has_many :deliveries, through: :task_subscriptions
   has_many :task_subscriptions
+  has_many :rewards
   belongs_to :task_type
   belongs_to :mobilization, primary_key: :hashtag, foreign_key: :hashtag
   belongs_to :user

@@ -3,6 +3,7 @@ Multitude::Application.routes.draw do
   get '/about', to: "pages#about", as: :about
 
   resources :tasks, only: [:index, :new, :create, :show, :edit, :update] do
+    resources :rewards, only: [:create]
     resources :task_subscriptions, only: [:create] do
       collection do
         get :create_from_session, to: "task_subscriptions#create"

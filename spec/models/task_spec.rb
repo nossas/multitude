@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Task do
   it { should have_many :task_subscriptions }
+  it { should have_many :rewards }
   it { should validate_presence_of :title }
   it { should validate_presence_of :task_type_id }
   it { should validate_presence_of :points }
@@ -19,7 +20,7 @@ describe Task do
         subject.skills = ["a"]
         subject.organization = Organization.make!
       end
-      
+
       let(:user) { User.make! skills: ["a"], organizations: [ subject.organization ] }
       its(:matches) { should include(user) }
     end

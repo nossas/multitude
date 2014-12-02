@@ -44,3 +44,8 @@ end
 
 Organization.blueprint do
 end
+
+Reward.blueprint do
+  task { Task.make! }
+  user { User.make! }
+end

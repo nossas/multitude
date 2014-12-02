@@ -89,6 +89,27 @@
         br
         .number
           strong= @task.task_subscriptions.count
+    .task-actions
+      - if(can? :create, Reward)
+        a#reward-button.button.radius data={"reveal-id" => "reward-form"} href="#reward-form"
+          | Recompensar
+        #reward-form.reveal-modal.tiny data={reveal: true}
+          = form_for([@task, @reward], data: {abide: true}) do |form|
+            = fields_for(:user) do |user_form|
+              .first-name-field
+                = user_form.label(:first_name, "Nome")
+                = user_form.text_field(:first_name, required: true)
+                small.error Nome é obrigatório
+              .last-name-field
+                = user_form.label(:last_name, "Sobrenome")
+                = user_form.text_field(:last_name, required: true)
+                small.error Sobrenome é obrigatório
+              .email-field
+                = user_form.label(:email, "Email")
+                = user_form.email_field(:email, required: true)
+                small.error Email é obrigatório e deve ser válido
+            = form.submit("Recompensar", id: "reward-submit-button", class: [:button, :radius])
+          a.close-reveal-modal &#215;
     .skills
       h4.title Talentos associados
       - if @task.skills.present?
