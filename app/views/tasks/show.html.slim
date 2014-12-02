@@ -89,6 +89,7 @@
         br
         .number
           strong= @task.task_subscriptions.count
+        .text &nbsp;
     .task-actions
       - if(can? :create, Reward)
         a#reward-button.button.radius data={"reveal-id" => "reward-form"} href="#reward-form"
