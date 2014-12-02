@@ -1,0 +1,92 @@
+.tasks.new,
+.tasks.edit,
+.tasks.create {
+  .title-field {
+    @include grid-column(8);
+  }
+
+  .organization-id-field {
+    @include grid-column(4);
+  }
+
+  .type-id-field {
+    @include grid-column(4);
+  }
+
+  .points-field {
+    @include grid-column(4);
+  }
+
+  .call-to-action-field {
+    @include grid-column(4);
+  }
+
+  .description-field {
+    @include grid-column(12);
+    textarea {
+      height: 200px;
+    }
+  }
+
+  .action-button {
+    @include grid-column(12);
+  }
+
+  .material-field {
+    @include grid-column(12);
+  }
+
+  .handout-field {
+    @include grid-column(12);
+  }
+
+  .deliverable-field {
+    @include grid-column(12);
+  }
+
+  .remote-field {
+    @include grid-column(12);
+    margin-bottom: 1em;
+  }
+
+  .skills-label {
+    @include grid-column(12);
+  }
+
+  .title {
+    @include grid-column(12);
+  }
+
+  .skills-field {
+    @include grid-column(4);
+  }
+
+  .max-deliveries-field {
+    @include grid-column(4);
+  }
+
+  .deadline-field {
+    @include grid-column(4);
+  }
+
+  .hashtag-field {
+    @include grid-column(4);
+    .row {
+      margin-bottom: 0;
+    }
+  }
+
+  form {
+    .row {
+      margin-bottom: 1em;
+    }
+  }
+
+  .skills-field,
+  .remote-field {
+    label {
+      display: inline-block;
+      margin-left: .5em;
+    }
+  }
+}

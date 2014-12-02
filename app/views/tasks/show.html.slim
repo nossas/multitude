@@ -2,16 +2,16 @@
 
 - if current_user && current_user.subscribed?(@task)
   .row
-    .task_warn
+    .task-warn
       - if !current_user.delivered?(@task)
         .remaining Esta tarefa precisa ser entregue até #{@task.deadline.strftime("%d/%m/%Y %H:%M")}
       - elsif current_user.delivered?(@task)
         - if current_user.pending_delivery_for?(@task)
-          .wait_for_validation Obrigado por seu tempo e talento: sua entrega será validada em breve!
+          .wait-for-validation Obrigado por seu tempo e talento: sua entrega será validada em breve!
         - elsif current_user.accepted_delivery_for?(@task)
-          .accepted Obrigado, a tarefa está concluída! Confira suas conquistas em sua página de perfil.
+          .warn.accepted Obrigado, a tarefa está concluída! Confira suas conquistas em sua página de perfil.
         - else
-          .rejected A tarefa precisa de correções: veja seu email para entender o que houve, obrigado!
+          .warn.rejected A tarefa precisa de correções: veja seu email para entender o que houve, obrigado!
 
 .row
   .main
@@ -22,8 +22,8 @@
       span= @task.mobilization.try(:short_title)
     .details
       .category class=@task.category.slug
-        span= @task.category.name
-      .max_deliveries.icon-user
+        .category-label= @task.category.name
+      .max-deliveries.icon-user
         span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person.long', count: @task.deliveries_missing)
       .city.icon-location
         span= @task.organization.city
@@ -31,10 +31,10 @@
       .share
         = link_to "Compartilhar", "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", class: ["facebook-share-button", "icon-facebook2"]
         = link_to "Twittar", "https://twitter.com/share?url=#{request.url}&text=#{'No Multitude você usa seu tempo e talento por uma cidade melhor!'}", class: ["twitter-share-button", "icon-twitter2"]
-      h4.title Entregar tarefa pronta até
+      h4.subtitle Entregar tarefa pronta até
       span= @task.formatted_deadline
     .description
-      h4.title Descrição da tarefa
+      h4.subtitle Descrição da tarefa
       p= @task.description_html
 
     - if @task.expired? && (current_user.nil? || !current_user.subscribed?(@task))
@@ -47,13 +47,13 @@
         .hint Você será convidado a fazer login antes de assumir a tarefa.
 
     - if can?(:create, Delivery) && current_user.ready_to_deliver?(@task)
-      h4.title Entregar tarefa
+      h4.subtitle Entregar tarefa
       = form_for [@task, current_user.task_subscription_for(@task), Delivery.new], html: {"data-abide" => true}  do |f|
-        .delivery_text_field
+        .delivery-text-field
           = f.label :text
           = f.text_area :text, required: true
           small.error Você precisa descrever a sua entrega
-        .delivery_file_field
+        .delivery-file-field
           = f.label :file
           .file-input-wrapper
             = f.button "Adicionar Arquivo", class: "btn-file-input"
@@ -67,13 +67,13 @@
       = link_to "Tarefa Concluída", '#', disabled: true, id: :task_completed_button, class: [:button, :radius, :disabled]
 
     - if can?(:read, TaskSubscription)
-      .task_subscriptions
-        h4.title Quem aceitou fazer a tarefa
+      .task-subscriptions
+        h4.subtitle Quem aceitou fazer a tarefa
         = render @task_subscriptions
 
     - if can?(:read, Delivery) && @deliveries.present?
       .deliveries
-        h4.title Quem entregou a tarefa
+        h4.subtitle Quem entregou a tarefa
         = render @deliveries
 
   .sidebar
@@ -81,22 +81,22 @@
       .points
         .text Ao realizar esta tarefa, você acumula
         .number
-          strong= @task.points
+          strong.points-number= @task.points
           ' min
         .text de serviço pela cidade
       .volunteers
         .text Voluntários
         br
         .number
-          strong= @task.task_subscriptions.count
+          strong.points-number= @task.task_subscriptions.count
         .text &nbsp;
 
     .rewarded-users
-      h4.title Voluntários recompensados
+      h4.subtitle Voluntários recompensados
       - if(@task.rewards.empty?)
         p.empty Ainda nenhum voluntário foi recompensado por essa tarefa
       - else
-        ul= render @task.rewards
+        ul.rewarded-users-list= render @task.rewards
       - if(can? :create, Reward)
         a#reward-button.button.radius data={"reveal-id" => "reward-form"} href="#reward-form"
           | Recompensar
@@ -120,7 +120,7 @@
     // End rewarded-users
 
     .skills
-      h4.title Talentos associados
+      h4.subtitle Talentos associados
       - if @task.skills.present?
         - @task.skills.each do |skill|
           li.skill= t "skills.#{skill}"

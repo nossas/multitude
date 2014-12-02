@@ -1,62 +1,62 @@
 = form_for @task, html: {"data-abide" => true} do |f|
   .row
-    .title_field
+    .title-field
       = f.label :title do
         = t("activerecord.attributes.task.title")
         span.has-tip {data-tooltip=true title="Comece com um verbo, seja curto e específico.<br />Ex. bom: Tirar foto da Gisele Bundchen em Ipanema; ex. ruim: Gisele no Rio"} ?
       = f.text_field :title, required: true
-    .organization_id_field
+    .organization-id-field
       = f.label :organization_id do
         = t("activerecord.attributes.task.organization_id")
       = f.collection_select :organization_id, Organization.all, :id, :city, { include_blank: "Escolha uma cidade" }, required: true
   .row
-    .type_id_field
+    .type-id-field
       = f.label :task_type_id do
         = t("activerecord.attributes.task.task_type_id")
         span.has-tip {data-tooltip=true title="O sistema irá conceder tempo e conquistas de acordo com o tipo selecionado"} ?
       = f.collection_select :task_type_id, TaskType.order(:name).load, :id, :name, { include_blank: "Escolha um tipo de tarefa" }, required: true
-    .points_field
+    .points-field
       .row.collapse
         = f.label :points do
           = t("activerecord.attributes.task.points")
           span.has-tip {data-tooltip=true title="O sistema dá uma estimativa, mas você pode alterá-la se necessário"} ?
         .field.small-8.large-9.columns= f.number_field :points, required: true, "data-task-types" => TaskType.all.to_json
-        .points_prefix.small-4.large-3.columns
+        .points-prefix.small-4.large-3.columns
           span.postfix minutos
-    .call_to_action_field
+    .call-to-action-field
       = f.label :call_to_action
       = f.text_field :call_to_action
   .row
-    .description_field
+    .description-field
       = f.label :description do
         = t("activerecord.attributes.task.description")
         span.has-tip {data-tooltip=true title="Escreva, nessa ordem: <br />a) uma descrição objetiva e muito específica do produto ou serviço esperado com a realização da tarefa; <br />b) o contexto, as condições e o motivo pelo qual a tarefa deve ser realizada; <br />c) fontes de informação sobre a tarefa com links; <br />d) equipamentos, materiais ou quaisquer insumos necessários para a realização da tarefa"} ?
       = f.hidden_field :description, required: true
       .editable data={"input-id" => "task_description", "placeholder" => " "} = raw @task.description
   .row
-    .max_deliveries_field
+    .max-deliveries-field
       = f.label :max_deliveries do
         = t("activerecord.attributes.task.max_deliveries")
         span.has-tip {data-tooltip=true title="Uma tarefa pode ser realizada por mais de uma pessoa: defina o número máximo desejado.<br />Deixe o campo em branco para um número ilimitado de realizadores"} ?
       = f.text_field :max_deliveries, pattern: "^[1-9][0-9]*$"
       small.error O máximo de participantes deve ser maior que zero
-    .deadline_field
+    .deadline-field
       = f.label :deadline do
         = t("activerecord.attributes.task.deadline")
         span.has-tip {data-tooltip=true title="Dia e hora finais para a entrega da tarefa pronta.<br />Leve em conta a necessidade de tempo extra para uma eventual refação"} ?
       = f.text_field :deadline, required: true, value: (@task.deadline.strftime('%d/%m/%Y %H:%M') if @task.deadline), data: { datetimepicker: true }
-    .hashtag_field
+    .hashtag-field
       = f.label :hashtag
       = f.collection_select :hashtag, Mobilization.order(:short_title).load, :hashtag, :short_title, { include_blank: "Escolha um tema" }
   .row
-    .skills_label
+    .skills-label
       = f.label :skills do
         = t("activerecord.attributes.task.skills")
         span.has-tip {data-tooltip=true title="O sistema irá apresentar essa tarefa a pessoas com esses talentos"} ?
     = f.collection_check_boxes :skills, SKILLS, :to_s, :to_s do |b|
-      .skills_field
+      .skills-field
         = b.check_box
         = b.label { t("skills.#{b.text}") }
   .row
-    .action_button
+    .action-button
       = f.submit id: :task_submit_button, class: [:button, :radius]

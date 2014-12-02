@@ -31,6 +31,7 @@ group :test do
   gem 'minitest'
   gem 'shoulda-matchers'
   gem 'rack_session_access'
+  gem 'scss-lint'
 end
 
 group :development, :test do

@@ -1,21 +1,21 @@
 .delivery *{class: delivery.status}
   .wrapper
-    .user_avatar_url.left= link_to image_tag(delivery.user.avatar_url), user_path(delivery.user), target: :blank
-    .delivery_content
-      .user_name_and_delivered_at
+    .user-avatar-url.left= link_to image_tag(delivery.user.avatar_url), user_path(delivery.user), target: :blank
+    .delivery-content
+      .user-name-and-delivered-at
         strong.by= link_to delivery.user.name, user_path(delivery.user), target: :blank
         - if current_user.try(:admin?)
           span= " (#{delivery.user.email})"
-        |  | 
-        span.delivered_at= l delivery.created_at, format: :short 
+        |  |
+        span.delivered-at= l delivery.created_at, format: :short
       - if delivery.text_html.present?
         .text= delivery.text_html
       - if delivery.file.present?
         .file= link_to "Baixar arquivo", delivery.file.url, download: delivery.file.identifier.to_s
   .action
     - if current_user.try(:admin?) && delivery.pending?
-        = link_to "Validar", accept_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :accept_delivery_button, class: [:button, :radius, :accept]
-        = link_to "Recusar", reject_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :reject_delivery_button, class: [:button, :radius, :reject]
+        = link_to "Validar", accept_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :accept_delivery_button, class: [:button, :radius, "accept-button"]
+        = link_to "Recusar", reject_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :reject_delivery_button, class: [:button, :radius, "reject-button"]
     - elsif can?(:view_status, delivery) && delivery.accepted?
       span.button.radius.accepted Aceita
     - elsif can?(:view_status, delivery) && delivery.rejected?

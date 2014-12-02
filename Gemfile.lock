@@ -233,6 +233,9 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
+    scss-lint (0.7.0)
+      colorize
+      sass
     selenium-webdriver (2.44.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -325,6 +328,7 @@ DEPENDENCIES
   rspec-its
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.3)
+  scss-lint
   selenium-webdriver
   shoulda-matchers
   slim-rails

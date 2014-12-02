@@ -1,0 +1,366 @@
+.tasks.show {
+  .main {
+    @include grid-column(8);
+  }
+
+  .sidebar {
+    @include grid-column(4);
+  }
+
+  .task-warn {
+    @include grid-column(12);
+    margin-bottom: 2em;
+    margin-top: -20px;
+
+    .remaining,
+    .wait-for-validation,
+    .accepted,
+    .rejected {
+      @include border-radius(0 0 3px 3px);
+      background: $yellow;
+      color: #fff;
+      padding: .5em;
+      text-align: center;
+    }
+
+    .wait-for-validation {
+      background: #b0d27b;
+    }
+
+    .accepted {
+      background: #8dc73d;
+    }
+  }
+
+  .disabled {
+    background: #c2c8d4;
+  }
+
+  .main,
+  .sidebar {
+    h2,
+    h4 {
+      color: $title-gray;
+    }
+
+    p,
+    span,
+    li {
+      color: $text-gray;
+    }
+
+    .title {
+      font-size: 1.7em;
+      font-weight: 800;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      border-bottom: solid 1px $border-gray;
+      font-size: 1em;
+      font-weight: bold;
+      margin-bottom: 1.5em;
+      padding: 1em 0 .3em;
+    }
+
+    .menu {
+      padding: .5em 0 .8em;
+    }
+  }
+
+  .mobilization {
+    margin-bottom: 1em;
+
+    span {
+      color: $mr-green;
+      font-size: .9em;
+      font-weight: 500;
+    }
+  }
+
+  .category {
+    display: inline-block;
+    margin-bottom: .5em;
+  }
+
+  .category-label {
+    @include border-radius(3px);
+    background: #808080;
+    color: #fff;
+    display: inline-block;
+    font-size: .7em;
+    font-weight: 800;
+    padding: .5em 1em;
+    text-transform: uppercase;
+  }
+
+  .mobilizacao-em-rede {
+    span {
+      background: $mobilizacao-em-rede;
+    }
+  }
+
+  .mobilizacao-na-rua {
+    span {
+      background: $mobilizacao-na-rua;
+    }
+  }
+
+  .audio-e-visual {
+    span {
+      background: $audio-e-visual;
+    }
+  }
+
+  .producao-e-consultoria {
+    span {
+      background: $producao-e-consultoria;
+    }
+  }
+
+  .tecnologia {
+    span {
+      background: $tecnologia;
+    }
+  }
+
+  .max-deliveries,
+  .city {
+    span {
+      color: $subtitle-gray;
+      font-size: .9em;
+      font-weight: 700;
+    }
+  }
+
+  .icon-user,
+  .icon-location {
+    font-family: inherit;
+
+    &:before {
+      color: $subtitle-gray;
+      margin-right: .25em;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  .share {
+    float: right;
+    position: relative;
+    top: 16px;
+  }
+
+  .twitter-share-button {
+    color: $tw-blue;
+
+    &:before {
+      top: 1px;
+    }
+  }
+
+  .facebook-share-button {
+    color: $fb-blue;
+    margin-right: 2em;
+  }
+
+  .twitter-share-button,
+  .facebook-share-button {
+    font-family: inherit;
+    font-weight: 700;
+
+    &:before {
+      margin-right: .25em;
+      position: relative;
+    }
+  }
+
+  .deadline,
+  .description,
+  .skills,
+  .task-subscriptions,
+  .deliveries,
+  .rewarded-users {
+    margin-top: 2em;
+
+    p {
+      word-wrap: break-word;
+    }
+
+    li {
+      margin-bottom: .5em;
+    }
+  }
+
+  .empty {
+    font-size: .9em;
+  }
+
+  .rewarded-users-list {
+    margin-bottom: 2em;
+    margin-left: 0;
+  }
+
+  .rewarded-user {
+    line-height: 20px;
+    list-style: none;
+    margin-bottom: 1em;
+    overflow: hidden;
+
+    img {
+      float: left;
+      height: 50px;
+      margin-right: .5em;
+      width: 50px;
+    }
+
+    .name {
+      margin-top: 5px;
+    }
+  }
+
+  #apply-for-a-task-button {
+    margin-bottom: .5em;
+  }
+
+  .hint {
+    color: $subtitle-gray;
+    font-size: .8em;
+    font-weight: 500;
+    width: 220px;
+  }
+
+  .first-row {
+    line-height: 1em;
+    overflow: hidden;
+  }
+
+  .points {
+    @include grid-column(7);
+  }
+
+  .volunteers {
+    @include grid-column(4.5, $offset: .5);
+  }
+
+  .points,
+  .volunteers {
+    @include border-radius(3px);
+    background: #fff;
+    border: solid 1px $border-gray;
+    color: $subtitle-gray;
+    font-size: .9em;
+    font-weight: 500;
+    height: 100%;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .number {
+    color: $mr-green;
+    font-size: 1.5em;
+    font-weight: bolder;
+    line-height: normal;
+    padding: .1em 0;
+  }
+
+  .points-number {
+    font-size: 2em;
+    font-weight: bolder;
+    margin-right: .1em;
+  }
+
+  .edit-delivery {
+    textarea {
+      height: 100px;
+    }
+  }
+
+  .appliance {
+    font-size: .8em;
+    margin-bottom: .5em;
+
+    img {
+      @include border-radius(25px);
+      margin-right: 1em;
+      width: 25px;
+    }
+
+    .user-name {
+      font-weight: bold;
+    }
+  }
+
+  .delivery {
+    border-bottom: solid 1px $border-gray;
+    color: #666;
+    font-size: .8em;
+    margin-bottom: 1em;
+    overflow: hidden;
+    padding-bottom: 1em;
+
+    .wrapper {
+      display: inline-block;
+    }
+
+    img {
+      @include border-radius(25px);
+      margin-right: .5em;
+      width: 25px;
+    }
+
+    .delivery-content {
+      padding-left: 35px;
+    }
+
+    .user-name-and-delivered-at {
+      line-height: 25px;
+    }
+
+    .file {
+      padding-top: .5em;
+    }
+
+    .action {
+      display: inline-block;
+      float: right;
+      padding-top: 1em;
+    }
+  }
+
+  .accept-button {
+    background: #8dc73d;
+    margin-right: .5em;
+  }
+
+  .reject-button {
+    background: $failure-red;
+  }
+
+  .warn {
+    font-size: 1.2em;
+    margin-left: 1em;
+    padding: .3em 1em;
+    width: 90px;
+
+    &.accepted {
+      background: $light-green;
+      border: 1px solid #008000;
+      color: #008000;
+      margin-bottom: .5em;
+    }
+
+    &.rejected {
+      background: $light-red;
+      border: 1px solid $failure-red;
+      color: $failure-red;
+      margin-bottom: .5em;
+    }
+  }
+
+  .new-reward {
+    [type="submit"] {
+      margin: 0;
+    }
+  }
+}
