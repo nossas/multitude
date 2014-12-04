@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20141204182815) do
     t.string   "file"
     t.datetime "accepted_at"
     t.datetime "rejected_at"
-    t.boolean  "rewarded"
     t.text     "text_html"
     t.integer  "user_id"
     t.integer  "task_id"
