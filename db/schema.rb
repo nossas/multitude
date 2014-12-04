@@ -12,6 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20141204182815) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +44,6 @@ ActiveRecord::Schema.define(version: 20141204182815) do
     t.string   "file"
     t.datetime "accepted_at"
     t.datetime "rejected_at"
-    t.integer  "task_subscription_id", null: false
     t.text     "text_html"
     t.integer  "user_id"
     t.integer  "task_id"
