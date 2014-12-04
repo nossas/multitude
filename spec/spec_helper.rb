@@ -52,6 +52,10 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  config.before(:each) do
+    ActionMailer::Base.deliveries.clear
+  end
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end

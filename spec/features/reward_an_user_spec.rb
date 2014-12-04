@@ -18,6 +18,7 @@ feature "Reward an user", js: true do
     expect(user.rewards).to have(1).reward
     expect(task.rewards).to have(1).reward
     expect(current_path).to be_eql(task_path(task))
+    expect(ActionMailer::Base.deliveries).to_not be_empty
   end
 
   scenario "when the user doesn't exists" do

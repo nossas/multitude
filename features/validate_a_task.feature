@@ -17,7 +17,6 @@ Feature: validate a task
     Then I should be in "this task page"
     And I should see "the accepted delivery"
     And I should not see "the accept delivery button"
-    And an email should be sent to the creator of the delivery
 
   @ssi
   Scenario: when I reject the delivery

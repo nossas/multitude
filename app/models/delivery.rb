@@ -11,7 +11,6 @@ class Delivery < ActiveRecord::Base
     link :target => "_blank", :rel => "nofollow"
   end
 
-
   def status
     if self.accepted_at
       :accepted
@@ -36,7 +35,6 @@ class Delivery < ActiveRecord::Base
 
   def accept!
     self.update_attribute :accepted_at, Time.current
-    MultitudeMailer.delay.your_delivery_was_accepted(self)
   end
 
   def reject!

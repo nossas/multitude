@@ -59,15 +59,15 @@ class MultitudeMailer < ActionMailer::Base
     mail(to: delivery.task.user.email, subject: "Tarefa entregue!", from: "#{delivery.user.name} <#{delivery.user.email}>")
   end
 
-  def your_delivery_was_accepted delivery
-    task_owner                = delivery.task.user
-    user                      = delivery.user
+  def your_delivery_was_accepted reward
+    task_owner                = reward.task.user
+    user                      = reward.user
     @user_name                = user.name
-    @task_title               = delivery.task.title
-    @task_url                 = task_url delivery.task
-    @mobilization_short_title = delivery.task.mobilization.short_title
+    @task_title               = reward.task.title
+    @task_url                 = task_url reward.task
+    @mobilization_short_title = reward.task.mobilization.short_title
     @task_owner_name          = task_owner.name
-    @organization             = delivery.task.organization
+    @organization             = reward.task.organization
     @user_link                = ENV["MEURIO_HOST"] + "/users/#{user.id}"
     headers "X-SMTPAPI" => "{ \"category\": [\"multitude\", \"accepted\"] }"
     mail(to: "#{user.name} <#{user.email}>", subject: "Parabéns! Sua tarefa foi validada!", from: "#{task_owner.name} <#{task_owner.email}>")

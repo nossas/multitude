@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Reward do
-  before { Reward.make }
+  before { Reward.make! }
 
   it { should belong_to :user }
   it { should belong_to :task }
