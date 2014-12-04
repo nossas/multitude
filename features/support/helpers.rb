@@ -73,7 +73,7 @@ def to_element string
   return ".main .share .twitter-share-button" if string == "the Twitter share button of this task"
   return "#load_more_available_tasks_button" if string == "the load more available tasks button"
   return "#thanks-for-applying" if string == "the thank you for applying message"
-  return ".appliance .user-name" if string == "this user appliance"
+  return ".subscriber-link" if string == "this user appliance"
   return ".pages.about" if string == "the about section"
   raise "I don't know '#{string}'"
 end
@@ -87,7 +87,7 @@ def to_text string
   return @task.reload.formatted_deadline if string == 'this task deadline'
   return @task.reload.title if string == 'this task'
   return @current_user.name if string == 'my delivery'
-  return @user.name if string == "this user appliance"
+  return @user.first_name if string == "this user appliance"
 end
 
 def to_file string

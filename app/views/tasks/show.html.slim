@@ -41,11 +41,6 @@
       = link_to "Assumir Tarefa", '#', disabled: true, id: :task_expired_button, class: [:button, :radius, :disabled]
       .hint A data limite para realizar a tarefa expirou, portanto não é mais possível assumir essa tarefa
 
-    - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
-      = link_to "Assumir Tarefa", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius]
-      - if current_user.nil?
-        .hint Você será convidado a fazer login antes de assumir a tarefa.
-
     - if can?(:create, Delivery) && current_user.ready_to_deliver?(@task)
       h4.subtitle Entregar tarefa
       = form_for [@task, Delivery.new], html: {"data-abide" => true}  do |f|
@@ -62,14 +57,6 @@
 
     - if current_user.present? && current_user.pending_delivery_for?(@task)
       = link_to "Aguardando Validação", '#', disabled: true, id: :waiting_for_validation_button, class: [:button, :radius, :disabled]
-
-    - if current_user.present? && current_user.accepted_delivery_for?(@task)
-      = link_to "Tarefa Concluída", '#', disabled: true, id: :task_completed_button, class: [:button, :radius, :disabled]
-
-    - if can?(:read, TaskSubscription)
-      .task-subscriptions
-        h4.subtitle Quem aceitou fazer a tarefa
-        = render @task_subscriptions
 
     - if can?(:read, Delivery) && @deliveries.present?
       .deliveries
@@ -90,6 +77,21 @@
         .number
           strong.points-number= @task.task_subscriptions.count
         .text &nbsp;
+
+    .subscribed-users
+      - if @subscribers.empty?
+        p.empty
+          | Esta tarefa ainda não foi iniciada por ninguém
+          - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
+            | , seja o primeiro a #{link_to "assumir esta tarefa!", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button }
+      - else
+        p
+          = raw @subscribers.limit(5).map{|s| link_to s.first_name, user_path(s), class: 'subscriber-link'}.to_sentence
+          |  #{t(".subscribers", count: @subscribers.count)}
+          - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
+            | , participe você também #{link_to "assumindo esta tarefa!  ", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button }
+          / TODO: remove task_subscriptions partial if it's not beeing used anywhere else
+          / = render @task_subscriptions
 
     .rewarded-users
       h4.subtitle Voluntários recompensados

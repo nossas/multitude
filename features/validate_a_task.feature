@@ -38,7 +38,6 @@ Feature: validate a task
     When I go to "this task page"
     Then I should see "the accepted delivery"
     And I should see "the task completed warn"
-    And I should see "the task completed button"
 
   @ssi
   Scenario: when my delivery is rejected

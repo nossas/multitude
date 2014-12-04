@@ -27,6 +27,7 @@ class TasksController < InheritedResources::Base
   def show
     @deliveries = @task.deliveries
     @task_subscriptions = @task.task_subscriptions.undelivered if current_user.try(:admin?)
+    @subscribers = @task.subscribers
     @reward = Reward.new
   end
 
