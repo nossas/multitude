@@ -2,6 +2,7 @@ class Delivery < ActiveRecord::Base
   validates :user_id, :task_id, presence: true
   belongs_to :user
   belongs_to :task
+  belongs_to :task_subscription
 
   mount_uploader :file, DeliveryUploader
 
