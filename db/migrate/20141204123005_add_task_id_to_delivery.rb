@@ -3,7 +3,8 @@ class AddTaskIdToDelivery < ActiveRecord::Migration
     add_column :deliveries, :task_id, :integer
 
     Delivery.all.each do |delivery|
-      delivery.update_attribute :task_id, delivery.task_subscription.task_id
+      task_subscription = TaskSubscription.find(delivery.task_subscription_id)
+      delivery.update_attribute :task_id, task_subscription.task_id
     end
   end
 

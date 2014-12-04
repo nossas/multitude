@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   acts_as_our_cities_user
 
+  attr_accessor :password
+
   has_many :task_subscriptions
   has_many :deliveries
   has_many :memberships, inverse_of: :user
