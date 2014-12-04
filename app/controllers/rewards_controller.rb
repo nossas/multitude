@@ -4,6 +4,7 @@ class RewardsController < ApplicationController
       email: params[:user][:email],
       first_name: params[:user][:first_name],
       last_name: params[:user][:last_name],
+      password: SecureRandom.hex
     )
     task = Task.find(params[:task_id])
     Reward.create(user_id: user.id, task_id: task.id)
