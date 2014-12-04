@@ -1,6 +1,6 @@
 = content_for(:title) { @task.title }
 
-- if current_user && current_user.subscribed?(@task)
+- if current_user
   .row
     .task-warn
       - if !current_user.delivered?(@task)
@@ -9,9 +9,9 @@
         - if current_user.pending_delivery_for?(@task)
           .wait-for-validation Obrigado por seu tempo e talento: sua entrega será validada em breve!
         - elsif current_user.accepted_delivery_for?(@task)
-          .warn.accepted Obrigado, a tarefa está concluída! Confira suas conquistas em sua página de perfil.
+          .accepted Obrigado, a tarefa está concluída! Confira suas conquistas em sua página de perfil.
         - else
-          .warn.rejected A tarefa precisa de correções: veja seu email para entender o que houve, obrigado!
+          .rejected A tarefa precisa de correções: veja seu email para entender o que houve, obrigado!
 
 .row
   .main
@@ -48,7 +48,7 @@
 
     - if can?(:create, Delivery) && current_user.ready_to_deliver?(@task)
       h4.subtitle Entregar tarefa
-      = form_for [@task, current_user.task_subscription_for(@task), Delivery.new], html: {"data-abide" => true}  do |f|
+      = form_for [@task, Delivery.new], html: {"data-abide" => true}  do |f|
         .delivery-text-field
           = f.label :text
           = f.text_area :text, required: true

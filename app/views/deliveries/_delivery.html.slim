@@ -14,8 +14,8 @@
         .file= link_to "Baixar arquivo", delivery.file.url, download: delivery.file.identifier.to_s
   .action
     - if current_user.try(:admin?) && delivery.pending?
-        = link_to "Validar", accept_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :accept_delivery_button, class: [:button, :radius, "accept-button"]
-        = link_to "Recusar", reject_task_task_subscription_delivery_path(@task, delivery.task_subscription, delivery), method: :patch, id: :reject_delivery_button, class: [:button, :radius, "reject-button"]
+        = link_to "Validar", accept_task_delivery_path(@task, delivery), method: :patch, id: :accept_delivery_button, class: [:button, :radius, "accept-button"]
+        = link_to "Recusar", reject_task_delivery_path(@task, delivery), method: :patch, id: :reject_delivery_button, class: [:button, :radius, "reject-button"]
     - elsif can?(:view_status, delivery) && delivery.accepted?
       span.button.radius.accepted Aceita
     - elsif can?(:view_status, delivery) && delivery.rejected?

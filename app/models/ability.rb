@@ -9,7 +9,7 @@ class Ability
 
       can :create, Delivery
       can :create, TaskSubscription
-      can :view_status, Delivery, task_subscription: { user_id: user.id }
+      can :view_status, Delivery, user_id: user.id
     end
 
     can :read, Delivery

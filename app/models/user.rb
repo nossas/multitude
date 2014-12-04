@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :task_subscriptions
-  has_many :deliveries, through: :task_subscriptions
+  has_many :deliveries
   has_many :memberships, inverse_of: :user
   has_many :organizations, through: :memberships
   has_many :rewards
@@ -26,18 +26,19 @@ class User < ActiveRecord::Base
   end
 
   def delivered? task
-    Delivery.joins(:task_subscription).where("task_subscriptions.user_id = ? AND task_subscriptions.task_id = ?", self.id, task.id).any?
+    self.deliveries.where("deliveries.task_id = ?", task.id).any?
   end
 
   def accepted_delivery_for? task
-    Delivery.joins(:task_subscription).where("task_subscriptions.user_id = ? AND task_subscriptions.task_id = ? AND deliveries.accepted_at IS NOT NULL", self.id, task.id).any?
+    self.deliveries.where("deliveries.task_id = ? AND deliveries.accepted_at IS NOT NULL", task.id).any?
   end
 
   def pending_delivery_for? task
-    Delivery.joins(:task_subscription).where("task_subscriptions.user_id = ? AND task_subscriptions.task_id = ? AND deliveries.accepted_at IS NULL AND deliveries.rejected_at IS NULL", self.id, task.id).any?
+    self.deliveries.where("deliveries.task_id = ? AND deliveries.accepted_at IS NULL AND deliveries.rejected_at IS NULL", task.id).any?
   end
 
+  # TODO: remove this method
   def ready_to_deliver? task
-    self.subscribed?(task) && !self.accepted_delivery_for?(task) && !self.pending_delivery_for?(task)
+    true
   end
 end

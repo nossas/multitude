@@ -58,13 +58,11 @@ Given(/^there is a full task$/) do
 end
 
 Given(/^somebody contributed for this task$/) do
-  @task_subscription = TaskSubscription.make! task: @task
-  @delivery = Delivery.make! task_subscription: @task_subscription
+  @delivery = Delivery.make! task: @task
 end
 
 Given(/^I contributed for this task$/) do
-  @task_subscription = TaskSubscription.make! task: @task
-  @delivery = Delivery.make! task_subscription: @task_subscription, user: @current_user
+  @delivery = Delivery.make! task: @task, user: @current_user
 end
 
 Then(/^I should receive an email$/) do

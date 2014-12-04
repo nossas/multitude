@@ -1,5 +1,5 @@
 Feature: validate a task
-  
+
   Scenario: when I'm not able to see the deliveries
     Given there is a task
     And somebody contributed for this task
@@ -28,11 +28,10 @@ Feature: validate a task
     When I click in "the reject delivery button"
     Then I should be in "this task page"
     And I should see "the rejected delivery"
-    And an email should be sent to the creator of the delivery
 
   @ssi
   Scenario: when my delivery is accepted
-    Given I'm logged in    
+    Given I'm logged in
     And there is a task
     And I contributed for this task
     And my delivery is accepted

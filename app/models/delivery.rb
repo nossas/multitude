@@ -1,8 +1,7 @@
 class Delivery < ActiveRecord::Base
-  validates :task_subscription_id, presence: true
-  belongs_to :task_subscription
-  has_one :user, through: :task_subscription
-  has_one :task, through: :task_subscription
+  validates :user_id, :task_id, presence: true
+  belongs_to :user
+  belongs_to :task
 
   mount_uploader :file, DeliveryUploader
 

@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   validates :title, :points, :task_type_id, :description, :organization_id, presence: true
   validates :max_deliveries, :numericality => { :greater_than => 0 }, allow_nil: true
 
-  has_many :deliveries, through: :task_subscriptions
+  has_many :deliveries
   has_many :task_subscriptions
   has_many :rewards
   belongs_to :task_type

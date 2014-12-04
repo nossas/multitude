@@ -29,7 +29,8 @@ Task.blueprint do
 end
 
 Delivery.blueprint do
-  task_subscription { TaskSubscription.make! }
+  user { User.make! }
+  task { Task.make! }
 end
 
 Mobilization.blueprint do

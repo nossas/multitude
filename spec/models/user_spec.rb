@@ -26,7 +26,6 @@ describe User do
   describe "#delivered?" do
     subject { User.make! }
     let(:task) { Task.make! }
-    before { @task_subscription = TaskSubscription.make! user: subject, task: task }
 
     context "when the user didn't delivered the task" do
       it "should be false" do
@@ -35,7 +34,7 @@ describe User do
     end
 
     context "when the user delivered the task" do
-      before { Delivery.make! task_subscription: @task_subscription }
+      before { Delivery.make! user: subject, task: task }
       it "should be true" do
         subject.delivered?(task).should be == true
       end
@@ -45,8 +44,7 @@ describe User do
   describe "#accepted_delivery_for?" do
     subject { User.make! }
     let(:task) { Task.make! }
-    before { @task_subscription = TaskSubscription.make! user: subject, task: task }
-    before { @delivery = Delivery.make! task_subscription: @task_subscription }
+    before { @delivery = Delivery.make! user: subject, task: task }
 
     context "when the user have no accepted delivery for the task" do
       it "should be false" do
