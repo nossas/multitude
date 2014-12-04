@@ -188,7 +188,7 @@
     }
 
     li {
-      margin-bottom: .5em;
+      margin-bottom: 1em;
     }
   }
 
@@ -201,17 +201,24 @@
     margin-left: 0;
   }
 
+  .new-reward-form {
+    [type='submit'] {
+      margin: 0
+    }
+  }
+
   .rewarded-user {
-    line-height: 20px;
+    font-size: .9em;
+    line-height: 15px;
     list-style: none;
-    margin-bottom: 1em;
     overflow: hidden;
 
     img {
+      @include border-radius(100%);
       float: left;
-      height: 50px;
+      height: 40px;
       margin-right: .5em;
-      width: 50px;
+      width: 40px;
     }
 
     .name {

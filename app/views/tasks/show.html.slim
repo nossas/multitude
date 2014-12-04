@@ -96,12 +96,13 @@
       - if(@task.rewards.empty?)
         p.empty Ainda nenhum voluntário foi recompensado por essa tarefa
       - else
-        ul.rewarded-users-list= render @task.rewards
+        ul.rewarded-users-list= render @task.rewards.order(created_at: :desc)
       - if(can? :create, Reward)
         a#reward-button.button.radius data={"reveal-id" => "reward-form"} href="#reward-form"
           | Recompensar
         #reward-form.reveal-modal.tiny data={reveal: true}
-          = form_for([@task, @reward], data: {abide: true}) do |form|
+          h2 Nova recompensa
+          = form_for([@task, @reward], data: {abide: true}, html: { class: 'new-reward-form' }) do |form|
             = fields_for(:user) do |user_form|
               .first-name-field
                 = user_form.label(:first_name, "Nome")
