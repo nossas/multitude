@@ -1,21 +1,11 @@
 class User < ActiveRecord::Base
+  acts_as_our_cities_user
+
   has_many :task_subscriptions
   has_many :deliveries
   has_many :memberships, inverse_of: :user
   has_many :organizations, through: :memberships
   has_many :rewards
-
-  def avatar_url
-    if self.avatar
-      "https://#{ENV['ACCOUNTS_BUCKET']}.s3.amazonaws.com/uploads/user/avatar/#{self.id}/square_#{self.avatar}"
-    else
-      "http://i.imgur.com/7XqAySb.png"
-    end
-  end
-
-  def name
-    "#{first_name} #{last_name}"
-  end
 
   def subscribed? task
     self.task_subscriptions.where(task_id: task.id).any?
