@@ -55,9 +55,6 @@
             = f.file_field :file
         = f.submit submit_delivery_button_text(current_user, @task), id: :deliver_submit_button, class: [:button, :radius]
 
-    - if current_user.present? && current_user.pending_delivery_for?(@task)
-      = link_to "Aguardando Validação", '#', disabled: true, id: :waiting_for_validation_button, class: [:button, :radius, :disabled]
-
     - if can?(:read, Delivery) && @deliveries.present?
       .deliveries
         h4.subtitle Quem entregou a tarefa
