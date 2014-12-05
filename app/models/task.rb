@@ -58,4 +58,10 @@ class Task < ActiveRecord::Base
   def subscribable?
     !self.expired? && !self.full?
   end
+
+  def volunteers
+    (User.joins(:task_subscriptions) +
+    User.joins(:deliveries) +
+    User.joins(:rewards)).uniq
+  end
 end

@@ -55,9 +55,6 @@
             = f.file_field :file
         = f.submit submit_delivery_button_text(current_user, @task), id: :deliver_submit_button, class: [:button, :radius]
 
-    - if current_user.present? && current_user.pending_delivery_for?(@task)
-      = link_to "Aguardando Validação", '#', disabled: true, id: :waiting_for_validation_button, class: [:button, :radius, :disabled]
-
     - if can?(:read, Delivery) && @deliveries.present?
       .deliveries
         h4.subtitle Quem entregou a tarefa
@@ -75,7 +72,7 @@
         .text Voluntários
         br
         .number
-          strong.points-number= @task.task_subscriptions.count
+          strong.points-number= @task.volunteers.count
         .text &nbsp;
 
     .subscribed-users
@@ -83,13 +80,15 @@
         p.empty
           | Esta tarefa ainda não foi iniciada por ninguém
           - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
-            | , seja o primeiro a #{link_to "assumir esta tarefa!", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button }
+            | , seja o primeiro a assumir esta tarefa!
+            #{link_to "Realizar tarefa", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius] }
       - else
         p
           = raw @subscribers.limit(5).map{|s| link_to s.first_name, user_path(s), class: 'subscriber-link'}.to_sentence
           |  #{t(".subscribers", count: @subscribers.count)}
           - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
-            | , participe você também #{link_to "assumindo esta tarefa!  ", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button }
+            | , participe você também!
+            #{link_to "Realizar tarefa", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius] }
           / TODO: remove task_subscriptions partial if it's not beeing used anywhere else
           / = render @task_subscriptions
 

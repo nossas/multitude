@@ -51,4 +51,32 @@ describe Task do
       end
     end
   end
+
+  describe "#volunteers" do
+    subject { Task.make! }
+
+    context "when there is a task subscription" do
+      before { TaskSubscription.make! task: subject }
+
+      it "should have one volunteer" do
+        expect(subject.volunteers).to have(1).volunteer
+      end
+    end
+
+    context "when there is a delivery" do
+      before { Delivery.make! task: subject }
+
+      it "should have one volunteer" do
+        expect(subject.volunteers).to have(1).volunteer
+      end
+    end
+
+    context "when there is a reward" do
+      before { Reward.make! task: subject }
+
+      it "should have one volunteer" do
+        expect(subject.volunteers).to have(1).volunteer
+      end
+    end
+  end
 end
