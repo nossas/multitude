@@ -17,6 +17,7 @@ Feature: validate a task
     Then I should be in "this task page"
     And I should see "the accepted delivery"
     And I should not see "the accept delivery button"
+    And the user should be rewarded
 
   @ssi
   Scenario: when I reject the delivery
@@ -27,6 +28,7 @@ Feature: validate a task
     When I click in "the reject delivery button"
     Then I should be in "this task page"
     And I should see "the rejected delivery"
+    And the user should not be rewarded
 
   @ssi
   Scenario: when my delivery is accepted
@@ -37,6 +39,7 @@ Feature: validate a task
     When I go to "this task page"
     Then I should see "the accepted delivery"
     And I should see "the task completed warn"
+    And I should be rewarded
 
   @ssi
   Scenario: when my delivery is rejected
@@ -48,3 +51,5 @@ Feature: validate a task
     Then I should see "the rejected delivery"
     And I should see "the task rejected warn"
     And I should see "the deliver task button"
+    And I should not be rewarded
+
