@@ -13,11 +13,11 @@ Given(/^there is a task$/) do
 end
 
 Given(/^my delivery is accepted$/) do
-  @delivery.update_attributes accepted_at: Time.current
+  @delivery.accept!
 end
 
 Given(/^my delivery is rejected$/) do
-  @delivery.update_attributes rejected_at: Time.current
+  @delivery.reject!
 end
 
 Given(/^there is an user from "(.*?)" with the "(.*?)" skill$/) do |arg1, arg2|
@@ -95,4 +95,20 @@ end
 
 Given(/^there is an organization in "(.*?)"$/) do |arg1|
   Organization.make! city: arg1
+end
+
+Then(/^the user should be rewarded$/) do
+  @delivery.user.rewards.count.should eq(1)
+end
+
+Then(/^the user should not be rewarded$/) do
+  @delivery.user.rewards.count.should eq(0)
+end
+
+Then(/^I should be rewarded$/) do
+  @current_user.rewards.count.should eq(1)
+end
+
+Then(/^I should not be rewarded$/) do
+  @current_user.rewards.count.should eq(0)
 end

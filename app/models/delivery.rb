@@ -35,6 +35,7 @@ class Delivery < ActiveRecord::Base
 
   def accept!
     self.update_attribute :accepted_at, Time.current
+    Reward.create(user_id: self.user_id, task_id: self.task_id)
   end
 
   def reject!
