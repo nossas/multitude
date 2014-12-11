@@ -31,7 +31,7 @@
       .share
         = link_to "Compartilhar", "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", class: ["facebook-share-button", "icon-facebook2"]
         = link_to "Twittar", "https://twitter.com/share?url=#{request.url}&text=#{'No Multitude você usa seu tempo e talento por uma cidade melhor!'}", class: ["twitter-share-button", "icon-twitter2"]
-      h4.subtitle Entregar tarefa pronta até
+      h4.subtitle Prazo de realização a tarefa
       span= @task.formatted_deadline
     .description
       h4.subtitle Descrição da tarefa
@@ -93,16 +93,16 @@
           / = render @task_subscriptions
 
     .rewarded-users
-      h4.subtitle Voluntários recompensados
+      h4.subtitle Quem participou
       - if(@task.rewards.empty?)
-        p.empty Ainda nenhum voluntário foi recompensado por essa tarefa
+        p.empty Nenhum voluntário participou nessa tarefa
       - else
         ul.rewarded-users-list= render @task.rewards.order(created_at: :desc)
       - if(can? :create, Reward)
         a#reward-button.button.radius data={"reveal-id" => "reward-form"} href="#reward-form"
-          | Recompensar
+          | Confirmar participação
         #reward-form.reveal-modal.tiny data={reveal: true}
-          h2 Nova recompensa
+          h2 Nova participação
           = form_for([@task, @reward], data: {abide: true}, html: { class: 'new-reward-form' }) do |form|
             = fields_for(:user) do |user_form|
               .first-name-field
@@ -117,7 +117,7 @@
                 = user_form.label(:email, "Email")
                 = user_form.email_field(:email, required: true)
                 small.error Email é obrigatório e deve ser válido
-            = form.submit("Recompensar", id: "reward-submit-button", class: [:button, :radius])
+            = form.submit("Confirmar participação", id: "reward-submit-button", class: [:button, :radius])
           a.close-reveal-modal &#215;
     // End rewarded-users
 

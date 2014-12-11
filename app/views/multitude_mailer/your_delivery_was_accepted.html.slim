@@ -1,11 +1,13 @@
 p Olá #{@user_name},
 
-p Acabei de ver a sua entrega da tarefa #{link_to @task_title, @task_url}. Gostei muito e quero te parabenizar por ter dedicado seu tempo e talento pela cidade!
+p Sua participação acaba de ser reconhecida na tarefa #{link_to @task_title, @task_url}.
 
-p Com essa validação, seu tempo e talento dedicados já foram inseridos em #{link_to("seu perfil", @user_link)} da Rede Nossas Cidades. Pode ir lá conferir (;
+p É muito bom ver que existem membros como você, dispostos a dedicar seu tempo e talento para transformar a cidade.
+
+p #{link_to("Seu perfil na Rede Nossas Cidades", @user_link)} já foi atualizado. Pode ir lá conferir :)
 
 p E antes de me despedir, uma dica: compartilhe com seus amigos a notícia de sua participação nessa mobilização #{link_to "clicando aqui", "http://www.facebook.com/sharer/sharer.php?u=#{@task_url}"}.
 
-p Um grande abraço e até a próxima tarefa!
+p Um grande abraço e até a próxima!
 
 p #{@task_owner_name}

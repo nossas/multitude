@@ -2,5 +2,5 @@ pt-BR:
   tasks:
     show:
       subscribers:
-        one: já assumiu esta tarefa
-        other: já assumiram esta tarefa
+        one: já se voluntariou para esta tarefa
+        other: já se voluntariaram para esta tarefa

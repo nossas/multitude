@@ -211,11 +211,11 @@ pt-BR:
       <<: *errors
     attributes:
       task:
-        title: "Título da tarefa"
+        title: "Nome da tarefa"
         task_type_id: "Tipo da tarefa"
         description: "Descrição da tarefa"
-        max_deliveries: "Máximo de realizadores"
-        deadline: "Prazo de conclusão"
+        max_deliveries: "Quantas pessoas podem realizar a tarefa?"
+        deadline: "Prazo de realização da tarefa"
         skills: "Talentos associados à tarefa"
         points: "Tempo estimado para a realização da tarefa"
         hashtag: "Tema"
@@ -257,8 +257,8 @@ pt-BR:
     person:
       long:
         zero: Todas as vagas para esta tarefa foram preenchidas
-        one: Esta tarefa ainda pode ser realizada por 1 voluntário
-        other: Esta tarefa ainda pode ser realizada por %{count} voluntários
+        one: "1 pessoa ainda pode se voluntariar para realizar essa tarefa"
+        other: "%{count} pessoas ainda podem se voluntariar para realizar essa tarefa"
       short:
         zero: "Esgotado"
         one: "+1 pessoa"
