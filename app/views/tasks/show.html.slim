@@ -76,7 +76,7 @@
         .text &nbsp;
 
     .subscribed-users
-      - if @subscribers.empty?
+      - if @task_subscriptions.empty?
         p.empty
           | Esta tarefa ainda não foi iniciada por ninguém
           - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
@@ -84,8 +84,8 @@
             #{link_to "Realizar tarefa", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius] }
       - else
         p
-          = raw @subscribers.limit(5).map{|s| link_to s.first_name, user_path(s), class: 'subscriber-link'}.to_sentence
-          |  #{t(".subscribers", count: @subscribers.count)}
+          = raw @task_subscriptions.limit(5).map{|t| link_to t.user.first_name, user_path(t.user), class: 'subscriber-link'}.to_sentence
+          |  #{t(".subscribers", count: @task_subscriptions.count)}
           - if @task.subscribable? && (current_user.nil? || !current_user.subscribed?(@task))
             | , participe você também!
             #{link_to "Realizar tarefa", task_task_subscriptions_path(@task), method: :post, id: :apply_for_a_task_button, class: [:button, :radius] }
