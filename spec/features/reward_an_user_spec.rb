@@ -15,6 +15,8 @@ feature "Reward an user", js: true do
       last_name: user.last_name
     )
 
+    sleep(1)
+
     expect(user.rewards).to have(1).reward
     expect(task.rewards).to have(1).reward
     expect(current_path).to be_eql(task_path(task))
@@ -28,6 +30,8 @@ feature "Reward an user", js: true do
       first_name: "Cristiano",
       last_name: "Ronaldo"
     )
+
+    sleep(1)
 
     user = User.find_by_email("cr7@trashmail.com")
     expect(user).to_not be_nil

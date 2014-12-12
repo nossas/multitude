@@ -60,8 +60,8 @@ class Task < ActiveRecord::Base
   end
 
   def volunteers
-    (User.joins(:task_subscriptions).where("task_subscriptions.task_id = ?", self.id) +
-    User.joins(:deliveries).where("deliveries.task_id = ?", self.id) +
-    User.joins(:rewards).where("rewards.task_id = ?", self.id)).uniq
+    (self.task_subscriptions.map{|t| t.user} +
+    self.deliveries.map{|d| d.user} +
+    self.rewards.map{|r| r.user}).uniq
   end
 end
