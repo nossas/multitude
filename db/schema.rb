@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204182815) do
+ActiveRecord::Schema.define(version: 20150227210232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20141204182815) do
     t.string "city"
     t.text   "email_signature_html"
     t.string "multitude_mailchimp_segment_id"
+    t.string "avatar"
+    t.string "name"
   end
 
   create_table "rewards", force: true do |t|

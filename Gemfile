@@ -8,7 +8,7 @@ gem 'rails', '4.1.5'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -43,7 +43,7 @@ end
 gem 'foundation-rails'
 gem 'inherited_resources'
 gem 'slim-rails'
-gem 'meurio_ui'
+gem 'meurio_ui', github: "meurio/meurio_ui", branch: 'new-header'
 gem 'compass-rails'
 gem 'rails_12factor'
 gem 'selenium-webdriver'

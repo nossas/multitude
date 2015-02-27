@@ -10,7 +10,6 @@
   .task-warn {
     @include grid-column(12);
     margin-bottom: 2em;
-    margin-top: -20px;
 
     .remaining,
     .wait-for-validation,

@@ -27,12 +27,12 @@ html
       }(document, 'script', 'facebook-jssdk'));
 
     - content_for :application_menu
-      = link_to "Como funciona?", about_path
-      = link_to "Criar Tarefa", new_task_path, id: :new_task_button if can? :create, Task
+      li= link_to "Como funciona?", about_path
+      li= link_to "Criar tarefa", new_task_path, id: :new_task_button if can? :create, Task
       - if current_user.present?
-        = link_to "Complete seu Perfil", "http://accounts.#{ENV["MEURIO_DOMAIN"]}/users/#{current_user.id}/edit?redirect_url=#{request.url}", class: :btn
+        li.active= link_to "Complete seu perfil", "http://accounts.#{ENV["MEURIO_DOMAIN"]}/users/#{current_user.id}/edit?redirect_url=#{request.url}"
       - else
-        = link_to "Crie sua conta", "http://accounts.#{ENV["MEURIO_DOMAIN"]}?service=#{request.url}", class: :btn
+        li.active= link_to "Crie sua conta", "http://accounts.#{ENV["MEURIO_DOMAIN"]}?service=#{request.url}"
 
     = meurio_header_for :multitude
 
