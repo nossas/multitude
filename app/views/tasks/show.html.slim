@@ -23,14 +23,20 @@
     .details
       .category class=@task.category.slug
         .category-label= @task.category.name
-      .max-deliveries.icon-user
+      .max-deliveries
+        i.icon-user
         span= @task.max_deliveries.nil? ? 'Ilimitado' : t('count.person.long', count: @task.deliveries_missing)
-      .city.icon-location
+      .city
+        i.icon-location
         span= @task.organization.city
     .deadline
       .share
-        = link_to "Compartilhar", "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", class: ["facebook-share-button", "icon-facebook2"]
-        = link_to "Twittar", "https://twitter.com/share?url=#{request.url}&text=#{'No Multitude você usa seu tempo e talento por uma cidade melhor!'}", class: ["twitter-share-button", "icon-twitter2"]
+        = link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", class: ["facebook-share-button"] do
+          i.icon-facebook2
+          | Compartilhar
+        = link_to "https://twitter.com/share?url=#{request.url}&text=#{'No Multitude você usa seu tempo e talento por uma cidade melhor!'}", class: ["twitter-share-button"]
+          i.icon-twitter2
+          | Twittar
       h4.subtitle Prazo de realização a tarefa
       span= @task.formatted_deadline
     .description

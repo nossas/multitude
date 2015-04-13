@@ -1,4 +1,8 @@
 .tasks.show {
+  .ocui-Header {
+    margin-bottom: 3em;
+  }
+
   .main {
     @include grid-column(8);
   }
@@ -134,14 +138,11 @@
 
   .icon-user,
   .icon-location {
-    font-family: inherit;
-
-    &:before {
-      color: $subtitle-gray;
-      margin-right: .25em;
-      position: relative;
-      top: 2px;
-    }
+    color: $subtitle-gray;
+    margin-right: .25em;
+    vertical-align: middle;
+    display: inline-block;
+    width: 15px;
   }
 
   .share {
