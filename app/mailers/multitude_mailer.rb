@@ -1,5 +1,5 @@
 class MultitudeMailer < ActionMailer::Base
-  default from: "Meu Rio <contato@meurio.org.br>"
+  default from: "Rafael Rezende <rafael@meurio.org.br>"
   layout "layouts/mailer"
 
   def thanks_for_apply_to_this_task task_subscription
