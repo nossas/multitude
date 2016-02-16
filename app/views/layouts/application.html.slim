@@ -16,6 +16,10 @@ html
     link rel='image_src' type='image/jpeg' href=image_url('multitude-facebook.jpg')
     = analytics_init if Rails.env.production?
   body class=[controller.controller_name, controller.action_name]
+    div.remodal data-remodal-id="modal"
+      button.remodal-close data-remodal-action="close"
+      h1 Remodal
+      p Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
     #fb-root
     javascript:
       (function(d, s, id) {
