@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ourcities/multitude.png?branch=master)](https://travis-ci.org/ourcities/multitude)
-[![CodeClimate](https://codeclimate.com/github/meurio/multitude.png)](https://codeclimate.com/github/meurio/multitude)
-[![Coverage Status](https://coveralls.io/repos/meurio/multitude/badge.png)](https://coveralls.io/r/meurio/multitude)
+[![CodeClimate](https://codeclimate.com/github/ourcities/multitude.png)](https://codeclimate.com/github/ourcities/multitude)
+[![Coverage Status](https://coveralls.io/repos/ourcities/multitude/badge.png)](https://coveralls.io/r/ourcities/multitude)
 
 ## Setup
 
