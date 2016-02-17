@@ -13,12 +13,3 @@ Feature: deliver a task
     And I should see "my delivery"
     And I should see "the wait for validation warn"
     And an email should be sent to the creator of the task
-
-  @ssi @javascript
-  Scenario: when I submit an invalid form
-    Given I'm logged in
-    And there is a task
-    And I subscribed for this task
-    And I'm in "this task page"
-    When I press "the delivery submit button"
-    Then I should see "the delivery text error message"
