@@ -34,7 +34,7 @@ html
       - else
         li.active= link_to "Crie sua conta", "http://accounts.#{ENV["MEURIO_DOMAIN"]}?service=#{request.url}"
 
-    = meurio_header_for :multitude
+    = render 'header'
 
     - if flash[:notice]
       .row
