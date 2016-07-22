@@ -22,8 +22,6 @@
 
 $(function(){
   var options = {};
-  var instM = $('[data-remodal-id=modal]').remodal(options);
-  instM.open();
 
   $(document).foundation();
 
