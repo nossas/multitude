@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
   gem 'rspec-collection_matchers'
+  gem 'dotenv-rails'
 end
 
 gem 'foundation-rails'
@@ -59,9 +60,9 @@ gem 'kaminari'
 gem 'httparty'
 gem 'coveralls', require: false
 gem 'google-analytics-rails'
-gem 'rack-cas'
 gem 'appsignal'
 gem 'acts_as_our_cities'
+gem 'omniauth-oauth2'
 
 # Rails assets
 source 'https://rails-assets.org'
