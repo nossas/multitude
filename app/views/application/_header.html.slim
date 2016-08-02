@@ -27,7 +27,7 @@
                   label= application_name(@app)
                 = yield :current_user_links
         - else
-          li= link_to 'Entrar', sign_in_path
+          li= link_to 'Entrar', sign_in_path('passport')
 
       ul.left
         = yield :application_menu
