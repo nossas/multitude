@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'rack-cas/session_store/active_record'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -25,8 +24,5 @@ module Multitude
     config.sass.preferred_syntax = :sass
 
     I18n.enforce_available_locales = false
-
-    config.rack_cas.server_url = ENV["CAS_SERVER_URL"]
-    config.rack_cas.session_store = RackCAS::ActiveRecordStore
   end
 end
