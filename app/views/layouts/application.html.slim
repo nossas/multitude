@@ -30,9 +30,9 @@ html
       li= link_to "Como funciona?", about_path
       li= link_to "Criar tarefa", new_task_path, id: :new_task_button if can? :create, Task
       - if current_user.present?
-        li.active= link_to "Complete seu perfil", "http://accounts.#{ENV["MEURIO_DOMAIN"]}/users/#{current_user.id}/edit?redirect_url=#{request.url}"
+        li= link_to "Complete seu perfil", "http://accounts.#{ENV["MEURIO_DOMAIN"]}/users/#{current_user.id}/edit?redirect_url=#{request.url}"
       - else
-        li.active= link_to "Crie sua conta", "http://accounts.#{ENV["MEURIO_DOMAIN"]}?service=#{request.url}"
+        li= link_to "Crie sua conta", "http://accounts.#{ENV["MEURIO_DOMAIN"]}?service=#{request.url}"
 
     = render 'header'
 

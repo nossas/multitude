@@ -4,8 +4,7 @@
       li.name
         h1
           = link_to(root_path) do
-            = image_tag("logo.png", class: "ocui-AppMenu-avatar")
-            | Faz
+            - image_tag 'logo.png'
       li.toggle-topbar.menu-icon
         a href="#"
           span= " "
@@ -31,12 +30,5 @@
           li= link_to 'Entrar', sign_in_path
 
       ul.left
-        li.ocui-AppMenu.has-dropdown
-          a.ocui-AppMenu-menu-button href="#"
-            span.icon-list
-            | Menu
-          ul.dropdown
-            li
-              label= application_name(@app)
-            = yield :application_menu
+        = yield :application_menu
         = yield :main_menu
