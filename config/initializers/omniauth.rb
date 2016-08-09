@@ -1,5 +1,5 @@
-require File.expand_path('lib/omniauth/strategies/passport', Rails.root)
+require File.expand_path('lib/omniauth/strategies/passaporte', Rails.root)
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :passport, ENV["PASSPORT_KEY"], ENV["PASSPORT_SECRET"]
+  provider :passaporte, ENV["PASSAPORTE_KEY"], ENV["PASSAPORTE_SECRET"]
 end
