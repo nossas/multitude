@@ -33,4 +33,10 @@ class User < ActiveRecord::Base
   def ready_to_deliver? task
     true
   end
+
+  def self.find_or_create_from_auth_hash(auth_hash)
+    user = self.find_or_initialize_by(provider: auth_hash[:provider], uid: auth_hash[:uid].to_s)
+    user.update_attributes(email: auth_hash[:info][:email]) unless user.email
+    user
+  end
 end
