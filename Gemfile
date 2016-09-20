@@ -35,9 +35,11 @@ group :test do
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
   gem 'rspec-collection_matchers'
+  gem 'dotenv-rails'
 end
 
 gem 'foundation-rails'
@@ -59,9 +61,9 @@ gem 'kaminari'
 gem 'httparty'
 gem 'coveralls', require: false
 gem 'google-analytics-rails'
-gem 'rack-cas'
 gem 'appsignal'
 gem 'acts_as_our_cities'
+gem 'omniauth-oauth2', '~> 1.3.1'
 
 # Rails assets
 source 'https://rails-assets.org'

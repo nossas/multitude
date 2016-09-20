@@ -7,4 +7,8 @@ module ApplicationHelper
   def user_path user
     "#{ENV['MEURIO_HOST']}/users/#{user.id}"
   end
+
+  def sign_in_path(provider)
+    "/auth/#{provider}"
+  end
 end
