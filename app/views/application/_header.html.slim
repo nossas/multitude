@@ -19,9 +19,7 @@
             ul.dropdown
               li
                 label Minha Conta
-              li= link_to "Ver meu perfil", "#/users/#{current_user.id}"
-              li= link_to "Editar meu perfil", edit_profile_path
-              li= link_to "Sair", sign_out_path
+              li= link_to "Sair", sessions_path, method: :delete
               - if content_for? :current_user_links
                 li
                   label= application_name(@app)
