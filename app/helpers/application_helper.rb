@@ -4,7 +4,7 @@ module ApplicationHelper
     task.call_to_action.present? ? task.call_to_action : default
   end
 
-  def user_path user
-    "#{ENV['MEURIO_HOST']}/users/#{user.id}"
+  def sign_in_path(provider)
+    "/auth/#{provider}"
   end
 end

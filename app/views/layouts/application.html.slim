@@ -16,19 +16,6 @@ html
     link rel='image_src' type='image/jpeg' href=image_url('multitude-facebook.jpg')
     = analytics_init if Rails.env.production?
   body class=[controller.controller_name, controller.action_name]
-    div.remodal data-remodal-id="modal"
-      button.remodal-close data-remodal-action="close"
-      p Querido voluntário,
-      p Nas próximas semanas, o Multitude será desativado e queríamos explicar para você o motivo dessa decisão. Primeiro, fique tranquilo: vamos continuar oferecendo oportunidades de ação para nossos membros. No entanto, o Multitude como você conhece vai acabar, e o motivo é bem simples: desenvolvemos um jeito mais rápido e prático de conectar os cidadãos com as causas de seu interesse. Agora, você só precisa preencher seu perfil na rede, que nossa equipe vai selecionar e enviar as melhores oportunidades de ação diretamente pra você, por email! Simples, não é?
-      p
-        | Então, é isso,&nbsp;
-        a href="http://eepurl.com/DD5PL" target="_blank" clica aqui&nbsp;
-        | e preenche seu perfil!
-      p
-        | Caso tenha alguma dúvida ou sugestão, mande um email para&nbsp;
-        a href="mailto:contato@nossascidades.org" contato@nossascidades.org&nbsp;
-        | ou visite nosso site:&nbsp;
-        a href="http://www.nossascidades.org" target="_blank" www.nossascidades.org
     #fb-root
     javascript:
       (function(d, s, id) {
@@ -42,12 +29,10 @@ html
     - content_for :application_menu
       li= link_to "Como funciona?", about_path
       li= link_to "Criar tarefa", new_task_path, id: :new_task_button if can? :create, Task
-      - if current_user.present?
-        li.active= link_to "Complete seu perfil", "http://accounts.#{ENV["MEURIO_DOMAIN"]}/users/#{current_user.id}/edit?redirect_url=#{request.url}"
-      - else
-        li.active= link_to "Crie sua conta", "http://accounts.#{ENV["MEURIO_DOMAIN"]}?service=#{request.url}"
+      - unless current_user.present?
+        li= link_to "Crie sua conta", "http://passaporte.redesustentabilidade.org.br/registration"
 
-    = meurio_header_for :multitude
+    = render 'header'
 
     - if flash[:notice]
       .row

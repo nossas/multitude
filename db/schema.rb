@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521205213) do
+ActiveRecord::Schema.define(version: 20160922115157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 20150521205213) do
     t.text     "text_html"
     t.integer  "user_id"
     t.integer  "task_id"
+  end
+
+  create_table "interests", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "memberships", force: true do |t|
@@ -90,6 +96,12 @@ ActiveRecord::Schema.define(version: 20150521205213) do
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", using: :btree
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
+  create_table "skills", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "task_subscriptions", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "task_id",    null: false
@@ -128,6 +140,26 @@ ActiveRecord::Schema.define(version: 20150521205213) do
     t.integer  "organization_id",                          null: false
   end
 
+  create_table "user_interests", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "interest_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_interests", ["interest_id"], name: "index_user_interests_on_interest_id", using: :btree
+  add_index "user_interests", ["user_id"], name: "index_user_interests_on_user_id", using: :btree
+
+  create_table "user_skills", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_skills", ["skill_id"], name: "index_user_skills_on_skill_id", using: :btree
+  add_index "user_skills", ["user_id"], name: "index_user_skills_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "first_name"
@@ -139,6 +171,8 @@ ActiveRecord::Schema.define(version: 20150521205213) do
     t.boolean  "admin"
     t.string   "phone"
     t.string   "ip"
+    t.string   "uid"
+    t.string   "provider"
   end
 
 end

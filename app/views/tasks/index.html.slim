@@ -1,17 +1,16 @@
 .about
-  .row
-    .step
-      .image= image_tag "icon-1.png"
-      span
-        | Conte-nos quem é você e o que te interessa
-    .step
-      .image= image_tag "icon-2.png"
-      span
-        | Receba oportunidades de ação de acordo com o seu perfil
-    .step
-      .image= image_tag "icon-3.png"
-      span
-        | Ganhe reconhecimento pelo tempo e talento dedicados à cidade
+  section.text-center
+    .image= image_tag "icon-1.png"
+    span
+      | Conte-nos quem é você e o que te interessa
+  section.yellow-bg.white-text.text-center
+    .image= image_tag "icon-2.png"
+    span
+      | Receba oportunidades de ação de acordo com o seu perfil
+  section.text-center
+    .image= image_tag "icon-3.png"
+    span
+      | Ganhe reconhecimento pelo tempo e talento dedicados à cidade
 
 .row#available_tasks {data-count=@tasks_count}
   - if Task.available.empty?

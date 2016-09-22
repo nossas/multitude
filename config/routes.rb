@@ -1,6 +1,8 @@
 Multitude::Application.routes.draw do
   root 'tasks#index'
   get '/about', to: "pages#about", as: :about
+  get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/sessions', to: 'sessions#destroy'
 
   resources :tasks, only: [:index, :new, :create, :show, :edit, :update] do
     resources :rewards, only: [:create]
@@ -19,4 +21,6 @@ Multitude::Application.routes.draw do
       end
     end
   end
+
+  resources :users, only: [:edit, :update]
 end

@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :memberships, inverse_of: :user
   has_many :organizations, through: :memberships
   has_many :rewards
+  has_many :user_interests
+  has_many :interests, through: :user_interests
+  has_many :user_skills
+  has_many :skills, through: :user_skills
 
   def subscribed? task
     self.task_subscriptions.where(task_id: task.id).any?
@@ -32,5 +36,11 @@ class User < ActiveRecord::Base
   # TODO: remove this method
   def ready_to_deliver? task
     true
+  end
+
+  def self.find_or_create_from_auth_hash(auth_hash)
+    user = self.find_or_initialize_by(provider: auth_hash[:provider], uid: auth_hash[:uid].to_s)
+    user.update_attributes(email: auth_hash[:info][:email]) unless user.email
+    user
   end
 end
