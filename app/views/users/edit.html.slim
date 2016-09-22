@@ -1,0 +1,31 @@
+= form_for @user, html: {"data-abide" => true} do |f|
+  .row
+    h3
+      | Volutarie-se pela sua cidade
+    p
+      | Essas informações serão usadas para conectar você com as oportunidades de voluntariado da Rede.
+  .row
+    p
+      | Quais temas são do seu interesse?
+    ul.ul-unstyled
+      - Interest.all.each do |interest|
+        li
+          label
+            = check_box_tag "user[interest_ids][]", interest.id, f.object.interests.include?(interest)
+            |
+            = interest.title
+  .row
+    p
+      | Quais são os seus talentos?
+    ul.ul-unstyled
+      - Skill.all.each do |skill|
+        li
+          label
+            = check_box_tag "user[skill_ids][]", skill.id, f.object.skills.include?(skill)
+            |
+            = skill.title
+          
+  .row
+    = f.submit "Salvar Perfil", class: "button"
+    | ou
+    = link_to "Sair", root_path

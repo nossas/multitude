@@ -21,4 +21,6 @@ Multitude::Application.routes.draw do
       end
     end
   end
+
+  resources :users, only: [:edit, :update]
 end

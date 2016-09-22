@@ -20,4 +20,13 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by_uid(session['user_uid']) if session['user_uid']
   end
+
+  private
+
+  def require_login
+    unless current_user
+      flash[:error] = "Você precisa estar logado para acessar esta página"
+      redirect_to root_url
+    end
+  end
 end
