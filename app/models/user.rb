@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :rewards
   has_many :user_interests
   has_many :interests, through: :user_interests
+  has_many :user_skills
+  has_many :skills, through: :user_skills
 
   def subscribed? task
     self.task_subscriptions.where(task_id: task.id).any?
